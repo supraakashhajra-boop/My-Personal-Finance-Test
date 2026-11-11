@@ -755,7 +755,7 @@ async function exportData(d,filename){
  host.append(msg,a,document.createElement("br"),close);document.body.appendChild(host);
  return "Backup prepared · "+recordCount(d)+" records. A save link is displayed on screen.";
 }
-const blank=window.MPFAppBridge.blank;
+const blank=()=>({accounts:[],transactions:[],transfers:[],budgets:[],goals:[],savings:[],emis:[],bills:[],holdings:[],categories:[],imports:[],settings:[],audit:[]});
 async function attachSettings(){
  const form=$("view-form");
  if(!form||!form.innerHTML.includes('id="settings-export"')||(form.dataset.mpfV20==="1"&&form.querySelector("#mpf-backup-file")))return;
