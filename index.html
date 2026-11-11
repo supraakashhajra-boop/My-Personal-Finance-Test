@@ -1,0 +1,894 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MY PERSONAL FINANCE V2.0.4</title>
+<style>
+:root{--bg:#050b16;--p:#0c1728;--line:#1a4051;--g:#a6ff4d;--c:#25e6df;--t:#eaf3ff;--m:#91a6bd}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10213a,#050b16 65%);color:var(--t);font:15px 'Inter','Segoe UI',Roboto,Arial,sans-serif}.shell{max-width:1600px;margin:auto;padding:16px;display:grid;grid-template-columns:210px minmax(0,1fr) 260px;gap:13px}.panel{background:linear-gradient(145deg,#0e1b2e,#07101d);border:1px solid var(--line);border-radius:14px;box-shadow:0 0 18px #25e6df12;padding:14px}.sidebar{min-height:95vh;position:sticky;top:16px;align-self:start}.brand{padding:8px 6px 18px;border-bottom:1px solid var(--line);margin-bottom:16px}.brand b{display:block;color:var(--g);font-size:21px;font-weight:850;letter-spacing:.2px;line-height:1.2}.brand small,.eyebrow,.navlabel{color:var(--c);font-size:10px;letter-spacing:1.5px}.nav{display:grid;gap:6px;margin-top:10px}.nav a{color:#bfd0e2;text-decoration:none;padding:10px;border-radius:8px}.nav a:first-child,.nav a:hover{color:var(--g);background:#102338;border:1px solid #23505a}.sidefoot{margin-top:24px;color:var(--m);font-size:11px;border:1px solid var(--line);padding:10px;border-radius:8px}main{min-width:0}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:10px}h1{font-size:30px;font-weight:800;letter-spacing:-.7px;margin:7px 0;line-height:1.15}.sub{font-size:11px;color:var(--m)}.status,.count{font-size:10px;color:var(--g);border:1px solid #315c49;border-radius:20px;padding:7px 9px}.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.metric{padding:12px}.metric span{color:var(--m);font-size:11px}.metric strong{display:block;color:var(--g);font-size:21px;margin:7px 0}
+.calc-positive{color:#8cff68!important;background-color:#103324!important;border-color:#26784c!important}
+.calc-negative{color:#ff8585!important;background-color:#3a1820!important;border-color:#8b3441!important}
+.calc-neutral{color:#c1ccd8!important}
+.calc-positive strong,.calc-positive span{color:#8cff68!important}
+.calc-negative strong,.calc-negative span{color:#ff8585!important}
+.calc-neutral strong,.calc-neutral span{color:#c1ccd8!important}
+.metric.calc-positive,.metric.calc-negative{border-width:1px}
+.result-positive{color:#8cff68!important}
+.result-negative{color:#ff8585!important}
+.result-neutral{color:#c1ccd8!important}
+.head{display:flex;justify-content:space-between;margin:18px 2px 9px}.head b{font-size:17px;font-weight:800;letter-spacing:.7px}.head span{color:var(--m);font-size:10px}.modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.module{min-height:84px;position:relative;padding:10px}.num{color:var(--c);font-size:10px;letter-spacing:1px}.ico{position:absolute;right:9px;top:7px;color:var(--g);font-size:17px}.module h3{font-size:14px;font-weight:750;letter-spacing:-.2px;margin:7px 0 4px}.module p{font-size:10px;color:var(--m);margin:0;line-height:1.5}.open{font-size:8px;color:var(--g);display:block;margin-top:6px}.lower{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.info h3,.right h3,.db h3{font-size:13px;font-weight:800;color:var(--c);letter-spacing:1px;margin:0 0 9px}.info ul{padding-left:17px;margin:0;color:#bfd0e2;font-size:10px}.info li{margin:5px 0}.db{margin-top:12px}.tables{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.tag{background:#0a1728;border:1px solid #1b3d50;border-radius:6px;padding:8px;font-size:10px;color:#c5d6e8}.tag b{color:var(--g);margin-right:4px}.right{display:grid;gap:12px;align-content:start}.rule{padding:9px 0;border-bottom:1px solid #183044}.rule:last-child{border:0}.rule b{display:block;font-size:10px;margin-bottom:4px}.rule span{font-size:10px;color:var(--m)}.road{display:grid;gap:12px}.phase{display:flex;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:var(--g);margin-top:3px;box-shadow:0 0 8px var(--g);flex:none}.phase b{font-size:10px}.phase span{display:block;color:var(--m);font-size:9px;margin-top:3px}.foot{text-align:center;color:#71869d;font-size:9px;padding:14px}
+@media(max-width:1050px){.shell{grid-template-columns:180px 1fr}.right{grid-column:2;grid-template-columns:1fr 1fr}.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){h1{font-size:32px}.brand b{font-size:22px}.head b{font-size:17px}.module h3{font-size:18px}.shell{display:block;padding:9px}.sidebar{position:static;min-height:0;margin-bottom:10px}.nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.nav a{padding:8px 5px;font-size:10px;text-align:center}.sidefoot{display:none}.right{display:grid;grid-template-columns:1fr;margin-top:10px}.modules{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.module{min-height:78px;padding:8px}.module h3{font-size:12px}.module p{font-size:9px}.ico{font-size:15px}.tables{grid-template-columns:repeat(2,1fr)}.lower{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}}
+@media(max-width:420px){.modules{grid-template-columns:repeat(3,minmax(0,1fr))}.module h3{font-size:11px}.module p{font-size:8px}.nav a{font-size:9px;padding:7px 3px}}
+
+.mpf-setting-card #mpf-pin-change-panel label{display:block!important;margin:10px 0 5px!important;font-size:13px!important;color:#c8d7e8!important}
+.mpf-setting-card #mpf-pin-change-panel input{display:block!important;width:100%!important;max-width:100%!important;min-height:44px!important;margin:0!important;letter-spacing:3px!important}
+.mpf-setting-card #mpf-pin-change-panel button{min-height:42px}
+</style><link rel="manifest" href="./manifest.json"><meta name="theme-color" content="#050b16"></head><body><div class="shell">
+<aside class="sidebar panel"><div class="brand"><b>MY PERSONAL FINANCE</b><small>CONTROL · TRACK · GROW</small></div><div class="navlabel">MASTER NAVIGATION</div><div class="nav"><a href="#dashboard" data-goto="Dashboard">⌂ Dashboard</a><a href="#workspace" data-goto="Income">＋ Income</a><a href="#workspace" data-goto="Expenses">− Expenses</a><a href="#workspace" data-goto="Budgets">▤ Budget</a><a href="#workspace" data-goto="Savings">◈ Savings</a><a href="#workspace" data-goto="Financial Goals">◎ Goals</a><a href="#workspace" data-goto="Accounts">▣ Accounts</a><a href="#workspace" data-goto="Transfers">↔ Transfers</a><a href="#workspace" data-goto="EMI & Bills">◷ EMI & Bills</a><a href="#workspace" data-goto="Portfolio">▥ Portfolio</a><a href="#workspace" data-goto="Audit Log">▤ Reports / Audit</a><a href="#workspace" data-goto="Audit Log">⇧ Import / Backup</a><a href="#workspace" data-goto="Settings">⚙ Settings</a></div><div class="sidefoot">LOCAL DATA MODE<br><b style="color:var(--g)">No bank / UPI / broker connection</b><br>Manual entry + CSV / Excel import</div></aside>
+<main id="dashboard"><div class="top"><div><div class="eyebrow">PERSONAL FINANCE COMMAND CENTER</div><h1>Master Dashboard</h1><div class="sub">MY PERSONAL FINANCE V2.0.4 · SECURITY & SETTINGS UPDATE</div></div><div><div class="status" id="app-status">● LOCAL APP READY</div><div class="sub" id="db-status" style="margin-top:6px">Opening secure local database…</div></div></div>
+<div class="metrics"><div class="metric panel"><span>Main Balance</span><strong>₹ —</strong><span>Combined account balance</span></div><div class="metric panel"><span>Monthly Income</span><strong>₹ —</strong><span>Actual credits only</span></div><div class="metric panel"><span>Monthly Expenses</span><strong>₹ —</strong><span>Actual debit expenses</span></div><div class="metric panel"><span>Total Savings</span><strong>₹ —</strong><span>Recorded savings entries</span></div><div class="metric panel"><span>Goal Progress</span><strong>— %</strong><span>Saved amount vs goal targets</span></div><div class="metric panel"><span>Portfolio Invested Amount</span><strong>₹ —</strong><span>Net capital deployed from Buy/Sell records</span></div><div class="metric panel"><span>Current Portfolio Value</span><strong>₹ —</strong><span>Based on last entered market price</span></div><div class="metric panel"><span>Portfolio Profit / Loss</span><strong>₹ —</strong><span>Current value minus net capital deployed</span></div><div class="metric panel"><span>Realized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss from completed sells</span></div><div class="metric panel"><span>Unrealized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss on remaining quantity</span></div></div>
+<!-- 12 Core Modules removed: Master Navigation is the single module entry point. -->
+<section class="panel" id="workspace" style="margin-top:14px">
+ <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+  <div><div class="eyebrow">WORKING AREA</div><h2 id="view-title" style="font-size:20px;margin:5px 0">Accounts Management</h2><div class="sub" id="view-subtitle">Create accounts and track their balances on this device.</div></div>
+  <div style="display:flex;gap:7px;flex-wrap:wrap"><button class="act" id="export-btn">Export Backup</button><label class="act" for="restore-file" style="cursor:pointer">Restore Backup</label><a class="act danger" href="/__logout" style="text-decoration:none;display:inline-block">Logout</a><input id="restore-file" type="file" accept="application/json" hidden></div>
+ </div>
+ <div id="view-tabs" style="display:flex;gap:7px;flex-wrap:wrap;margin:14px 0"></div>
+ <div id="view-form" class="panel" style="background:#081525;margin-bottom:12px"></div>
+ <div id="view-list"></div>
+</section>
+<style>
+.act{background:#102338;color:var(--g);border:1px solid #2a6670;border-radius:8px;padding:9px 12px;font-weight:700;font-size:11px}
+.act.primary{background:#153b35;border-color:#4c8c61}.act.danger{color:#ff9999;border-color:#75434a}
+.fieldgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.field label{display:block;color:var(--m);font-size:10px;margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;background:#06101d;border:1px solid #244456;border-radius:7px;color:var(--t);padding:10px;font:inherit;font-size:12px}
+.field textarea{min-height:65px}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.data-table{width:100%;border-collapse:collapse;font-size:11px}.data-table th,.data-table td{padding:9px 7px;border-bottom:1px solid #1b3d50;text-align:left}.data-table th{color:var(--c);font-weight:700}.muted{color:var(--m)}.positive{color:var(--g)}.negative{color:#ff8888}
+@media(max-width:650px){.fieldgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.data-table{font-size:10px}.data-table th,.data-table td{padding:7px 4px}}
+.info-toggle{width:100%;text-align:left;padding:12px;font-size:11px}.info-body{font-size:11px}.info-body ul{padding-left:18px;color:#bfd0e2}.info-body li{margin:6px 0}.action-cell{white-space:nowrap}.action-cell .act{padding:6px 8px;margin:2px}</style><button class="act info-toggle" type="button" data-info="database">＋ Database Architecture · 13 Tables</button>
+<div class="info panel info-body" id="info-database" hidden>
+<div style="display:flex;justify-content:flex-end;margin-bottom:8px"><span class="count">13 TABLES PLANNED</span></div>
+<div class="tables"><div class="tag"><b>01</b>Accounts</div><div class="tag"><b>02</b>Transactions</div><div class="tag"><b>03</b>Categories</div><div class="tag"><b>04</b>Budgets</div><div class="tag"><b>05</b>Financial Goals</div><div class="tag"><b>06</b>Savings</div><div class="tag"><b>07</b>EMI Management</div><div class="tag"><b>08</b>Bills Management</div><div class="tag"><b>09</b>Import Management</div><div class="tag"><b>10</b>Transfers</div><div class="tag"><b>11</b>Settings</div><div class="tag"><b>12</b>Audit Log</div><div class="tag"><b>13</b>Holdings & Portfolio Records</div></div>
+</div><div class="info-accordions" style="display:grid;gap:8px;margin-top:12px">
+<button class="act info-toggle" type="button" data-info="accounting">＋ Accounting Control Rules · Hisab ke Niyam</button>
+<div class="info panel info-body" id="info-accounting" hidden><ul><li>Credit entry se selected account ka balance badhega; Debit entry se balance ghatega.</li><li>Apne accounts ke beech transfer ko Income ya Expense nahi maana jayega.</li><li>Trading / Investment mein lagaya paisa household expense nahi hoga.</li><li>Portfolio ki market value, Main Balance se alag dikhayi jayegi.</li><li>Savings aur Goal allocation ko dobara Expense count nahi kiya jayega.</li></ul></div>
+<button class="act info-toggle" type="button" data-info="security">＋ Data & Security Model · Data ki Suraksha</button>
+<div class="info panel info-body" id="info-security" hidden><ul><li>Financial records isi browser ke Local Storage mein save hote hain.</li><li>Manual entry aur backup JSON export / restore available hai.</li><li>Edit aur Delete ka action Audit Log mein record hoga.</li><li>Backup ko safe jagah par regularly save karein.</li><li>Browser data clear karne se local records delete ho sakte hain; bina backup ke data clear na karein.</li></ul></div>
+<button class="act info-toggle" type="button" data-info="financial">＋ Key Financial Rules · Zaroori Financial Rules</button>
+<div class="info panel info-body" id="info-financial" hidden><ul><li>Main Balance aur Portfolio Value alag-alag rahenge.</li><li>Transfer mein source account debit aur destination account credit hoga; combined balance par transfer ka net effect zero rahega (charges alag ghatenge).</li><li>Trading aur Investment capital, realized P&amp;L aur unrealized P&amp;L ko alag track kiya jayega.</li><li>Savings / Goal allocation ko dobara expense count nahi kiya jayega.</li></ul></div>
+<button class="act info-toggle" type="button" data-info="roadmap">＋ Development Roadmap · App ka Agla Plan</button>
+<div class="info panel info-body" id="info-roadmap" hidden><div class="road"><div class="phase"><i class="dot"></i><div><b>Phase 1 · Master Interface</b><span>Approved layout aur navigation</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 2 · Accounting & Data Safety</b><span>Record validation, edit/delete, audit aur backup checks</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 3 · Core Modules</b><span>Accounts, Income, Expenses, Transfers, Budget aur Savings</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 4 · Advanced Modules</b><span>Goals, EMI, Bills aur Portfolio</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 5 · Full Testing</b><span>Balance, reports, restore aur mobile testing</span></div></div></div></div>
+</div>
+<div class="foot">MY PERSONAL FINANCE V1.1 · UPDATED MASTER INTERFACE · LOCAL DATA MODE</div></main>
+<aside class="right">
+<section class="panel"><h3>BUILD STATUS</h3>
+<div class="rule"><b>Interface structure</b><span style="color:var(--g)">Updated interface prepared</span></div>
+<div class="rule"><b>Database connection</b><span id="db-status">Checking local database…</span></div>
+<div class="rule"><b>Live calculations</b><span>Local accounting workflow · testing required</span></div>
+<div class="rule"><b>Next milestone</b><span>Complete module-wise accounting and backup testing</span></div>
+</section>
+</aside></div>
+<script>(() => {
+  "use strict";
+  const DB_NAME = "MyPersonalFinance";
+  const DB_VERSION = 1;
+  const DBKEY = "mpf_local_v1_1";
+  const blank = () => ({accounts:[],transactions:[],transfers:[],budgets:[],goals:[],savings:[],emis:[],bills:[],holdings:[],categories:[],imports:[],settings:[],audit:[]});
+  const MAP = {
+    accounts:["accounts","account_id"], transactions:["transactions","transaction_id"],
+    categories:["categories","category_id"], budgets:["budgets","budget_id"],
+    goals:["financial_goals","goal_id"], savings:["savings","savings_id"],
+    emis:["emi_management","emi_id"], bills:["bills_management","bill_id"],
+    imports:["import_management","import_id"], transfers:["transfers","transfer_id"],
+    settings:["settings","setting_id"], audit:["audit_log","audit_id"],
+    holdings:["holdings_portfolio","holding_id"]
+  };
+  const status = (msg,color) => {
+    const el=document.getElementById("db-status");
+    if(el){el.textContent=msg;el.style.color=color||"#a6ff4d";}
+  };
+  const openDB = () => new Promise((resolve,reject)=>{
+    if(!("indexedDB" in window)) return reject(new Error("IndexedDB is not supported in this browser."));
+    const req=indexedDB.open(DB_NAME,DB_VERSION);
+    req.onupgradeneeded=ev=>{
+      const db=ev.target.result;
+      Object.entries({
+        accounts:"account_id",transactions:"transaction_id",categories:"category_id",budgets:"budget_id",
+        financial_goals:"goal_id",savings:"savings_id",emi_management:"emi_id",bills_management:"bill_id",
+        import_management:"import_id",transfers:"transfer_id",settings:"setting_id",audit_log:"audit_id",
+        holdings_portfolio:"holding_id"
+      }).forEach(([name,key])=>{if(!db.objectStoreNames.contains(name))db.createObjectStore(name,{keyPath:key});});
+    };
+    req.onsuccess=()=>resolve(req.result);
+    req.onerror=()=>reject(req.error||new Error("Could not open local database."));
+  });
+  const reqPromise=req=>new Promise((resolve,reject)=>{req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);});
+  const txDone=tx=>new Promise((resolve,reject)=>{tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||new Error("Database transaction aborted."));});
+  async function loadAll(db){
+    const names=Object.values(MAP).map(x=>x[0]);
+    const tx=db.transaction(names,"readonly");
+    const entries=Object.entries(MAP);
+    const pending=entries.map(([key,[store]])=>reqPromise(tx.objectStore(store).getAll()));
+    const values=await Promise.all(pending);
+    await txDone(tx);
+    const result={}; entries.forEach(([key],i)=>result[key]=values[i]);
+    return result;
+  }
+  async function writeAll(db,data){
+    const names=Object.values(MAP).map(x=>x[0]);
+    const tx=db.transaction(names,"readwrite");
+    for(const [key,[store,keyPath]] of Object.entries(MAP)){
+      const os=tx.objectStore(store);
+      os.clear();
+      (Array.isArray(data[key])?data[key]:[]).forEach((record,index)=>{
+        const copy={...record};
+        if(!copy[keyPath]) copy[keyPath]=key.toUpperCase()+"-"+Date.now().toString(36)+"-"+index;
+        os.put(copy);
+      });
+    }
+    await txDone(tx);
+  }
+  (async()=>{
+    try{
+      const db=await openDB();
+      let stored=await loadAll(db);
+      const local=(()=>{try{return JSON.parse(localStorage.getItem(DBKEY)||"null");}catch(_){return null;}})();
+      const migrationDone=localStorage.getItem("mpf_idb_migration_v1")==="done";
+      if(!migrationDone && local && typeof local==="object"){
+        // Until the migration marker is committed, localStorage remains the source of truth.
+        // This makes an interrupted first migration safe to retry without discarding legacy records.
+        const legacy={...blank(),...local};
+        await writeAll(db,legacy);
+        localStorage.setItem("mpf_idb_migration_v1","done");
+        stored=await loadAll(db);
+        status("Safe migration complete · 13 tables · original data copy retained","#a6ff4d");
+      }else if(migrationDone){
+        const restored={...blank()};
+        for(const key of Object.keys(MAP)) restored[key]=stored[key]||[];
+        localStorage.setItem(DBKEY,JSON.stringify(restored));
+        status("IndexedDB active · 13 tables · data loaded","#a6ff4d");
+      }else{
+        await writeAll(db,blank());
+        localStorage.setItem("mpf_idb_migration_v1","done");
+        status("IndexedDB active · ready for first entry","#a6ff4d");
+      }
+      window.MPFStorageMode="indexedDB";
+      window.MPFDatabase={
+        db,
+        save: async data=>{await writeAll(db,data);},
+        readAll: async ()=>{const raw=await loadAll(db);const normalized={...blank(),...raw};return normalized;},
+        count: async name=>{
+          const map=MAP[name]; if(!map) throw new Error("Unknown table: "+name);
+          return reqPromise(db.transaction(map[0],"readonly").objectStore(map[0]).count());
+        }
+      };
+      window.dispatchEvent(new CustomEvent("mpf-database-ready"));
+      window.MPFReady=true;
+    }catch(error){
+      // IndexedDB can be unavailable/corrupt in some Android WebView or file:// contexts.
+      // Keep the app usable with its existing localStorage data; never clear or overwrite it here.
+      window.MPFDatabase=null;
+      window.MPFStorageMode="localStorage-fallback";
+      window.MPFStorageError=error;
+      status("LocalStorage fallback active · IndexedDB unavailable; export backups regularly","#ffd166");
+      window.MPFReady=true;
+      window.dispatchEvent(new CustomEvent("mpf-database-error",{detail:error.message}));
+    }
+  })();
+})();</script>
+
+
+<script>
+(() => {
+"use strict";
+(async()=>{ while(window.MPFReady===undefined) await new Promise(r=>setTimeout(r,25));
+const DBKEY="mpf_local_v1_1";
+const blank=()=>({accounts:[],transactions:[],transfers:[],budgets:[],goals:[],savings:[],emis:[],bills:[],holdings:[],categories:[],imports:[],settings:[],audit:[]});
+let data;
+try{data=JSON.parse(localStorage.getItem(DBKEY)||"null")||blank()}catch(e){data=blank()}
+Object.keys(blank()).forEach(k=>{if(!Array.isArray(data[k]))data[k]=[]});
+const $=id=>document.getElementById(id);
+const money=n=>"₹"+Number(n||0).toLocaleString("en-IN",{maximumFractionDigits:2});
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const id=prefix=>prefix+"-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,6);
+function save(){
+ const snapshot=JSON.stringify(data);
+ try{localStorage.setItem(DBKEY,snapshot);}catch(e){alert("Local backup copy could not be updated: "+e.message);}
+ updateMetrics();render();
+ if(window.MPFDatabase && window.MPFDatabase.save){
+   window.MPFDatabase.save(data).then(()=>{const s=document.getElementById("db-status");if(s)s.textContent="IndexedDB active · changes saved";})
+   .catch(e=>{
+     window.MPFDatabase=null;window.MPFStorageMode="localStorage-fallback";
+     const s=document.getElementById("db-status");
+     if(s){s.textContent="LocalStorage fallback · IndexedDB save failed; JSON backup recommended";s.style.color="#ffd166";}
+   });
+ }
+}
+function audit(action,module,record,detail){data.audit.push({audit_id:id("AUD"),action_type:action,module_name:module,record_id:record,timestamp:new Date().toISOString(),change_description:detail})}
+function accountBalance(a){let bal=Number(a.opening_balance||0);data.transactions.filter(t=>t.account_id===a.account_id&&!t.deleted).forEach(t=>bal+=t.type==="Credit"?Number(t.amount):-Number(t.amount));data.transfers.filter(t=>t.status==="Completed"&&!t.deleted).forEach(t=>{if(t.from_account_id===a.account_id)bal-=Number(t.amount)+Number(t.charges||0);if(t.to_account_id===a.account_id)bal+=Number(t.amount)});return bal}
+function mainBalance(){return data.accounts.filter(a=>a.status!=="Closed").reduce((s,a)=>s+accountBalance(a),0)}
+function portfolioSummary(){
+ const active=(data.holdings||[]).filter(h=>!h.deleted);
+ const groups=new Map();
+ const ordered=active.slice().sort((a,b)=>String(a.transaction_date||"").localeCompare(String(b.transaction_date||"")));
+ ordered.forEach(h=>{
+  const key=String(h.symbol||h.asset_name||"").trim().toUpperCase();
+  if(!key)return;
+  if(!groups.has(key))groups.set(key,{qty:0,cost:0,realized:0,lastDate:"",marketPrice:0,invalidSell:false});
+  const g=groups.get(key),qty=Number(h.quantity||0),price=Number(h.price||0),charges=Number(h.charges||0);
+  if(h.transaction_type==="Buy"){
+   g.cost+=qty*price+charges; g.qty+=qty;
+  }else if(h.transaction_type==="Sell"){
+   if(qty>g.qty+1e-8){g.invalidSell=true;return;}
+   const avgCost=g.qty>0?g.cost/g.qty:0;
+   g.realized+=qty*(price-avgCost)-charges;
+   g.cost=Math.max(0,g.cost-avgCost*qty); g.qty=Math.max(0,g.qty-qty);
+   if(g.qty<1e-8){g.qty=0;g.cost=0;}
+  }
+  const d=String(h.transaction_date||"");
+  const mp=Number(h.current_price||0);
+  if(mp>0 && (!g.lastDate || d>=g.lastDate)){g.lastDate=d;g.marketPrice=mp;}
+ });
+ let invested=0,currentValue=0,realized=0,unrealized=0,remainingQty=0,invalidSell=false;
+ groups.forEach(g=>{
+  invested+=g.cost; realized+=g.realized; remainingQty+=g.qty; invalidSell=invalidSell||g.invalidSell;
+  if(g.qty>0 && g.marketPrice>0){const value=g.qty*g.marketPrice;currentValue+=value;unrealized+=value-g.cost;}
+ });
+ return {invested,currentValue,realized,unrealized,profitLoss:realized+unrealized,remainingQty,hasHoldings:active.length>0,invalidSell};
+}
+function setResultColor(el,value){
+ if(!el)return;
+ el.classList.remove("calc-positive","calc-negative","calc-neutral");
+ el.classList.add(Number(value)>0?"calc-positive":Number(value)<0?"calc-negative":"calc-neutral");
+}
+function updateMetrics(){
+ const now=new Date(),month=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+ const tx=data.transactions.filter(t=>!t.deleted&&String(t.date||"").slice(0,7)===month);
+ const income=tx.filter(t=>t.type==="Credit").reduce((s,t)=>s+Number(t.amount||0),0);
+ const expense=tx.filter(t=>t.type==="Debit").reduce((s,t)=>s+Number(t.amount||0),0);
+ const savings=(data.savings||[]).filter(s=>!s.deleted).reduce((sum,s)=>sum+Number(s.amount||0),0);
+ const goals=(data.goals||[]).filter(g=>!g.deleted);
+ const target=goals.reduce((sum,g)=>sum+Number(g.target_amount||0),0);
+ const saved=goals.reduce((sum,g)=>sum+Number(g.saved_amount||0),0);
+ const goalProgress=target>0?Math.round(saved/target*100):0;
+ const cards=document.querySelectorAll(".metric strong");
+ if(cards.length>=10){
+  const portfolio=portfolioSummary();
+  const values=[mainBalance(),income,expense,savings,goalProgress,portfolio.invested,portfolio.currentValue,portfolio.profitLoss,portfolio.realized,portfolio.unrealized];
+  cards[0].textContent=money(values[0]);
+  cards[1].textContent=money(values[1]);
+  cards[2].textContent=money(values[2]);
+  cards[3].textContent=money(values[3]);
+  cards[4].textContent=goalProgress+"%";
+  for(let i=5;i<10;i++)cards[i].textContent=money(values[i]);
+  values.forEach((v,i)=>setResultColor(cards[i].closest(".metric"),[0,1,5,7,8,9].includes(i)?v:0));
+ }
+}
+const views=["Accounts","Income","Expenses","Transfers","Budgets","Savings","Financial Goals","EMI & Bills","Portfolio","Audit Log","Settings"];
+let current="Accounts";
+function tabs(){ $("view-tabs").innerHTML=views.map(v=>`<button class="act ${v===current?"primary":""}" data-view="${v}">${v}</button>`).join("");$("view-tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{current=b.dataset.view;render()})}
+function field(label,name,type="text",required=false,opts=null){let input=opts?`<select name="${name}" ${required?"required":""}>${opts.map(x=>{const parts=String(x).split("|");const value=parts.length>1?parts[0]:x;const labelText=parts.length>1?parts.slice(1).join("|"):x;return `<option value="${esc(value)}">${esc(labelText)}</option>`}).join("")}</select>`:`<input name="${name}" type="${type}" ${required?"required":""} ${type==="number"?'min="0" step="0.01"':""}>`;return `<div class="field"><label>${label}</label>${input}</div>`}
+function accountOptions(){return data.accounts.filter(a=>a.status!=="Closed").map(a=>a.account_id+"|"+a.account_name)}
+function formFor(view){
+ if(view==="Settings")return `<div class="fieldgrid"><div class="field"><label>Storage Status</label><div class="muted">${esc(window.MPFStorageMode||"Checking…")}</div></div><div class="field"><label>App Version</label><div class="muted">V2.0.4 · Final Settings Consolidation</div></div></div><p class="muted" style="margin-top:12px">Keep your downloaded JSON backup safe. Do not clear browser data. This screen provides a read-only preview before recovery.</p><div class="toolbar"><button class="act" type="button" id="settings-export">Export a safety backup now</button><button class="act" type="button" id="compare-storage">Compare LocalStorage vs IndexedDB</button></div><div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Preview only. No records will be changed.</p><button class="act" type="button" id="preview-recovery">Preview verified JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">Not previewed yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
+
+ const accounts=accountOptions();
+ if(view==="Accounts")return `<form id="entry-form"><div class="fieldgrid">${field("Account Name","account_name","text",true)}${field("Account Type","account_type","text",true,["Bank Account","Savings Account","Cash","UPI","Digital Wallet","Fixed Deposit","Trading Account","Investment Account","Other Account"])}${field("Opening Balance (₹)","opening_balance","number",true)}${field("Opening Date","opening_date","date",true)}${field("Institution / Provider","institution")}</div><div class="toolbar"><button class="act primary">+ Add Account</button></div></form>`;
+ if(view==="Income"||view==="Expenses")return `<form id="entry-form"><div class="fieldgrid">${field("Date","date","date",true)}${field("Amount (₹)","amount","number",true)}${field("Account","account_id","text",true,accounts)}${field("Category","category","text",true,view==="Income"?["Salary / Business Income","Interest / Dividend","Other Income"]:["Food","House","Personal","Travel","Bills & Utilities","Healthcare","Education","Entertainment","Work","Shopping","Other"])}${view==="Expenses"?field("Need / Want","need_want","text",true,["Need","Want"]):field("Income Source","description")}${view==="Expenses"?field("Description","description"):""}</div><div class="toolbar"><button class="act primary">+ Save ${view==="Income"?"Credit":"Debit"}</button></div></form>`;
+ if(view==="Transfers")return `<form id="entry-form"><div class="fieldgrid">${field("Date","date","date",true)}${field("From Account","from_account_id","text",true,accounts)}${field("To Account","to_account_id","text",true,accounts)}${field("Amount (₹)","amount","number",true)}${field("Charges (₹)","charges","number")}${field("Description","description")}</div><div class="toolbar"><button class="act primary">⇄ Save Transfer</button></div></form>`;
+ if(view==="Budgets")return `<form id="entry-form"><div class="fieldgrid">${field("Month (YYYY-MM)","month","month",true)}${field("Category","category","text",true)}${field("Budget Amount (₹)","amount","number",true)}</div><div class="toolbar"><button class="act primary">+ Save Budget</button></div></form>`;
+ if(view==="Savings")return `<form id="entry-form"><div class="fieldgrid">${field("Date","date","date",true)}${field("Savings Type","savings_type","text",true,["General Savings","Monthly Savings","Emergency Fund","Short-Term Savings","Long-Term Savings","Goal-Based Savings"])}${field("Account","account_id","text",true,accounts)}${field("Amount (₹)","amount","number",true)}${field("Description","description")}</div><div class="toolbar"><button class="act primary">+ Add Savings Record</button></div></form>`;
+ if(view==="Financial Goals")return `<form id="entry-form"><div class="fieldgrid">${field("Goal Name","name","text",true)}${field("Target Amount (₹)","target_amount","number",true)}${field("Saved Amount (₹)","saved_amount","number")}${field("Deadline","deadline","date")}${field("Priority","priority","text",false,["High","Medium","Low"])}</div><div class="toolbar"><button class="act primary">+ Add Goal</button></div></form>`;
+ if(view==="EMI & Bills")return `<form id="entry-form"><div class="fieldgrid">${field("Record Type","kind","text",true,["EMI","Bill"])}${field("Name","name","text",true)}${field("Amount (₹)","amount","number",true)}${field("Due Date","due_date","date",true)}${field("Frequency","frequency","text",false,["Monthly","Quarterly","Yearly","One-time"])}</div><div class="toolbar"><button class="act primary">+ Add Record</button></div></form>`;
+ if(view==="Portfolio")return `<form id="entry-form"><div class="fieldgrid">${field("Asset Name","asset_name","text",true)}${field("Symbol / Identifier","symbol")}${field("Asset Type","asset_type","text",true,["Stock - Trading","Stock - Long Term","Mutual Fund","Fixed Deposit","Gold","Other"])}${field("Transaction","transaction_type","text",true,["Buy","Sell"])}${field("Quantity","quantity","number",true)}${field("Price (₹)","price","number",true)}${field("Current Market Price (₹)","current_price","number")}${field("Charges (₹)","charges","number")}${field("Date","transaction_date","date",true)}</div><div class="toolbar"><button class="act primary">+ Add Holding Record</button></div></form>`;
+ return `<div class="muted">Audit history is automatically recorded for supported changes.</div>`;
+}
+function rowsFor(view){
+ let rows=[],heads=[];
+ if(view==="Accounts"){heads=["Account","Type","Opening","Current Balance","Status","Action"];rows=data.accounts.map(a=>[a.account_name,a.account_type,money(a.opening_balance),money(accountBalance(a)),a.status||"Active",`<button class="act danger" data-close="${a.account_id}">Close</button>`])}
+ if(view==="Income"||view==="Expenses"){heads=["Date","Type","Amount","Account","Category","Need/Want","Actions"];rows=data.transactions.filter(t=>!t.deleted&&t.type===(view==="Income"?"Credit":"Debit")).map(t=>[t.date,t.type,money(t.amount),data.accounts.find(a=>a.account_id===t.account_id)?.account_name||"—",t.category||"—",t.need_want||"—",`<button class="act" data-edit-txn="${t.transaction_id}">Edit</button> <button class="act danger" data-delete-txn="${t.transaction_id}">Delete</button>`])}
+ if(view==="Transfers"){heads=["Date","From","To","Amount","Charges","Status"];rows=data.transfers.map(t=>[t.date,data.accounts.find(a=>a.account_id===t.from_account_id)?.account_name||"—",data.accounts.find(a=>a.account_id===t.to_account_id)?.account_name||"—",money(t.amount),money(t.charges),t.status])}
+ if(view==="Budgets"){heads=["Month","Category","Budget"];rows=data.budgets.map(x=>[x.month,x.category,money(x.amount)])}
+ if(view==="Savings"){heads=["Date","Type","Account","Amount"];rows=data.savings.map(x=>[x.date,x.savings_type,data.accounts.find(a=>a.account_id===x.account_id)?.account_name||"—",money(x.amount)])}
+ if(view==="Financial Goals"){heads=["Goal","Target","Saved","Deadline","Progress"];rows=data.goals.map(x=>[x.name,money(x.target_amount),money(x.saved_amount),x.deadline||"—",Math.round(Number(x.saved_amount||0)/Math.max(1,Number(x.target_amount||1))*100)+"%"])}
+ if(view==="EMI & Bills"){heads=["Type","Name","Amount","Due Date","Frequency"];rows=[...data.emis.map(x=>["EMI",x.name,money(x.amount),x.due_date,x.frequency||"—"]),...data.bills.map(x=>["Bill",x.name,money(x.amount),x.due_date,x.frequency||"—"])]}
+ if(view==="Portfolio"){heads=["Asset","Symbol","Type","Buy/Sell","Qty","Price","Market Price"];rows=data.holdings.filter(x=>!x.deleted).map(x=>[x.asset_name,x.symbol||"—",x.asset_type,x.transaction_type,x.quantity,money(x.price),money(x.current_price||x.price)])}
+ if(view==="Audit Log"){heads=["Time","Action","Module","Description"];rows=data.audit.slice().reverse().map(x=>[new Date(x.timestamp).toLocaleString(),x.action_type,x.module_name,x.change_description])}
+ if(!rows.length)return `<p class="muted">Abhi koi record nahi hai. Upar form se pehli entry add karein.</p>`;
+ return `<div style="overflow:auto"><table class="data-table"><thead><tr>${heads.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+
+const VERIFIED_BACKUP_V18 = {"app":"MY PERSONAL FINANCE","version":"1.1","exported_at":"2026-11-10T23:23:22.983Z","data":{"accounts":[{"account_id":"ACC-mwamwcr0-1r3m","account_name":"SBI Savings","account_type":"Bank Account","opening_balance":300,"opening_date":"2026-11-10","institution":"SBI","status":"Active"},{"account_id":"ACC-mwanhqkn-daez","account_name":"Kotak Mahindra Bank","account_type":"Bank Account","opening_balance":140,"opening_date":"2026-11-10","institution":"Kotak Mahindra Bank","status":"Active"}],"transactions":[{"transaction_id":"TXN-mwan1sdh-3zls","date":"2026-11-10","amount":1100,"account_id":"ACC-mwamwcr0-1r3m","category":"Other Income","description":"Self employment ","type":"Credit","deleted":false,"created_at":"2026-11-10T12:00:21.221Z","need_want":""},{"transaction_id":"TXN-mwan5x24-jwm6","date":"2026-11-10","amount":200,"account_id":"ACC-mwamwcr0-1r3m","category":"Food","need_want":"Need","description":"Test Expenses ","type":"Debit","deleted":false,"created_at":"2026-11-10T12:03:33.916Z"}],"transfers":[{"transfer_id":"TRF-mwanmqmk-b9ko","date":"2026-11-10","from_account_id":"ACC-mwamwcr0-1r3m","to_account_id":"ACC-mwanhqkn-daez","amount":100,"charges":0,"description":"Test Transfer ","status":"Completed"},{"transfer_id":"TRF-mwb4r2ft-z1rc","date":"2026-11-11","from_account_id":"ACC-mwamwcr0-1r3m","to_account_id":"ACC-mwanhqkn-daez","amount":20,"charges":0,"description":"Test Transfer ","status":"Deleted","deleted":true,"deleted_at":"2026-11-10T20:37:09.010Z"}],"budgets":[{"budget_id":"BDG-mwanyosa-jhzv","month":"2026-11","category":"Food","amount":5100,"deleted":true,"deleted_at":"2026-11-10T20:05:56.908Z"},{"budget_id":"BDG-mwb41573-j5yo","month":"2026-11","category":"Traveling","amount":2500,"deleted":true,"deleted_at":"2026-11-10T20:03:22.287Z"}],"goals":[{"goal_id":"GOL-mwaqlu4w-mizo","name":"Bed + Mattress","target_amount":36000,"saved_amount":500,"deadline":"2027-01-27","priority":"High"},{"goal_id":"GOL-mwb1gs1w-zsvt","name":"Bed + Mattress","target_amount":36000,"saved_amount":0,"deadline":"2027-01-27","priority":"High","deleted":true,"deleted_at":"2026-11-10T18:44:37.488Z"},{"goal_id":"GOL-mwb2d12y-t2nf","name":"Eye Glass","target_amount":1000,"saved_amount":1200,"deadline":"2026-11-29","priority":"High","deleted":true,"deleted_at":"2026-11-10T19:29:03.012Z"}],"savings":[{"savings_id":"SAV-mwao9maz-y48r","date":"2026-11-10","savings_type":"General Savings","account_id":"ACC-mwamwcr0-1r3m","amount":500,"description":"Test Savings "},{"savings_id":"SAV-mwb3gdei-uukl","date":"2026-11-11","savings_type":"General Savings","account_id":"ACC-mwamwcr0-1r3m","amount":50,"description":"Test Saving ","deleted":true,"deleted_at":"2026-11-10T19:53:01.683Z"}],"emis":[{"kind":"EMI","name":"Test EMI","amount":1200,"due_date":"2026-11-20","frequency":"Monthly","emi_id":"EMI-mwb74duh-033q","deleted":true,"deleted_at":"2026-11-10T21:24:02.958Z"}],"bills":[],"holdings":[{"holding_id":"HLD-mwb79fdh-0n5n","asset_name":"Test Stock","symbol":"Teststock","asset_type":"Stock - Trading","transaction_type":"Buy","quantity":12,"price":1000,"charges":0,"transaction_date":"2026-11-11","deleted":true,"deleted_at":"2026-11-10T21:28:16.606Z"}],"categories":[],"imports":[],"settings":[],"audit":[{"audit_id":"AUD-mwamwcr0-gv47","action_type":"ADD","module_name":"Accounts","record_id":"ACC-mwamwcr0-1r3m","timestamp":"2026-11-10T11:56:07.692Z","change_description":"New account created: SBI Savings"},{"audit_id":"AUD-mwan1sdq-lhg1","action_type":"ADD","module_name":"Income","record_id":"TXN-mwan1sdh-3zls","timestamp":"2026-11-10T12:00:21.230Z","change_description":"Income entry ₹1,000 saved."},{"audit_id":"AUD-mwan5x26-nith","action_type":"ADD","module_name":"Expenses","record_id":"TXN-mwan5x24-jwm6","timestamp":"2026-11-10T12:03:33.918Z","change_description":"Expenses entry ₹200 saved."},{"audit_id":"AUD-mwanhqkp-35uw","action_type":"ADD","module_name":"Accounts","record_id":"ACC-mwanhqkn-daez","timestamp":"2026-11-10T12:12:45.385Z","change_description":"New account created: Kotak Mahindra Bank"},{"audit_id":"AUD-mwanmqml-6wbe","action_type":"ADD","module_name":"Transfers","record_id":"TRF-mwanmqmk-b9ko","timestamp":"2026-11-10T12:16:38.733Z","change_description":"Internal transfer recorded; not income or expense."},{"audit_id":"AUD-mwanyosc-obl0","action_type":"ADD","module_name":"Budgets","record_id":"Food","timestamp":"2026-11-10T12:25:56.220Z","change_description":"Budget created."},{"audit_id":"AUD-mwao9mb0-b72j","action_type":"ADD","module_name":"Savings","record_id":"General Savings","timestamp":"2026-11-10T12:34:26.220Z","change_description":"Savings record saved. Note: allocation record does not change account balance."},{"audit_id":"AUD-mwaqlu4y-xkyp","action_type":"ADD","module_name":"Financial Goals","record_id":"Bed + Mattress ","timestamp":"2026-11-10T13:39:55.474Z","change_description":"Goal created."},{"audit_id":"AUD-mwawtn7n-nsqa","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwaqlu4w-mizo","timestamp":"2026-11-10T16:33:57.443Z","change_description":"Old: {\"name\":\"Bed + Mattress \",\"target_amount\":35000,\"saved_amount\":0,\"deadline\":\"2027-01-05\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress \",\"target_amount\":35000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb1gs1x-kfmm","action_type":"ADD","module_name":"Financial Goals","record_id":"Bed + Mattress ","timestamp":"2026-11-10T18:43:55.269Z","change_description":"Goal created."},{"audit_id":"AUD-mwb1h712-k4vc","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwb1gs1w-zsvt","timestamp":"2026-11-10T18:44:14.679Z","change_description":"Old: {\"name\":\"Bed + Mattress \",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb1homo-ycri","action_type":"DELETE","module_name":"Financial Goals","record_id":"GOL-mwb1gs1w-zsvt","timestamp":"2026-11-10T18:44:37.488Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb1jkvd-cb10","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwaqlu4w-mizo","timestamp":"2026-11-10T18:46:05.929Z","change_description":"Old: {\"name\":\"Bed + Mattress \",\"target_amount\":35000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb2d12y-t8bg","action_type":"ADD","module_name":"Financial Goals","record_id":"Eye Glass","timestamp":"2026-11-10T19:08:59.962Z","change_description":"Goal created."},{"audit_id":"AUD-mwb2dnc2-oadj","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwb2d12y-t2nf","timestamp":"2026-11-10T19:09:28.802Z","change_description":"Old: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":50,\"deadline\":\"2026-11-29\",\"priority\":\"High\"} | New: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":300,\"deadline\":\"2026-11-29\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb2ekja-s12z","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwb2d12y-t2nf","timestamp":"2026-11-10T19:10:11.830Z","change_description":"Old: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":300,\"deadline\":\"2026-11-29\",\"priority\":\"High\"} | New: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":1200,\"deadline\":\"2026-11-29\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb32td4-g0km","action_type":"DELETE","module_name":"Financial Goals","record_id":"GOL-mwb2d12y-t2nf","timestamp":"2026-11-10T19:29:03.017Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb3gdej-y91h","action_type":"ADD","module_name":"Savings","record_id":"General Savings","timestamp":"2026-11-10T19:39:35.515Z","change_description":"Savings record saved. Note: allocation record does not change account balance."},{"audit_id":"AUD-mwb3ui15-nm54","action_type":"EDIT","module_name":"Savings","record_id":"SAV-mwb3gdei-uukl","timestamp":"2026-11-10T19:50:34.697Z","change_description":"Old: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":10,\"description\":\"Test Saving \"} | New: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":20,\"description\":\"Test Saving \"}"},{"audit_id":"AUD-mwb3w8pd-c9jb","action_type":"EDIT","module_name":"Savings","record_id":"SAV-mwb3gdei-uukl","timestamp":"2026-11-10T19:51:55.921Z","change_description":"Old: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":20,\"description\":\"Test Saving \"} | New: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":50,\"description\":\"Test Saving \"}"},{"audit_id":"AUD-mwb3xng3-bk7r","action_type":"DELETE","module_name":"Savings","record_id":"SAV-mwb3gdei-uukl","timestamp":"2026-11-10T19:53:01.683Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb41575-akne","action_type":"ADD","module_name":"Budgets","record_id":"Traveling ","timestamp":"2026-11-10T19:55:44.657Z","change_description":"Budget created."},{"audit_id":"AUD-mwb4ao57-0b1g","action_type":"EDIT","module_name":"Budgets","record_id":"BDG-mwb41573-j5yo","timestamp":"2026-11-10T20:03:09.115Z","change_description":"Old: {\"month\":\"2026-11\",\"category\":\"Traveling \",\"amount\":2000} | New: {\"month\":\"2026-11\",\"category\":\"Traveling\",\"amount\":2500}"},{"audit_id":"AUD-mwb4ayb3-c02g","action_type":"DELETE","module_name":"Budgets","record_id":"BDG-mwb41573-j5yo","timestamp":"2026-11-10T20:03:22.287Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb4b4x8-p7ti","action_type":"EDIT","module_name":"Budgets","record_id":"BDG-mwanyosa-jhzv","timestamp":"2026-11-10T20:03:30.860Z","change_description":"Old: {\"month\":\"2026-11\",\"category\":\"Food\",\"amount\":5000} | New: {\"month\":\"2026-11\",\"category\":\"Food\",\"amount\":5100}"},{"audit_id":"AUD-mwb4e9m5-ubmy","action_type":"DELETE","module_name":"Budgets","record_id":"BDG-mwanyosa-jhzv","timestamp":"2026-11-10T20:05:56.909Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb4r2fu-5x0y","action_type":"ADD","module_name":"Transfers","record_id":"TRF-mwb4r2ft-z1rc","timestamp":"2026-11-10T20:15:54.138Z","change_description":"Internal transfer recorded; not income or expense."},{"audit_id":"AUD-mwb5giz3-dnaq","action_type":"EDIT","module_name":"Transfers","record_id":"TRF-mwb4r2ft-z1rc","timestamp":"2026-11-10T20:35:41.967Z","change_description":"Old: {\"date\":\"2026-11-11\",\"from_account_id\":\"ACC-mwamwcr0-1r3m\",\"to_account_id\":\"ACC-mwanhqkn-daez\",\"amount\":10,\"charges\":0,\"description\":\"Test Transfer \"} | New: {\"date\":\"2026-11-11\",\"from_account_id\":\"ACC-mwamwcr0-1r3m\",\"to_account_id\":\"ACC-mwanhqkn-daez\",\"amount\":20,\"charges\":0,\"description\":\"Test Transfer \"}"},{"audit_id":"AUD-mwb5ie4y-5jhx","action_type":"DELETE","module_name":"Transfers","record_id":"TRF-mwb4r2ft-z1rc","timestamp":"2026-11-10T20:37:09.010Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb5uvm6-etf1","action_type":"EDIT","module_name":"Savings","record_id":"SAV-mwao9maz-y48r","timestamp":"2026-11-10T20:46:51.534Z","change_description":"Old: {\"date\":\"2026-11-10\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":50,\"description\":\"Test Savings \"} | New: {\"date\":\"2026-11-10\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":500,\"description\":\"Test Savings \"}"},{"audit_id":"AUD-mwb5w839-du2n","action_type":"EDIT","module_name":"Income","record_id":"TXN-mwan1sdh-3zls","timestamp":"2026-11-10T20:47:54.357Z","change_description":"Old: {\"date\":\"2026-11-10\",\"amount\":1000,\"account_id\":\"ACC-mwamwcr0-1r3m\",\"category\":\"Other Income\",\"description\":\"Self employment \"} | New: {\"date\":\"2026-11-10\",\"amount\":1100,\"account_id\":\"ACC-mwamwcr0-1r3m\",\"category\":\"Other Income\",\"description\":\"Self employment \"}"},{"audit_id":"AUD-mwb67716-slh4","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwaqlu4w-mizo","timestamp":"2026-11-10T20:56:26.202Z","change_description":"Old: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":500,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb74dui-ucww","action_type":"ADD","module_name":"EMI & Bills","record_id":"Test EMI","timestamp":"2026-11-10T21:22:14.682Z","change_description":"Reminder record created; payment automation is not enabled in this build."},{"audit_id":"AUD-mwb74py1-lapc","action_type":"EDIT","module_name":"EMI & Bills","record_id":"EMI-mwb74duh-033q","timestamp":"2026-11-10T21:22:30.361Z","change_description":"Old: {\"name\":\"Test EMI\",\"amount\":1000,\"due_date\":\"2026-11-20\",\"frequency\":\"Monthly\"} | New: {\"name\":\"Test EMI\",\"amount\":1200,\"due_date\":\"2026-11-20\",\"frequency\":\"Monthly\"}"},{"audit_id":"AUD-mwb76pe6-v6oz","action_type":"DELETE","module_name":"EMI & Bills","record_id":"EMI-mwb74duh-033q","timestamp":"2026-11-10T21:24:02.958Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb79fdj-dqsy","action_type":"ADD","module_name":"Portfolio","record_id":"Teststock","timestamp":"2026-11-10T21:26:09.943Z","change_description":"Portfolio transaction record saved."},{"audit_id":"AUD-mwb7b63n-cv42","action_type":"EDIT","module_name":"Portfolio","record_id":"HLD-mwb79fdh-0n5n","timestamp":"2026-11-10T21:27:31.235Z","change_description":"Old: {\"asset_name\":\"Test Stock\",\"symbol\":\"Teststock\",\"asset_type\":\"Stock - Trading\",\"transaction_type\":\"Buy\",\"quantity\":10,\"price\":1000,\"charges\":0,\"transaction_date\":\"2026-11-11\"} | New: {\"asset_name\":\"Test Stock\",\"symbol\":\"Teststock\",\"asset_type\":\"Stock - Trading\",\"transaction_type\":\"Buy\",\"quantity\":12,\"price\":1000,\"charges\":0,\"transaction_date\":\"2026-11-11\"}"},{"audit_id":"AUD-mwb7c53z-04zq","action_type":"DELETE","module_name":"Portfolio","record_id":"HLD-mwb79fdh-0n5n","timestamp":"2026-11-10T21:28:16.607Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."}]}};
+function bindV18Settings(){
+ const ex=$("settings-export");if(ex)ex.onclick=()=> $("export-btn").click();
+ const pv=$("preview-recovery");if(pv)pv.onclick=()=>{
+  const d=VERIFIED_BACKUP_V18.data||VERIFIED_BACKUP_V18;
+  const active=k=>(d[k]||[]).filter(x=>!x.deleted&&x.status!=="Deleted");
+  const tx=active("transactions"),sv=active("savings"),gl=active("goals");
+  const report={accounts:active("accounts").length,transactions:tx.length,
+   income:tx.filter(x=>x.type==="Credit").reduce((s,x)=>s+Number(x.amount||0),0),
+   expenses:tx.filter(x=>x.type==="Debit").reduce((s,x)=>s+Number(x.amount||0),0),
+   savingsRecords:sv.length,savingsAmount:sv.reduce((s,x)=>s+Number(x.amount||0),0),
+   activeGoals:gl.length,auditRecords:(d.audit||[]).length};
+  $("recovery-preview").textContent="VERIFIED BACKUP · READ ONLY\\n"+JSON.stringify(report,null,2)+"\\nNo records changed.";
+ };
+ const cmp=$("compare-storage");if(cmp)cmp.onclick=async()=>{
+  const out=$("storage-compare-result");out.textContent="Comparing…";
+  try{const local=JSON.parse(localStorage.getItem(DBKEY)||"null")||blank();
+   const dbcopy=window.MPFDatabase&&window.MPFDatabase.readAll?await window.MPFDatabase.readAll():null;
+   const sum=d=>({accounts:(d.accounts||[]).filter(x=>!x.deleted).length,transactions:(d.transactions||[]).filter(x=>!x.deleted).length,
+    income:(d.transactions||[]).filter(x=>!x.deleted&&x.type==="Credit").reduce((s,x)=>s+Number(x.amount||0),0),
+    expenses:(d.transactions||[]).filter(x=>!x.deleted&&x.type==="Debit").reduce((s,x)=>s+Number(x.amount||0),0),
+    savings:(d.savings||[]).filter(x=>!x.deleted).reduce((s,x)=>s+Number(x.amount||0),0)});
+   out.textContent="LocalStorage\\n"+JSON.stringify(sum(local),null,2)+"\\nIndexedDB\\n"+(dbcopy?JSON.stringify(sum(dbcopy),null,2):"Unavailable")+"\\nRead-only; no data changed.";
+  }catch(e){out.textContent="Comparison error: "+e.message;}
+ };
+}
+
+const VERIFIED_BACKUP_V19 = {"app":"MY PERSONAL FINANCE","version":"1.1","exported_at":"2026-11-10T23:23:22.983Z","data":{"accounts":[{"account_id":"ACC-mwamwcr0-1r3m","account_name":"SBI Savings","account_type":"Bank Account","opening_balance":300,"opening_date":"2026-11-10","institution":"SBI","status":"Active"},{"account_id":"ACC-mwanhqkn-daez","account_name":"Kotak Mahindra Bank","account_type":"Bank Account","opening_balance":140,"opening_date":"2026-11-10","institution":"Kotak Mahindra Bank","status":"Active"}],"transactions":[{"transaction_id":"TXN-mwan1sdh-3zls","date":"2026-11-10","amount":1100,"account_id":"ACC-mwamwcr0-1r3m","category":"Other Income","description":"Self employment ","type":"Credit","deleted":false,"created_at":"2026-11-10T12:00:21.221Z","need_want":""},{"transaction_id":"TXN-mwan5x24-jwm6","date":"2026-11-10","amount":200,"account_id":"ACC-mwamwcr0-1r3m","category":"Food","need_want":"Need","description":"Test Expenses ","type":"Debit","deleted":false,"created_at":"2026-11-10T12:03:33.916Z"}],"transfers":[{"transfer_id":"TRF-mwanmqmk-b9ko","date":"2026-11-10","from_account_id":"ACC-mwamwcr0-1r3m","to_account_id":"ACC-mwanhqkn-daez","amount":100,"charges":0,"description":"Test Transfer ","status":"Completed"},{"transfer_id":"TRF-mwb4r2ft-z1rc","date":"2026-11-11","from_account_id":"ACC-mwamwcr0-1r3m","to_account_id":"ACC-mwanhqkn-daez","amount":20,"charges":0,"description":"Test Transfer ","status":"Deleted","deleted":true,"deleted_at":"2026-11-10T20:37:09.010Z"}],"budgets":[{"budget_id":"BDG-mwanyosa-jhzv","month":"2026-11","category":"Food","amount":5100,"deleted":true,"deleted_at":"2026-11-10T20:05:56.908Z"},{"budget_id":"BDG-mwb41573-j5yo","month":"2026-11","category":"Traveling","amount":2500,"deleted":true,"deleted_at":"2026-11-10T20:03:22.287Z"}],"goals":[{"goal_id":"GOL-mwaqlu4w-mizo","name":"Bed + Mattress","target_amount":36000,"saved_amount":500,"deadline":"2027-01-27","priority":"High"},{"goal_id":"GOL-mwb1gs1w-zsvt","name":"Bed + Mattress","target_amount":36000,"saved_amount":0,"deadline":"2027-01-27","priority":"High","deleted":true,"deleted_at":"2026-11-10T18:44:37.488Z"},{"goal_id":"GOL-mwb2d12y-t2nf","name":"Eye Glass","target_amount":1000,"saved_amount":1200,"deadline":"2026-11-29","priority":"High","deleted":true,"deleted_at":"2026-11-10T19:29:03.012Z"}],"savings":[{"savings_id":"SAV-mwao9maz-y48r","date":"2026-11-10","savings_type":"General Savings","account_id":"ACC-mwamwcr0-1r3m","amount":500,"description":"Test Savings "},{"savings_id":"SAV-mwb3gdei-uukl","date":"2026-11-11","savings_type":"General Savings","account_id":"ACC-mwamwcr0-1r3m","amount":50,"description":"Test Saving ","deleted":true,"deleted_at":"2026-11-10T19:53:01.683Z"}],"emis":[{"kind":"EMI","name":"Test EMI","amount":1200,"due_date":"2026-11-20","frequency":"Monthly","emi_id":"EMI-mwb74duh-033q","deleted":true,"deleted_at":"2026-11-10T21:24:02.958Z"}],"bills":[],"holdings":[{"holding_id":"HLD-mwb79fdh-0n5n","asset_name":"Test Stock","symbol":"Teststock","asset_type":"Stock - Trading","transaction_type":"Buy","quantity":12,"price":1000,"charges":0,"transaction_date":"2026-11-11","deleted":true,"deleted_at":"2026-11-10T21:28:16.606Z"}],"categories":[],"imports":[],"settings":[],"audit":[{"audit_id":"AUD-mwamwcr0-gv47","action_type":"ADD","module_name":"Accounts","record_id":"ACC-mwamwcr0-1r3m","timestamp":"2026-11-10T11:56:07.692Z","change_description":"New account created: SBI Savings"},{"audit_id":"AUD-mwan1sdq-lhg1","action_type":"ADD","module_name":"Income","record_id":"TXN-mwan1sdh-3zls","timestamp":"2026-11-10T12:00:21.230Z","change_description":"Income entry ₹1,000 saved."},{"audit_id":"AUD-mwan5x26-nith","action_type":"ADD","module_name":"Expenses","record_id":"TXN-mwan5x24-jwm6","timestamp":"2026-11-10T12:03:33.918Z","change_description":"Expenses entry ₹200 saved."},{"audit_id":"AUD-mwanhqkp-35uw","action_type":"ADD","module_name":"Accounts","record_id":"ACC-mwanhqkn-daez","timestamp":"2026-11-10T12:12:45.385Z","change_description":"New account created: Kotak Mahindra Bank"},{"audit_id":"AUD-mwanmqml-6wbe","action_type":"ADD","module_name":"Transfers","record_id":"TRF-mwanmqmk-b9ko","timestamp":"2026-11-10T12:16:38.733Z","change_description":"Internal transfer recorded; not income or expense."},{"audit_id":"AUD-mwanyosc-obl0","action_type":"ADD","module_name":"Budgets","record_id":"Food","timestamp":"2026-11-10T12:25:56.220Z","change_description":"Budget created."},{"audit_id":"AUD-mwao9mb0-b72j","action_type":"ADD","module_name":"Savings","record_id":"General Savings","timestamp":"2026-11-10T12:34:26.220Z","change_description":"Savings record saved. Note: allocation record does not change account balance."},{"audit_id":"AUD-mwaqlu4y-xkyp","action_type":"ADD","module_name":"Financial Goals","record_id":"Bed + Mattress ","timestamp":"2026-11-10T13:39:55.474Z","change_description":"Goal created."},{"audit_id":"AUD-mwawtn7n-nsqa","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwaqlu4w-mizo","timestamp":"2026-11-10T16:33:57.443Z","change_description":"Old: {\"name\":\"Bed + Mattress \",\"target_amount\":35000,\"saved_amount\":0,\"deadline\":\"2027-01-05\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress \",\"target_amount\":35000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb1gs1x-kfmm","action_type":"ADD","module_name":"Financial Goals","record_id":"Bed + Mattress ","timestamp":"2026-11-10T18:43:55.269Z","change_description":"Goal created."},{"audit_id":"AUD-mwb1h712-k4vc","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwb1gs1w-zsvt","timestamp":"2026-11-10T18:44:14.679Z","change_description":"Old: {\"name\":\"Bed + Mattress \",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb1homo-ycri","action_type":"DELETE","module_name":"Financial Goals","record_id":"GOL-mwb1gs1w-zsvt","timestamp":"2026-11-10T18:44:37.488Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb1jkvd-cb10","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwaqlu4w-mizo","timestamp":"2026-11-10T18:46:05.929Z","change_description":"Old: {\"name\":\"Bed + Mattress \",\"target_amount\":35000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb2d12y-t8bg","action_type":"ADD","module_name":"Financial Goals","record_id":"Eye Glass","timestamp":"2026-11-10T19:08:59.962Z","change_description":"Goal created."},{"audit_id":"AUD-mwb2dnc2-oadj","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwb2d12y-t2nf","timestamp":"2026-11-10T19:09:28.802Z","change_description":"Old: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":50,\"deadline\":\"2026-11-29\",\"priority\":\"High\"} | New: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":300,\"deadline\":\"2026-11-29\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb2ekja-s12z","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwb2d12y-t2nf","timestamp":"2026-11-10T19:10:11.830Z","change_description":"Old: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":300,\"deadline\":\"2026-11-29\",\"priority\":\"High\"} | New: {\"name\":\"Eye Glass\",\"target_amount\":1000,\"saved_amount\":1200,\"deadline\":\"2026-11-29\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb32td4-g0km","action_type":"DELETE","module_name":"Financial Goals","record_id":"GOL-mwb2d12y-t2nf","timestamp":"2026-11-10T19:29:03.017Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb3gdej-y91h","action_type":"ADD","module_name":"Savings","record_id":"General Savings","timestamp":"2026-11-10T19:39:35.515Z","change_description":"Savings record saved. Note: allocation record does not change account balance."},{"audit_id":"AUD-mwb3ui15-nm54","action_type":"EDIT","module_name":"Savings","record_id":"SAV-mwb3gdei-uukl","timestamp":"2026-11-10T19:50:34.697Z","change_description":"Old: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":10,\"description\":\"Test Saving \"} | New: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":20,\"description\":\"Test Saving \"}"},{"audit_id":"AUD-mwb3w8pd-c9jb","action_type":"EDIT","module_name":"Savings","record_id":"SAV-mwb3gdei-uukl","timestamp":"2026-11-10T19:51:55.921Z","change_description":"Old: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":20,\"description\":\"Test Saving \"} | New: {\"date\":\"2026-11-11\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":50,\"description\":\"Test Saving \"}"},{"audit_id":"AUD-mwb3xng3-bk7r","action_type":"DELETE","module_name":"Savings","record_id":"SAV-mwb3gdei-uukl","timestamp":"2026-11-10T19:53:01.683Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb41575-akne","action_type":"ADD","module_name":"Budgets","record_id":"Traveling ","timestamp":"2026-11-10T19:55:44.657Z","change_description":"Budget created."},{"audit_id":"AUD-mwb4ao57-0b1g","action_type":"EDIT","module_name":"Budgets","record_id":"BDG-mwb41573-j5yo","timestamp":"2026-11-10T20:03:09.115Z","change_description":"Old: {\"month\":\"2026-11\",\"category\":\"Traveling \",\"amount\":2000} | New: {\"month\":\"2026-11\",\"category\":\"Traveling\",\"amount\":2500}"},{"audit_id":"AUD-mwb4ayb3-c02g","action_type":"DELETE","module_name":"Budgets","record_id":"BDG-mwb41573-j5yo","timestamp":"2026-11-10T20:03:22.287Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb4b4x8-p7ti","action_type":"EDIT","module_name":"Budgets","record_id":"BDG-mwanyosa-jhzv","timestamp":"2026-11-10T20:03:30.860Z","change_description":"Old: {\"month\":\"2026-11\",\"category\":\"Food\",\"amount\":5000} | New: {\"month\":\"2026-11\",\"category\":\"Food\",\"amount\":5100}"},{"audit_id":"AUD-mwb4e9m5-ubmy","action_type":"DELETE","module_name":"Budgets","record_id":"BDG-mwanyosa-jhzv","timestamp":"2026-11-10T20:05:56.909Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb4r2fu-5x0y","action_type":"ADD","module_name":"Transfers","record_id":"TRF-mwb4r2ft-z1rc","timestamp":"2026-11-10T20:15:54.138Z","change_description":"Internal transfer recorded; not income or expense."},{"audit_id":"AUD-mwb5giz3-dnaq","action_type":"EDIT","module_name":"Transfers","record_id":"TRF-mwb4r2ft-z1rc","timestamp":"2026-11-10T20:35:41.967Z","change_description":"Old: {\"date\":\"2026-11-11\",\"from_account_id\":\"ACC-mwamwcr0-1r3m\",\"to_account_id\":\"ACC-mwanhqkn-daez\",\"amount\":10,\"charges\":0,\"description\":\"Test Transfer \"} | New: {\"date\":\"2026-11-11\",\"from_account_id\":\"ACC-mwamwcr0-1r3m\",\"to_account_id\":\"ACC-mwanhqkn-daez\",\"amount\":20,\"charges\":0,\"description\":\"Test Transfer \"}"},{"audit_id":"AUD-mwb5ie4y-5jhx","action_type":"DELETE","module_name":"Transfers","record_id":"TRF-mwb4r2ft-z1rc","timestamp":"2026-11-10T20:37:09.010Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb5uvm6-etf1","action_type":"EDIT","module_name":"Savings","record_id":"SAV-mwao9maz-y48r","timestamp":"2026-11-10T20:46:51.534Z","change_description":"Old: {\"date\":\"2026-11-10\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":50,\"description\":\"Test Savings \"} | New: {\"date\":\"2026-11-10\",\"savings_type\":\"General Savings\",\"account_id\":\"ACC-mwamwcr0-1r3m\",\"amount\":500,\"description\":\"Test Savings \"}"},{"audit_id":"AUD-mwb5w839-du2n","action_type":"EDIT","module_name":"Income","record_id":"TXN-mwan1sdh-3zls","timestamp":"2026-11-10T20:47:54.357Z","change_description":"Old: {\"date\":\"2026-11-10\",\"amount\":1000,\"account_id\":\"ACC-mwamwcr0-1r3m\",\"category\":\"Other Income\",\"description\":\"Self employment \"} | New: {\"date\":\"2026-11-10\",\"amount\":1100,\"account_id\":\"ACC-mwamwcr0-1r3m\",\"category\":\"Other Income\",\"description\":\"Self employment \"}"},{"audit_id":"AUD-mwb67716-slh4","action_type":"EDIT","module_name":"Financial Goals","record_id":"GOL-mwaqlu4w-mizo","timestamp":"2026-11-10T20:56:26.202Z","change_description":"Old: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":0,\"deadline\":\"2027-01-27\",\"priority\":\"High\"} | New: {\"name\":\"Bed + Mattress\",\"target_amount\":36000,\"saved_amount\":500,\"deadline\":\"2027-01-27\",\"priority\":\"High\"}"},{"audit_id":"AUD-mwb74dui-ucww","action_type":"ADD","module_name":"EMI & Bills","record_id":"Test EMI","timestamp":"2026-11-10T21:22:14.682Z","change_description":"Reminder record created; payment automation is not enabled in this build."},{"audit_id":"AUD-mwb74py1-lapc","action_type":"EDIT","module_name":"EMI & Bills","record_id":"EMI-mwb74duh-033q","timestamp":"2026-11-10T21:22:30.361Z","change_description":"Old: {\"name\":\"Test EMI\",\"amount\":1000,\"due_date\":\"2026-11-20\",\"frequency\":\"Monthly\"} | New: {\"name\":\"Test EMI\",\"amount\":1200,\"due_date\":\"2026-11-20\",\"frequency\":\"Monthly\"}"},{"audit_id":"AUD-mwb76pe6-v6oz","action_type":"DELETE","module_name":"EMI & Bills","record_id":"EMI-mwb74duh-033q","timestamp":"2026-11-10T21:24:02.958Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."},{"audit_id":"AUD-mwb79fdj-dqsy","action_type":"ADD","module_name":"Portfolio","record_id":"Teststock","timestamp":"2026-11-10T21:26:09.943Z","change_description":"Portfolio transaction record saved."},{"audit_id":"AUD-mwb7b63n-cv42","action_type":"EDIT","module_name":"Portfolio","record_id":"HLD-mwb79fdh-0n5n","timestamp":"2026-11-10T21:27:31.235Z","change_description":"Old: {\"asset_name\":\"Test Stock\",\"symbol\":\"Teststock\",\"asset_type\":\"Stock - Trading\",\"transaction_type\":\"Buy\",\"quantity\":10,\"price\":1000,\"charges\":0,\"transaction_date\":\"2026-11-11\"} | New: {\"asset_name\":\"Test Stock\",\"symbol\":\"Teststock\",\"asset_type\":\"Stock - Trading\",\"transaction_type\":\"Buy\",\"quantity\":12,\"price\":1000,\"charges\":0,\"transaction_date\":\"2026-11-11\"}"},{"audit_id":"AUD-mwb7c53z-04zq","action_type":"DELETE","module_name":"Portfolio","record_id":"HLD-mwb79fdh-0n5n","timestamp":"2026-11-10T21:28:16.607Z","change_description":"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated."}]}};
+let v19PreviewDone=false;
+function bindV19Recovery(){
+ const pv=$("preview-recovery"),ap=$("apply-recovery"),out=$("recovery-preview");
+ if(pv)pv.onclick=()=>{
+  const d=VERIFIED_BACKUP_V19.data||VERIFIED_BACKUP_V19;
+  const active=k=>(d[k]||[]).filter(x=>!x.deleted&&x.status!=="Deleted");
+  const tx=active("transactions"),sv=active("savings"),gl=active("goals");
+  const report={accounts:active("accounts").length,transactions:tx.length,
+   income:tx.filter(x=>x.type==="Credit").reduce((s,x)=>s+Number(x.amount||0),0),
+   expenses:tx.filter(x=>x.type==="Debit").reduce((s,x)=>s+Number(x.amount||0),0),
+   savingsRecords:sv.length,savingsAmount:sv.reduce((s,x)=>s+Number(x.amount||0),0),
+   activeGoals:gl.length,auditRecords:(d.audit||[]).length};
+  out.textContent="VERIFIED BACKUP · READ ONLY\\n"+JSON.stringify(report,null,2)+"\\nPreview complete. No records changed.";
+  v19PreviewDone=true;if(ap)ap.disabled=false;
+ };
+ if(ap)ap.onclick=async()=>{
+  if(!v19PreviewDone){alert("Please preview the verified backup first.");return;}
+  if(!confirm("Apply the verified JSON backup to this app? Current app records will be replaced by the backup. Your downloaded JSON backup remains unchanged."))return;
+  try{
+   const incoming=VERIFIED_BACKUP_V19.data||VERIFIED_BACKUP_V19;
+   const restored={...blank(),...incoming};
+   Object.keys(blank()).forEach(k=>{if(!Array.isArray(restored[k]))restored[k]=[];});
+   if(!window.MPFDatabase||!window.MPFDatabase.save)throw new Error("IndexedDB is not available. No recovery was applied.");
+   await window.MPFDatabase.save(restored);
+   const check=await window.MPFDatabase.readAll();
+   const expected=Object.keys(blank()).every(k=>(check[k]||[]).length===(restored[k]||[]).length);
+   if(!expected)throw new Error("Post-write record count verification failed. No LocalStorage update was made.");
+   localStorage.setItem(DBKEY,JSON.stringify(restored));
+   localStorage.setItem("mpf_idb_migration_v1","done");
+   data=restored;
+   updateMetrics();render();
+   alert("Recovery applied and IndexedDB record counts verified. Export a fresh backup, then close and reopen the app to verify balances.");
+  }catch(e){alert("Recovery not confirmed: "+e.message+"\\nYour downloaded JSON backup remains unchanged. Do not clear browser data.");}
+ };
+}
+function render(){updateMetrics();tabs();$("view-title").textContent=current;$("view-subtitle").textContent="Local device data · Records are saved in this browser."; $("view-form").innerHTML=formFor(current);$("view-list").innerHTML=rowsFor(current);const form=$("entry-form");if(form)form.onsubmit=submitForm;
+ const sx=$("settings-export");if(sx)sx.onclick=()=>$("export-btn").click();
+ const cmp=$("compare-storage");if(cmp)cmp.onclick=async()=>{
+  const out=$("storage-compare-result");out.textContent="Comparing…";
+  try{
+   const local=JSON.parse(localStorage.getItem(DBKEY)||"null")||blank();
+   const dbcopy=window.MPFDatabase&&window.MPFDatabase.readAll?await window.MPFDatabase.readAll():null;
+   const fmt=x=>Number(x||0).toLocaleString("en-IN");
+   const summarize=d=>({
+    accounts:(d.accounts||[]).filter(x=>!x.deleted).length,
+    transactions:(d.transactions||[]).filter(x=>!x.deleted).length,
+    transfers:(d.transfers||[]).filter(x=>!x.deleted&&x.status!=="Deleted").length,
+    savings:(d.savings||[]).filter(x=>!x.deleted).length,
+    goals:(d.goals||[]).filter(x=>!x.deleted).length,
+    budgets:(d.budgets||[]).filter(x=>!x.deleted).length,
+    emis:(d.emis||[]).filter(x=>!x.deleted).length,
+    holdings:(d.holdings||[]).filter(x=>!x.deleted).length,
+    income:(d.transactions||[]).filter(x=>!x.deleted&&x.type==="Credit").reduce((s,x)=>s+Number(x.amount||0),0),
+    expenses:(d.transactions||[]).filter(x=>!x.deleted&&x.type==="Debit").reduce((s,x)=>s+Number(x.amount||0),0),
+    savingsAmount:(d.savings||[]).filter(x=>!x.deleted).reduce((s,x)=>s+Number(x.amount||0),0),
+    accountBalance:(d.accounts||[]).filter(x=>!x.deleted).reduce((s,a)=>s+accountBalance(a),0)
+   });
+   const a=summarize(local),z=dbcopy?summarize(dbcopy):null;
+   let lines=["READ-ONLY STORAGE COMPARISON","LocalStorage: "+JSON.stringify(a,null,2)];
+   if(z)lines.push("IndexedDB: "+JSON.stringify(z,null,2));else lines.push("IndexedDB: unavailable");
+   if(z){
+    const keys=Object.keys(a),diff=keys.filter(k=>a[k]!==z[k]);
+    lines.push(diff.length?"RESULT: DIFFERENCES FOUND → "+diff.join(", "):"RESULT: SUMMARY VALUES MATCH");
+   }
+   lines.push("No data was changed by this comparison.");
+   out.textContent=lines.join("\\n");
+  }catch(e){out.textContent="Comparison failed: "+e.message;}
+ };
+ document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>{const a=data.accounts.find(x=>x.account_id===b.dataset.close);if(a&&confirm("Close this account? Its history will be preserved.")){a.status="Closed";audit("CLOSE","Accounts",a.account_id,"Account deactivated; history preserved.");save()}});document.querySelectorAll("[data-edit-txn]").forEach(b=>b.onclick=()=>editTransaction(b.dataset.editTxn));document.querySelectorAll("[data-delete-txn]").forEach(b=>b.onclick=()=>deleteTransaction(b.dataset.deleteTxn));bindV18Settings();bindV19Recovery()}
+function editTransaction(txnId){const t=data.transactions.find(x=>x.transaction_id===txnId&&!x.deleted);if(!t)return;const date=prompt("Date (YYYY-MM-DD)",t.date);if(date===null)return;const amountText=prompt("Amount (₹)",String(t.amount));if(amountText===null)return;const amount=Number(amountText);if(!date||!Number.isFinite(amount)||amount<=0){alert("Valid date aur positive amount enter karein.");return}const old={date:t.date,amount:t.amount,category:t.category,need_want:t.need_want,description:t.description};t.date=date;t.amount=amount;audit("EDIT","Transactions",t.transaction_id,"Old: "+JSON.stringify(old)+" | New: "+JSON.stringify({date:t.date,amount:t.amount,category:t.category,need_want:t.need_want,description:t.description}));save();alert("Transaction updated. Account balance aur dashboard recalculate ho gaye.")}
+function deleteTransaction(txnId){const t=data.transactions.find(x=>x.transaction_id===txnId&&!x.deleted);if(!t)return;if(!confirm("Is transaction ko delete karna hai? Audit history preserve rahegi."))return;t.deleted=true;t.deleted_at=new Date().toISOString();audit("DELETE","Transactions",t.transaction_id,"Transaction soft-deleted; excluded from balance and reports.");save();alert("Transaction deleted. Audit history preserved.")}
+function submitForm(e){e.preventDefault();const fd=new FormData(e.target),v=Object.fromEntries(fd.entries());const n=Number(v.amount||0);if(["Income","Expenses","Transfers","Savings","Budgets","EMI & Bills","Portfolio"].includes(current)&&n<0){alert("Amount negative nahi ho sakta.");return}
+ if(current==="Income"||current==="Expenses"){const [selectedAccount]=String(v.account_id||"").split("|");const duplicate=data.transactions.find(t=>!t.deleted&&t.date===v.date&&Number(t.amount)===n&&t.type===(current==="Income"?"Credit":"Debit")&&t.account_id===selectedAccount);if(duplicate){const proceed=confirm("Possible duplicate entry found!\\nSame Date + Amount + Type + Account already exists.\\n\\nOK = Save Anyway\\nCancel = Do Not Save");if(!proceed)return;}}
+ if(current==="Accounts"){if(!v.account_name||!v.opening_date||!Number.isFinite(Number(v.opening_balance))){alert("Required details fill karein.");return}const a={account_id:id("ACC"),...v,opening_balance:Number(v.opening_balance),status:"Active"};data.accounts.push(a);audit("ADD","Accounts",a.account_id,"New account created: "+a.account_name)}
+ if(current==="Income"||current==="Expenses"){const [account_id]=v.account_id.split("|");if(!data.accounts.some(a=>a.account_id===account_id&&a.status!=="Closed")){alert("Valid active account select karein.");return}if(current==="Expenses"&&!v.need_want){alert("Need / Want select karein.");return}const t={transaction_id:id("TXN"),...v,account_id,type:current==="Income"?"Credit":"Debit",amount:n,deleted:false,created_at:new Date().toISOString()};data.transactions.push(t);audit("ADD",current,t.transaction_id,current+" entry "+money(n)+" saved.")}
+ if(current==="Transfers"){const [from]=v.from_account_id.split("|"),[to]=v.to_account_id.split("|");if(from===to){alert("Source aur destination account alag hone chahiye.");return}if(!data.accounts.some(a=>a.account_id===from&&a.status!=="Closed")||!data.accounts.some(a=>a.account_id===to&&a.status!=="Closed")){alert("Valid active accounts select karein.");return}if(n<=0){alert("Amount zero se zyada hona chahiye.");return}if(accountBalance(data.accounts.find(a=>a.account_id===from))<n+Number(v.charges||0)){alert("Source account mein sufficient balance nahi hai.");return}const t={transfer_id:id("TRF"),...v,from_account_id:from,to_account_id:to,amount:n,charges:Number(v.charges||0),status:"Completed"};data.transfers.push(t);audit("ADD","Transfers",t.transfer_id,"Internal transfer recorded; not income or expense.")}
+ if(current==="Budgets"){data.budgets.push({budget_id:id("BDG"),...v,amount:n});audit("ADD","Budgets",v.category,"Budget created.")}
+ if(current==="Savings"){const [account_id]=v.account_id.split("|");data.savings.push({savings_id:id("SAV"),...v,account_id,amount:n});audit("ADD","Savings",v.savings_type,"Savings record saved. Note: allocation record does not change account balance.")}
+ if(current==="Financial Goals"){data.goals.push({goal_id:id("GOL"),...v,target_amount:Number(v.target_amount),saved_amount:Number(v.saved_amount||0)});audit("ADD","Financial Goals",v.name,"Goal created.")}
+ if(current==="EMI & Bills"){const obj={...v,amount:n};if(v.kind==="EMI"){obj.emi_id=id("EMI");data.emis.push(obj)}else{obj.bill_id=id("BIL");data.bills.push(obj)}audit("ADD","EMI & Bills",v.name,"Reminder record created; payment automation is not enabled in this build.")}
+ if(current==="Portfolio"){
+  const symbolKey=String(v.symbol||v.asset_name||"").trim().toUpperCase();
+  if(v.transaction_type==="Sell"){
+   const prior=(data.holdings||[]).filter(h=>!h.deleted&&String(h.symbol||h.asset_name||"").trim().toUpperCase()===symbolKey);
+   const qtyAvailable=prior.reduce((sum,h)=>sum+(h.transaction_type==="Buy"?Number(h.quantity||0):-Number(h.quantity||0)),0);
+   if(Number(v.quantity)>qtyAvailable){alert("Sell quantity available holding se zyada hai. Available Qty: "+qtyAvailable);return;}
+   if(Number(v.quantity)<=0){alert("Sell quantity zero se zyada honi chahiye.");return;}
+  }
+  data.holdings.push({holding_id:id("HLD"),...v,quantity:Number(v.quantity),price:Number(v.price),current_price:Number(v.current_price||v.price),charges:Number(v.charges||0)});
+  audit("ADD","Portfolio",v.symbol||v.asset_name,"Portfolio transaction record saved.");
+ }
+ save();e.target.reset();alert("Record saved on this device.")}
+
+// UPDATED V1.1: navigation, accordion information and record management.
+document.querySelectorAll("[data-goto]").forEach(a=>a.addEventListener("click",()=>{
+  const target=a.dataset.goto;
+  if(target==="Dashboard"){ $("dashboard").scrollIntoView({behavior:"smooth"}); return; }
+  current=target; render(); $("workspace").scrollIntoView({behavior:"smooth"});
+}));
+document.querySelectorAll("[data-info]").forEach(btn=>btn.addEventListener("click",()=>{
+  const panel=$("info-"+btn.dataset.info); const opening=panel.hidden;
+  panel.hidden=!opening; btn.textContent=(opening?"− ":"＋ ")+btn.textContent.replace(/^[＋−] /,"");
+}));
+function recordMeta(view){
+ const map={
+  "Accounts":["accounts","account_id","Accounts"],
+  "Income":["transactions","transaction_id","Transactions"],
+  "Expenses":["transactions","transaction_id","Transactions"],
+  "Transfers":["transfers","transfer_id","Transfers"],
+  "Budgets":["budgets","budget_id","Budgets"],
+  "Savings":["savings","savings_id","Savings"],
+  "Financial Goals":["goals","goal_id","Financial Goals"],
+  "Portfolio":["holdings","holding_id","Portfolio"]
+ };
+ return map[view]||null;
+}
+function editRecord(view, recordId, forcedKind){
+  const configs={
+    "Accounts":{collection:data.accounts,key:"account_id",fields:["account_name","account_type","opening_balance","opening_date","institution"]},
+    "Income":{collection:data.transactions,key:"transaction_id",fields:["date","amount","account_id","category","description"]},
+    "Expenses":{collection:data.transactions,key:"transaction_id",fields:["date","amount","account_id","category","need_want","description"]},
+    "Transfers":{collection:data.transfers,key:"transfer_id",fields:["date","from_account_id","to_account_id","amount","charges","description"]},
+    "Budgets":{collection:data.budgets,key:"budget_id",fields:["month","category","amount"]},
+    "Savings":{collection:data.savings,key:"savings_id",fields:["date","savings_type","account_id","amount","description"]},
+    "Financial Goals":{collection:data.goals,key:"goal_id",fields:["name","target_amount","saved_amount","deadline","priority"]},
+    "Portfolio":{collection:data.holdings,key:"holding_id",fields:["asset_name","symbol","asset_type","transaction_type","quantity","price","current_price","charges","transaction_date"]}
+  };
+  let config=configs[view],rec;
+  if(view==="EMI & Bills"){
+    config=forcedKind==="EMI"?{collection:data.emis,key:"emi_id",fields:["name","amount","due_date","frequency"]}:{collection:data.bills,key:"bill_id",fields:["name","amount","due_date","frequency"]};
+  }
+  if(!config){alert("Is module ka Edit Mode available nahi hai.");return;}
+  rec=config.collection.find(x=>x[config.key]===recordId&&!x.deleted);
+  if(!rec){alert("Record nahi mila.");return;}
+  const old={};config.fields.forEach(k=>old[k]=rec[k]??"");
+  current=view;window.__mpfEditingRecord={view,id:recordId};
+  originalRender();
+  const form=$("entry-form");if(!form){alert("Edit form load nahi hua.");return;}
+  config.fields.forEach(name=>{
+    const input=form.querySelector(`[name="${name}"]`);if(!input)return;
+    let value=rec[name]??"";
+    if((name==="account_id"||name==="from_account_id"||name==="to_account_id")&&value){
+      const a=data.accounts.find(x=>x.account_id===value);if(a)value=value+"|"+a.account_name;
+    }
+    input.value=String(value);
+  });
+  const kind=form.querySelector('[name="kind"]');if(kind&&view==="EMI & Bills")kind.value=forcedKind;
+  const submit=form.querySelector('button[type="submit"],button:not([type])');
+  if(submit)submit.textContent="Update "+(view==="EMI & Bills"?forcedKind:view==="Income"?"Income":view==="Expenses"?"Expense":view==="Accounts"?"Account":view==="Portfolio"?"Portfolio Record":view);
+  let cancel=form.querySelector("[data-cancel-edit]");
+  if(!cancel){cancel=document.createElement("button");cancel.type="button";cancel.className="act";cancel.dataset.cancelEdit="1";cancel.textContent="Cancel Edit";if(submit&&submit.parentElement)submit.parentElement.appendChild(cancel);}
+  cancel.onclick=()=>{window.__mpfEditingRecord=null;render();};
+  form.onsubmit=e=>{
+    e.preventDefault();const v=Object.fromEntries(new FormData(form).entries());
+    const num=(x)=>Number(x||0);
+    if(view==="Income"||view==="Expenses"||view==="Transfers"||view==="Savings"||view==="Budgets"||view==="EMI & Bills"){
+      if(!v.amount||!Number.isFinite(num(v.amount))||num(v.amount)<=0){alert("Valid positive amount enter karein.");return;}
+    }
+    if(view==="Accounts"){
+      if(!String(v.account_name||"").trim()||!v.opening_date||!Number.isFinite(num(v.opening_balance))||num(v.opening_balance)<0){alert("Account details sahi bharein.");return;}
+      Object.assign(rec,{account_name:v.account_name.trim(),account_type:v.account_type,opening_balance:num(v.opening_balance),opening_date:v.opening_date,institution:v.institution||""});
+    } else if(view==="Income"||view==="Expenses"){
+      const accountId=String(v.account_id||"").split("|")[0];
+      if(!v.date||!data.accounts.some(a=>a.account_id===accountId&&a.status!=="Closed")){alert("Date aur valid active account select karein.");return;}
+      if(view==="Expenses"&&!v.need_want){alert("Need / Want select karein.");return;}
+      Object.assign(rec,{date:v.date,amount:num(v.amount),account_id:accountId,category:v.category,description:v.description||"",need_want:v.need_want||""});
+    } else if(view==="Transfers"){
+      const from=String(v.from_account_id||"").split("|")[0],to=String(v.to_account_id||"").split("|")[0],charges=num(v.charges);
+      const fromAccount=data.accounts.find(a=>a.account_id===from&&a.status!=="Closed"),toAccount=data.accounts.find(a=>a.account_id===to&&a.status!=="Closed");
+      let available=fromAccount?accountBalance(fromAccount):0;
+      if(fromAccount&&rec.from_account_id===from)available+=num(rec.amount)+num(rec.charges);
+      if(fromAccount&&rec.to_account_id===from)available-=num(rec.amount);
+      if(!v.date||!fromAccount||!toAccount||from===to||!Number.isFinite(charges)||charges<0||available<num(v.amount)+charges){alert("Transfer details check karein. Source account mein sufficient balance hona chahiye.");return;}
+      Object.assign(rec,{date:v.date,from_account_id:from,to_account_id:to,amount:num(v.amount),charges,description:v.description||"",status:"Completed"});
+    } else if(view==="Budgets"){
+      if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(v.month||"")||!String(v.category||"").trim()){alert("Valid Month (YYYY-MM) aur Category enter karein.");return;}
+      Object.assign(rec,{month:v.month,category:v.category.trim(),amount:num(v.amount)});
+    } else if(view==="Savings"){
+      const accountId=String(v.account_id||"").split("|")[0];
+      if(!v.date||!v.savings_type||!data.accounts.some(a=>a.account_id===accountId&&a.status!=="Closed")){alert("Savings details check karein.");return;}
+      Object.assign(rec,{date:v.date,savings_type:v.savings_type,account_id:accountId,amount:num(v.amount),description:v.description||""});
+    } else if(view==="Financial Goals"){
+      if(!String(v.name||"").trim()||num(v.target_amount)<=0||num(v.saved_amount)<0){alert("Goal details check karein.");return;}
+      Object.assign(rec,{name:v.name.trim(),target_amount:num(v.target_amount),saved_amount:num(v.saved_amount),deadline:v.deadline||"",priority:v.priority||"Medium"});
+    } else if(view==="EMI & Bills"){
+      if(!String(v.name||"").trim()||!v.due_date){alert("Name aur due date enter karein.");return;}
+      Object.assign(rec,{name:v.name.trim(),amount:num(v.amount),due_date:v.due_date,frequency:v.frequency||""});
+    } else if(view==="Portfolio"){
+      if(!String(v.asset_name||"").trim()||num(v.quantity)<=0||num(v.price)<=0){alert("Portfolio details check karein.");return;}
+      Object.assign(rec,{asset_name:v.asset_name.trim(),symbol:v.symbol||"",asset_type:v.asset_type,transaction_type:v.transaction_type,quantity:num(v.quantity),price:num(v.price),current_price:num(v.current_price||v.price),charges:num(v.charges),transaction_date:v.transaction_date});
+    }
+    const updated={};config.fields.forEach(k=>updated[k]=rec[k]??"");
+    audit("EDIT",view,rec[config.key],"Old: "+JSON.stringify(old)+" | New: "+JSON.stringify(updated));
+    window.__mpfEditingRecord=null;save();render();alert("Record update ho gaya. Nayi duplicate entry nahi bani; balances aur dashboard recalculate ho gaye.");
+  };
+  $("workspace").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function deleteRecord(view, recordId, forcedKind){
+ if(view==="Accounts"){
+   const a=data.accounts.find(x=>x.account_id===recordId); if(!a)return;
+   const linked=data.transactions.some(x=>x.account_id===recordId&&!x.deleted)||data.savings.some(x=>x.account_id===recordId)||data.transfers.some(x=>x.from_account_id===recordId||x.to_account_id===recordId);
+   if(linked){if(!confirm("Is account se linked records hain. Account ko Close karne se history safe rahegi. Close karein?"))return;a.status="Closed";audit("CLOSE","Accounts",recordId,"Account closed; linked records preserved.");}
+   else {if(!confirm("Is empty account ko permanently delete karna hai?"))return;data.accounts=data.accounts.filter(x=>x.account_id!==recordId);audit("DELETE","Accounts",recordId,"Unlinked account deleted.");}
+   save();return;
+ }
+ let collection,key,rec,module=view;
+ if(view==="EMI & Bills"){collection=forcedKind==="EMI"?data.emis:data.bills;key=forcedKind==="EMI"?"emi_id":"bill_id";rec=collection.find(x=>x[key]===recordId);}
+ else {const meta=recordMeta(view);if(!meta)return;collection=data[meta[0]];key=meta[1];rec=collection.find(x=>x[key]===recordId);}
+ if(!rec)return;
+ if(!confirm(view+" record delete karna hai? Audit history preserve rahegi."))return;
+ if(view==="Income"||view==="Expenses"){rec.deleted=true;rec.deleted_at=new Date().toISOString();}
+ else if(view==="Transfers"){rec.status="Deleted";rec.deleted=true;rec.deleted_at=new Date().toISOString();}
+ else {rec.deleted=true;rec.deleted_at=new Date().toISOString();}
+ audit("DELETE",module,recordId,"Record soft-deleted; original record retained for audit. Balance / visible lists recalculated.");
+ save();
+}
+function actionButtons(view,idValue,kind){
+ return `<span class="action-cell"><button class="act" data-edit-record="${esc(idValue)}" data-kind="${esc(kind||"")}">Edit</button> <button class="act danger" data-delete-record="${esc(idValue)}" data-kind="${esc(kind||"")}">Delete</button></span>`;
+}
+const originalRowsFor=rowsFor;
+rowsFor=function(view){
+ let heads=[],rows=[];
+ const active=(arr)=>arr.filter(x=>!x.deleted);
+ if(view==="Accounts"){heads=["Account","Type","Opening","Current Balance","Status","Actions"];rows=data.accounts.map(a=>[esc(a.account_name),esc(a.account_type),money(a.opening_balance),money(accountBalance(a)),esc(a.status||"Active"),a.status==="Closed"?"Closed":actionButtons(view,a.account_id)]);}
+ else if(view==="Income"||view==="Expenses"){heads=["Date","Type","Amount","Account","Category","Need / Want","Actions"];rows=active(data.transactions).filter(t=>t.type===(view==="Income"?"Credit":"Debit")).map(t=>[esc(t.date),t.type,money(t.amount),esc(data.accounts.find(a=>a.account_id===t.account_id)?.account_name||"—"),esc(t.category||"—"),esc(t.need_want||"—"),actionButtons(view,t.transaction_id)]);}
+ else if(view==="Transfers"){heads=["Date","From","To","Amount","Charges","Status","Actions"];rows=active(data.transfers).map(t=>[esc(t.date),esc(data.accounts.find(a=>a.account_id===t.from_account_id)?.account_name||"—"),esc(data.accounts.find(a=>a.account_id===t.to_account_id)?.account_name||"—"),money(t.amount),money(t.charges),esc(t.status||"Completed"),actionButtons(view,t.transfer_id)]);}
+ else if(view==="Budgets"){heads=["Month","Category","Budget","Actions"];rows=active(data.budgets).map(x=>[esc(x.month),esc(x.category),money(x.amount),actionButtons(view,x.budget_id)]);}
+ else if(view==="Savings"){heads=["Date","Type","Account","Amount","Actions"];rows=active(data.savings).map(x=>[esc(x.date),esc(x.savings_type),esc(data.accounts.find(a=>a.account_id===x.account_id)?.account_name||"—"),money(x.amount),actionButtons(view,x.savings_id)]);}
+ else if(view==="Financial Goals"){heads=["Goal","Target","Saved","Deadline","Progress","Actions"];rows=active(data.goals).map(x=>[esc(x.name),money(x.target_amount),money(x.saved_amount),esc(x.deadline||"—"),Math.round(Number(x.saved_amount||0)/Math.max(1,Number(x.target_amount||1))*100)+"%",actionButtons(view,x.goal_id)]);}
+ else if(view==="EMI & Bills"){heads=["Type","Name","Amount","Due Date","Frequency","Actions"];rows=[...active(data.emis).map(x=>["EMI",esc(x.name),money(x.amount),esc(x.due_date),esc(x.frequency||"—"),actionButtons(view,x.emi_id,"EMI")]),...active(data.bills).map(x=>["Bill",esc(x.name),money(x.amount),esc(x.due_date),esc(x.frequency||"—"),actionButtons(view,x.bill_id,"Bill")])];}
+ else if(view==="Portfolio"){heads=["Asset","Symbol","Type","Buy/Sell","Qty","Price","Market Price","Actions"];rows=active(data.holdings).map(x=>[esc(x.asset_name),esc(x.symbol||"—"),esc(x.asset_type),esc(x.transaction_type),esc(x.quantity),money(x.price),money(x.current_price||x.price),actionButtons(view,x.holding_id)]);}
+ else return originalRowsFor(view);
+ if(!rows.length)return `<p class="muted">Abhi koi record nahi hai. Upar form se pehli entry add karein.</p>`;
+ return `<div style="overflow:auto"><table class="data-table"><thead><tr>${heads.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+};
+const originalRender=render;
+render=function(){
+ originalRender();
+ document.querySelectorAll("[data-edit-record]").forEach(b=>b.onclick=()=>editRecord(current,b.dataset.editRecord,b.dataset.kind));
+ document.querySelectorAll("[data-delete-record]").forEach(b=>b.onclick=()=>deleteRecord(current,b.dataset.deleteRecord,b.dataset.kind));
+};
+
+$("export-btn").onclick=()=>{const blob=new Blob([JSON.stringify({app:"MY PERSONAL FINANCE",version:"1.1",exported_at:new Date().toISOString(),data},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="my_personal_finance_backup.json";a.click();URL.revokeObjectURL(a.href)};
+$("restore-file").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const obj=JSON.parse(await f.text());const incoming=obj.data||obj;if(!incoming.accounts||!incoming.transactions)throw Error("Backup format invalid");if(!confirm("Restore backup? Current local data will be replaced."))return;data={...blank(),...incoming};save();alert("Backup restored.")}catch(err){alert("Restore failed: "+err.message)}e.target.value=""};
+
+$("app-status").textContent="● LOCAL DATABASE ACTIVE";
+render();updateMetrics();
+})();
+})();
+</script>
+
+
+<style>
+#mpf-lock-screen{position:fixed;inset:0;z-index:999999;background:radial-gradient(ellipse at top,#10213a,#050b16 70%);display:flex;align-items:center;justify-content:center;padding:20px}
+#mpf-lock-card{width:min(420px,100%);background:#0c1728;border:1px solid #1a4051;border-radius:18px;padding:24px;box-shadow:0 15px 60px #0009;text-align:center}
+#mpf-lock-card h2{color:#a6ff4d;margin:8px 0}#mpf-lock-card p{color:#91a6bd;font-size:13px;line-height:1.5}
+#mpf-pin-input{width:100%;padding:14px;text-align:center;letter-spacing:10px;font-size:24px;border-radius:10px;border:1px solid #25e6df;background:#07101d;color:#eaf3ff}
+.mpf-settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:12px 0}
+.mpf-setting-card{background:#0c1728;border:1px solid #1a4051;border-radius:12px;padding:13px}
+.mpf-setting-card h3{font-size:14px;color:#a6ff4d;margin:0 0 8px}
+.mpf-setting-card p,.mpf-setting-card small{color:#91a6bd;font-size:12px;line-height:1.5}
+.mpf-setting-card button,.mpf-setting-card input{margin:4px 4px 4px 0}
+.mpf-setting-card input{max-width:120px;padding:8px;border-radius:7px;border:1px solid #1a4051;background:#07101d;color:#eaf3ff}
+.mpf-setting-note{font-size:12px;color:#ffd166;line-height:1.5;margin-top:8px}
+.mpf-setting-ok{color:#8cff68}.mpf-setting-warn{color:#ffd166}
+</style>
+<div id="mpf-lock-screen" style="display:none" role="dialog" aria-modal="true" aria-label="App lock">
+  <div id="mpf-lock-card">
+    <div style="font-size:30px">🔐</div><h2>MY PERSONAL FINANCE</h2>
+    <p id="mpf-lock-message">Secure your finance data with a 6-digit PIN.</p>
+    <input id="mpf-pin-input" type="password" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="••••••" aria-label="6 digit PIN">
+    <div style="margin-top:12px"><button class="act primary" id="mpf-pin-submit" type="button">Continue</button></div>
+    <p id="mpf-pin-error" role="alert"></p>
+    <p class="mpf-setting-note">PIN protection is a local convenience lock, not encryption of the app database. Keep a separate JSON backup. If you forget the PIN, use the recovery guidance in Settings on a device where you are already signed in.</p>
+  </div>
+</div>
+<script>
+(() => {
+"use strict";
+const $ = id => document.getElementById(id);
+const PIN_KEY="mpf_v20_pin_v1", BACKUP_KEY="mpf_v20_auto_backups", PREF_KEY="mpf_v20_preferences";
+const enc=new TextEncoder();
+const prefs=()=>{try{return JSON.parse(localStorage.getItem(PREF_KEY)||"{}")}catch(_){return {}}};
+const setPrefs=x=>localStorage.setItem(PREF_KEY,JSON.stringify(x));
+async function hashPin(pin,salt){
+ const material=await crypto.subtle.importKey("raw",enc.encode(pin),"PBKDF2",false,["deriveBits"]);
+ const bits=await crypto.subtle.deriveBits({name:"PBKDF2",salt:Uint8Array.from(atob(salt),c=>c.charCodeAt(0)),iterations:150000,hash:"SHA-256"},material,256);
+ return btoa(String.fromCharCode(...new Uint8Array(bits)));
+}
+function randomSalt(){const b=crypto.getRandomValues(new Uint8Array(16));return btoa(String.fromCharCode(...b))}
+let pinMode="verify", unlocked=false;
+async function initLock(){
+ const overlay=$("mpf-lock-screen"), stored=localStorage.getItem(PIN_KEY);
+ if(!overlay)return;
+ overlay.style.display="flex";
+ pinMode=stored?"verify":"create";
+ $("mpf-lock-message").textContent=stored?"Enter your 6-digit PIN to open the app.":"Create a 6-digit PIN to protect this app.";
+ $("mpf-pin-submit").textContent=stored?"Unlock":"Set PIN";
+ $("mpf-pin-input").value="";
+ $("mpf-pin-submit").onclick=async()=>{
+  const pin=$("mpf-pin-input").value, err=$("mpf-pin-error");
+  if(!/^\d{6}$/.test(pin)){err.textContent="Please enter exactly 6 digits.";return}
+  try{
+   if(pinMode==="create"){
+    const salt=randomSalt(),hash=await hashPin(pin,salt);
+    localStorage.setItem(PIN_KEY,JSON.stringify({salt,hash,created:new Date().toISOString()}));
+   }else{
+    const rec=JSON.parse(localStorage.getItem(PIN_KEY));
+    if(await hashPin(pin,rec.salt)!==rec.hash){err.textContent="PIN incorrect. Try again.";return}
+   }
+   unlocked=true;overlay.style.display="none";
+  }catch(e){err.textContent="PIN security is unavailable in this browser. Open the app over HTTPS and try again."}
+ };
+ $("mpf-pin-input").addEventListener("keydown",e=>{if(e.key==="Enter")$("mpf-pin-submit").click()});
+}
+const SNAP_DB="MPF_Settings_Backups_V2";
+function openSnapshotDB(){
+ return new Promise((resolve,reject)=>{
+  const req=indexedDB.open(SNAP_DB,1);
+  req.onupgradeneeded=()=>{const db=req.result;if(!db.objectStoreNames.contains("snapshots"))db.createObjectStore("snapshots",{keyPath:"id",autoIncrement:true})};
+  req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||new Error("Backup database could not open"));
+ });
+}
+async function readSnapshots(){
+ const db=await openSnapshotDB();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction("snapshots","readonly"),req=tx.objectStore("snapshots").getAll();
+  req.onsuccess=()=>{const rows=(req.result||[]).sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));resolve(rows)};
+  req.onerror=()=>reject(req.error||new Error("Could not read backup snapshots"));
+  tx.oncomplete=()=>db.close();tx.onerror=()=>{db.close();reject(tx.error)};
+ });
+}
+async function storeSnapshot(data){
+ const item={created_at:new Date().toISOString(),data:JSON.parse(JSON.stringify(data))};
+ const db=await openSnapshotDB();
+ await new Promise((resolve,reject)=>{
+  const tx=db.transaction("snapshots","readwrite"),store=tx.objectStore("snapshots");
+  store.add(item);
+  const all=store.getAll();
+  all.onsuccess=()=>{
+   const rows=(all.result||[]).sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)));
+   rows.slice(7).forEach(row=>store.delete(row.id));
+  };
+  tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error||new Error("Snapshot save failed"));tx.onabort=()=>reject(tx.error||new Error("Snapshot save aborted"));
+ });
+ db.close();
+ const rows=await readSnapshots();
+ localStorage.setItem(BACKUP_KEY,JSON.stringify(rows.map(x=>({created_at:x.created_at,data:x.data}))));
+ if(rows[0])localStorage.setItem("mpf_v20_last_backup",rows[0].created_at);
+ return rows.length;
+}
+function addAutomaticBackup(){
+ if(!window.MPFDatabase||typeof window.MPFDatabase.readAll!=="function")return;
+ const original=window.MPFDatabase.save;
+ if(typeof original!=="function"||original.__mpfV20Wrapped)return;
+ const wrapped=async function(d){
+  await original.call(this,d);
+  try{await storeSnapshot(d)}catch(e){console.warn("Automatic backup snapshot failed",e)}
+ };
+ wrapped.__mpfV20Wrapped=true;window.MPFDatabase.save=wrapped;
+}
+function fmtDate(v){if(!v)return "—";const d=new Date(v);return isNaN(d)?"—":d.toLocaleDateString("en-IN")}
+async function dataHealth(){
+ try{
+  const d=await window.MPFDatabase.readAll();
+  const groups=[["Accounts",d.accounts||[],"account_id"],["Transactions",d.transactions||[],"transaction_id"],["Transfers",d.transfers||[],"transfer_id"],["Budgets",d.budgets||[],"budget_id"],["Savings",d.savings||[],"savings_id"],["Goals",d.goals||[],"goal_id"],["Portfolio",d.holdings||[],"holding_id"]];
+  const issues=[];
+  groups.forEach(([name,arr,key])=>{
+   const seen=new Set();arr.filter(x=>!x.deleted&&x.status!=="Deleted").forEach(x=>{
+    if(x[key]&&seen.has(x[key]))issues.push(name+": duplicate ID "+x[key]);
+    if(x[key])seen.add(x[key]);
+    if(name==="Transactions"&&(!(Number(x.amount)>0)||!x.account_id))issues.push("Transaction missing amount/account: "+(x[key]||"record"));
+   });
+  });
+  return {d,issues};
+ }catch(e){return {d:null,issues:["Could not read local database: "+e.message]}}
+}
+function makeSettingsMarkup(){
+ const last=localStorage.getItem("mpf_v20_last_backup");
+ const n=(()=>{try{return JSON.parse(localStorage.getItem(BACKUP_KEY)||"[]").length}catch(_){return 0}})();
+ const hasPin=!!localStorage.getItem(PIN_KEY);
+ return `<div class="fieldgrid"><div class="field"><label>Storage Status</label><div class="muted">${(window.MPFStorageMode||"Checking…").replace(/</g,"&lt;")}</div></div><div class="field"><label>App Version</label><div class="muted">V2.0.4 · Final Settings Consolidation</div></div></div>
+ <p class="muted" style="margin-top:12px">Existing V1.9 accounts and records are retained. This update adds security, backup monitoring and helpful checks.</p>
+ <div class="mpf-settings-grid">
+  <section class="mpf-setting-card"><h3>🔐 App Lock · 6-digit PIN</h3><p>${hasPin?"PIN is configured on this device.":"No PIN is configured yet."}</p><span class="mpf-setting-ok"><b>${hasPin?"PIN configured":"PIN will be created on first launch"}</b></span><div style="margin-top:10px"><button class="act" id="mpf-open-pin-change" type="button">Change PIN</button></div><div id="mpf-pin-change-panel" style="display:none;margin-top:10px"><label>Current PIN</label><input id="mpf-current-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="current-password" placeholder="6-digit current PIN"><label>New PIN</label><input id="mpf-new-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="6-digit new PIN"><label>Confirm New PIN</label><input id="mpf-confirm-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="Re-enter new PIN"><div style="margin-top:8px"><button class="act primary" id="mpf-save-pin-change" type="button">Save New PIN</button><button class="act" id="mpf-cancel-pin-change" type="button">Cancel</button></div><p id="mpf-pin-change-status" class="muted" role="status"></p></div><p class="mpf-setting-note">PIN hash is stored locally, not the plain PIN. This is a convenience lock, not database encryption.</p></section>
+  <section class="mpf-setting-card"><h3>🔔 Alerts & Notifications</h3><p>In-app data checks are available. Mobile notifications need your permission and browser support.</p><button class="act" id="mpf-enable-notifications" type="button">Enable mobile notifications</button><p id="mpf-notification-status" class="muted">${("Notification" in window)?("Permission: "+Notification.permission):"Notifications are not supported in this browser."}</p></section>
+  <section class="mpf-setting-card"><h3>💾 Automatic Local Backup</h3><p>Automatic snapshots are kept after successful database saves (up to 7 snapshots).</p><p>Saved snapshots: <b>${n}</b><br>Last backup: ${last?fmtDate(last):"Not yet created"}</p><button class="act" id="mpf-backup-now" type="button">Create backup snapshot now</button><button class="act" id="mpf-backup-export" type="button">Download JSON backup</button></section>
+  <section class="mpf-setting-card"><h3>📅 Daily Backup Reminder</h3><p>Daily reminder appears inside the app when a backup is due. Browser background scheduling is not guaranteed.</p><label><input type="checkbox" id="mpf-daily-reminder" ${prefs().dailyReminder===false?"":"checked"}> Enable daily reminder</label><p id="mpf-reminder-status" class="muted"></p></section>
+  <section class="mpf-setting-card"><h3>📤 Share App</h3><p>Share the official app link with another person.</p><button class="act" id="mpf-share-app" type="button">Share app</button></section>
+  <section class="mpf-setting-card"><h3>🩺 Data Health Check</h3><p>Check duplicate IDs and basic transaction completeness.</p><button class="act" id="mpf-health-check" type="button">Run data health check</button><div id="mpf-health-result" class="muted" style="margin-top:8px"></div></section>
+  <section class="mpf-setting-card"><h3>🗂 Storage Monitor</h3><p>Database mode: <b>${(window.MPFStorageMode||"Checking…").replace(/</g,"&lt;")}</b><br>Automatic snapshots: <b>${n}/7</b></p><button class="act" id="mpf-storage-check" type="button">Check storage status</button><div id="mpf-storage-result" class="muted"></div></section>
+  <section class="mpf-setting-card"><h3>🛡 Restore Protection</h3><p>Before restoring any backup, download a fresh backup of the current records. Verify the backup date and totals before applying it.</p><p class="mpf-setting-note">Never clear browser data until you have confirmed a downloadable backup.</p></section>
+  <section class="mpf-setting-card"><h3>🆘 PIN Recovery Guidance</h3><p>If you forget your PIN, do not clear site data: that can permanently remove local finance records. First export a backup while still unlocked, or use a separately verified backup on a safe recovery copy. This version does not provide a PIN bypass.</p></section>
+  <section class="mpf-setting-card"><h3>ℹ App Information</h3><p>MY PERSONAL FINANCE V2.0.4<br>Manual entry + CSV / Excel import<br>No bank / UPI / broker connection.</p></section>
+ </div>
+ <div id="mpf-alert-panel" class="mpf-setting-card"><h3>📌 In-app reminders</h3><div id="mpf-alert-content" class="muted">Checking reminders…</div></div>
+ <div class="toolbar" style="margin-top:12px"><button class="act" type="button" id="settings-export">Export a safety backup now</button><button class="act" type="button" id="compare-storage">Compare LocalStorage vs IndexedDB</button></div>
+ <div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Preview only. No records will be changed.</p><button class="act" type="button" id="preview-recovery">Preview verified JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">Not previewed yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
+}
+function recordCount(obj){
+ return Object.values(obj||{}).reduce((sum,value)=>sum+(Array.isArray(value)?value.length:0),0);
+}
+async function getBestBackupData(){
+ let indexed={},local={};
+ try{indexed=await window.MPFDatabase.readAll()}catch(_){}
+ try{local=JSON.parse(localStorage.getItem("mpf_local_v1_1")||"{}")}catch(_){}
+ // Prefer whichever copy contains more records; never replace one copy with a smaller empty copy.
+ return recordCount(local)>recordCount(indexed)?local:indexed;
+}
+async function exportData(d,filename){
+ const payload={app:"MY PERSONAL FINANCE",version:"2.0.4",exported_at:new Date().toISOString(),record_count:recordCount(d),data:d};
+ const json=JSON.stringify(payload,null,2);
+ const blob=new Blob([json],{type:"application/json"});
+ let file=null;
+ try{file=new File([blob],filename,{type:"application/json"})}catch(_){}
+ if(file && navigator.share && navigator.canShare){
+  try{if(navigator.canShare({files:[file]})){await navigator.share({title:"MY PERSONAL FINANCE backup",text:"Keep this JSON backup in a safe place.",files:[file]});return "Android share sheet opened for the JSON backup."}}
+  catch(e){if(e.name==="AbortError")return "Backup sharing cancelled. No file was exported."}
+ }
+ // content:// file previews often cannot resolve blob: download URLs. Use a data URL as fallback.
+ const dataUrl="data:application/json;charset=utf-8,"+encodeURIComponent(json);
+ const a=document.createElement("a");a.href=dataUrl;a.download=filename;a.rel="noopener";a.style.display="block";
+ a.textContent="Tap here to save "+filename;
+ const host=document.createElement("div");
+ host.style.cssText="position:fixed;inset:0;z-index:1000000;background:#07101d;color:#eaf3ff;padding:24px;font:16px system-ui;overflow:auto";
+ const msg=document.createElement("p");msg.textContent="Your JSON backup is ready. Tap the button below. If Chrome cannot download from this local preview, use Share on the HTTPS app.";
+ const close=document.createElement("button");close.textContent="Return to app";close.onclick=()=>host.remove();
+ a.style.cssText="display:inline-block;padding:14px 18px;background:#173b32;color:#a6ff4d;border-radius:10px;margin:18px 0;font-weight:700";
+ host.append(msg,a,document.createElement("br"),close);document.body.appendChild(host);
+ return "Backup prepared · "+recordCount(d)+" records. A save link is displayed on screen.";
+}
+async function attachSettings(){
+ const form=$("view-form");
+ if(!form||!form.innerHTML.includes('id="settings-export"')||form.dataset.mpfV20==="1")return;
+ form.dataset.mpfV20="1";form.innerHTML=makeSettingsMarkup();
+ try{
+  const rows=await readSnapshots();
+  const countNode=form.querySelector(".mpf-setting-card h3")?.parentElement;
+  const backupCard=[...form.querySelectorAll(".mpf-setting-card")].find(card=>card.textContent.includes("Automatic Local Backup"));
+  if(backupCard){const p=backupCard.querySelector("p:nth-of-type(2)");if(p)p.innerHTML="Saved snapshots: <b>"+rows.length+"</b><br>Last backup: "+(rows[0]?fmtDate(rows[0].created_at):"Not yet created")}
+  const storageCard=[...form.querySelectorAll(".mpf-setting-card")].find(card=>card.textContent.includes("Storage Monitor"));
+  if(storageCard){const p=storageCard.querySelector("p");if(p)p.innerHTML="Database mode: <b>"+(window.MPFStorageMode||"Checking…")+"</b><br>Automatic snapshots: <b>"+rows.length+"/7</b>"}
+ }catch(e){console.warn("Could not load durable backup list",e)}
+ const click=(id,fn)=>{const el=$(id);if(el)el.onclick=fn};
+ click("mpf-open-pin-change",()=>{
+  const panel=$("mpf-pin-change-panel");
+  if(panel){panel.style.display=panel.style.display==="none"?"block":"none";$("mpf-pin-change-status").textContent="";}
+ });
+ click("mpf-cancel-pin-change",()=>{
+  $("mpf-current-pin").value="";$("mpf-new-pin").value="";$("mpf-confirm-pin").value="";
+  $("mpf-pin-change-status").textContent="";$("mpf-pin-change-panel").style.display="none";
+ });
+ click("mpf-save-pin-change",async()=>{
+  const status=$("mpf-pin-change-status");
+  const current=$("mpf-current-pin").value;
+  const next=$("mpf-new-pin").value;
+  const confirmPin=$("mpf-confirm-pin").value;
+  const say=(m)=>{status.textContent=m};
+  if(!/^\d{6}$/.test(current)||!/^\d{6}$/.test(next)||!/^\d{6}$/.test(confirmPin)){say("All PIN fields must contain exactly 6 digits.");return}
+  if(next!==confirmPin){say("New PIN and Confirm New PIN do not match.");return}
+  if(current===next){say("New PIN must be different from the current PIN.");return}
+  try{
+   const stored=localStorage.getItem(PIN_KEY);
+   if(!stored){say("No existing PIN record found. Please reload and set up the app lock first.");return}
+   const record=JSON.parse(stored);
+   const currentHash=await hashPin(current,record.salt);
+   if(currentHash!==record.hash){say("Current PIN is incorrect. Your PIN has not been changed.");return}
+   const salt=randomSalt();
+   const hash=await hashPin(next,salt);
+   localStorage.setItem(PIN_KEY,JSON.stringify({salt,hash,created:record.created||new Date().toISOString(),updated:new Date().toISOString()}));
+   $("mpf-current-pin").value="";$("mpf-new-pin").value="";$("mpf-confirm-pin").value="";
+   say("PIN changed successfully. Use your new PIN next time you open the app.");
+   const button=$("mpf-open-pin-change");if(button)button.textContent="Change PIN";
+  }catch(e){say("PIN could not be changed: "+e.message)}
+ });
+ click("mpf-backup-now",async()=>{
+  try{
+   const d=await getBestBackupData();
+   const count=await storeSnapshot(d);
+   alert("Local backup snapshot saved in a separate IndexedDB backup store. Saved snapshots: "+count+"/7. Also download a JSON copy and keep it outside this phone.");
+   attachSettings();
+  }catch(e){alert("Backup could not be created: "+e.message)}
+ });
+ click("mpf-backup-export",async()=>{
+  const btn=$("mpf-backup-export");const original=btn.textContent;btn.disabled=true;btn.textContent="Preparing backup…";
+  try{
+   const d=await getBestBackupData();
+   const message=await exportData(d,"my_personal_finance_v2_backup.json");
+   if(message)alert(message+"\nRecords included: "+recordCount(d));
+  }catch(e){alert("Export failed: "+e.message)}
+  finally{btn.disabled=false;btn.textContent=original}
+ });
+ click("mpf-enable-notifications",async()=>{
+  const out=$("mpf-notification-status");
+  if(!("Notification" in window)){out.textContent="This browser does not support notifications.";return}
+  if(!window.isSecureContext || location.protocol==="content:"){
+   out.textContent="Open the official HTTPS app link in Chrome to enable notifications. Local file preview (content://) cannot reliably request mobile notifications.";
+   return;
+  }
+  if(Notification.permission==="denied"){
+   out.textContent="Notifications are blocked for this site. In Chrome, open Site settings → Notifications → Allow, then reload the app.";
+   return;
+  }
+  try{
+   const p=await Notification.requestPermission();
+   out.textContent="Permission: "+p;
+   if(p==="granted"){
+    try{new Notification("MY PERSONAL FINANCE",{body:"Notification permission is enabled. Open the app to view finance reminders."})}
+    catch(e){out.textContent="Permission granted, but this browser could not show a test notification: "+e.message}
+   }else if(p==="denied"){
+    out.textContent="Permission denied. In Chrome Site settings, change Notifications to Allow and reload.";
+   }else{
+    out.textContent="Permission not granted. You can enable it later in Chrome Site settings.";
+   }
+  }catch(e){out.textContent="Could not request notification permission: "+e.message}
+ });
+ const rem=$("mpf-daily-reminder");if(rem){rem.onchange=()=>{const p=prefs();p.dailyReminder=rem.checked;setPrefs(p);showAlerts()}}
+ click("mpf-share-app",async()=>{
+  const url="https://supraakashhajra-boop.github.io/My-Personal-Finance/";
+  try{if(navigator.share)await navigator.share({title:"MY PERSONAL FINANCE",text:"Personal finance tracking app",url});else{await navigator.clipboard.writeText(url);alert("App link copied: "+url)}}catch(e){if(e.name!=="AbortError"){try{await navigator.clipboard.writeText(url);alert("App link copied: "+url)}catch(_){prompt("Copy this app link:",url)}}}
+ });
+ click("mpf-health-check",async()=>{
+  const out=$("mpf-health-result");out.textContent="Checking…";const r=await dataHealth();
+  if(!r.d){out.textContent=r.issues.join("\n");return}
+  out.textContent=r.issues.length?"Warnings:\n• "+r.issues.join("\n• "):"No duplicate IDs or basic transaction issues found in checked records.";
+ });
+ click("mpf-storage-check",async()=>{
+  const out=$("mpf-storage-result");
+  try{
+   const d=await window.MPFDatabase.readAll();
+   const tables=Object.entries(d).filter(([,v])=>Array.isArray(v));
+   const counts=tables.map(([k,v])=>({name:k,count:v.length}));
+   const total=counts.reduce((sum,x)=>sum+x.count,0);
+   const summary=counts.filter(x=>x.count>0).map(x=>x.name+": "+x.count).join(" · ");
+   out.textContent="Database readable · "+total+" total records across "+tables.length+" tables. "+
+    (total===0?"This is a fresh/empty local test database; your live V1.9 records are stored under a different browser origin and are not included here.":"Records found: "+summary+". ")+
+    (localStorage.getItem("mpf_v20_last_backup")?"Backup snapshot available":"No automatic snapshot yet");
+  }catch(e){out.textContent="Storage check failed: "+e.message}
+ });
+ showAlerts();
+}
+async function showAlerts(){
+ const out=$("mpf-alert-content");if(!out)return;
+ if(prefs().dailyReminder===false){out.textContent="Daily backup reminder is off.";return}
+ try{
+  const d=await window.MPFDatabase.readAll(),alerts=[];
+  const last=localStorage.getItem("mpf_v20_last_backup"),days=last?(Date.now()-new Date(last).getTime())/86400000:999;
+  if(days>=1)alerts.push("Daily backup due: create a local snapshot and download a JSON copy.");
+  const today=new Date();today.setHours(0,0,0,0);
+  (d.bills||[]).concat(d.emis||[]).filter(x=>!x.deleted&&x.due_date).forEach(x=>{const due=new Date(x.due_date);const diff=Math.ceil((due-today)/86400000);if(diff>=0&&diff<=7)alerts.push((x.name||"Bill/EMI")+" due in "+diff+" day(s) · ₹"+Number(x.amount||0).toLocaleString("en-IN"))});
+  (d.budgets||[]).filter(x=>!x.deleted).forEach(b=>{
+   const spent=(d.transactions||[]).filter(t=>!t.deleted&&t.type==="Debit"&&String(t.date||"").slice(0,7)===b.month&&t.category===b.category).reduce((s,t)=>s+Number(t.amount||0),0);
+   if(Number(b.amount)>0&&spent>=Number(b.amount))alerts.push("Budget exceeded: "+b.category+" · ₹"+spent.toLocaleString("en-IN")+" / ₹"+Number(b.amount).toLocaleString("en-IN"));
+  });
+  out.textContent=alerts.length?"• "+alerts.join("\n• "):"No urgent in-app reminders right now.";
+  $("mpf-reminder-status").textContent="Reminder checked when the app is opened.";
+ }catch(e){out.textContent="Could not load reminders: "+e.message}
+}
+function observeSettings(){
+ const form=$("view-form");if(!form)return;
+ new MutationObserver(()=>{if(form.innerHTML.includes('id="settings-export"'))attachSettings()}).observe(form,{childList:true,subtree:true});
+}
+window.addEventListener("mpf-database-ready",()=>{addAutomaticBackup();});
+if(window.MPFReady)addAutomaticBackup();
+document.addEventListener("DOMContentLoaded",()=>{initLock();observeSettings();});
+})();
+</script>
+
+<script>if("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script></body></html>
