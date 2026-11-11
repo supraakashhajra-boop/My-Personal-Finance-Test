@@ -358,6 +358,7 @@ function bindV19Recovery(){
   }catch(e){alert("Recovery not confirmed: "+e.message+"\\nYour downloaded JSON backup remains unchanged. Do not clear browser data.");}
  };
 }
+window.MPFAppBridge={blank, getData:()=>data, setData:(next)=>{data=next}, getDBKEY:()=>DBKEY, showSettings:()=>{current="Settings";render()}, refresh:()=>{updateMetrics();render()}};
 function render(){updateMetrics();tabs();$("view-title").textContent=current;$("view-subtitle").textContent="Local device data · Records are saved in this browser."; $("view-form").innerHTML=formFor(current);$("view-list").innerHTML=rowsFor(current);const form=$("entry-form");if(form)form.onsubmit=submitForm;
  const sx=$("settings-export");if(sx)sx.onclick=()=>$("export-btn").click();
  const cmp=$("compare-storage");if(cmp)cmp.onclick=async()=>{
@@ -754,9 +755,10 @@ async function exportData(d,filename){
  host.append(msg,a,document.createElement("br"),close);document.body.appendChild(host);
  return "Backup prepared · "+recordCount(d)+" records. A save link is displayed on screen.";
 }
+const blank=window.MPFAppBridge.blank;
 async function attachSettings(){
  const form=$("view-form");
- if(!form||!form.innerHTML.includes('id="settings-export"')||form.dataset.mpfV20==="1")return;
+ if(!form||!form.innerHTML.includes('id="settings-export"')||(form.dataset.mpfV20==="1"&&form.querySelector("#mpf-backup-file")))return;
  form.dataset.mpfV20="1";form.innerHTML=makeSettingsMarkup();
  try{
   const rows=await readSnapshots();
@@ -861,20 +863,20 @@ async function attachSettings(){
   if(!yes)return;
   const btn=$("apply-recovery");if(btn){btn.disabled=true;btn.textContent="Restoring…"}
   try{
-   const current=await window.MPFDatabase.readAll();
-   await storeSnapshot(current);
+   const currentData=await window.MPFDatabase.readAll();
+   await storeSnapshot(currentData);
    const restored={...blank(),...pending.payload};
    Object.keys(blank()).forEach(k=>{if(!Array.isArray(restored[k]))throw new Error("Invalid backup table: "+k)});
    await window.MPFDatabase.save(restored);
    const check=await window.MPFDatabase.readAll();
    const mismatches=Object.keys(blank()).filter(k=>(check[k]||[]).length!==(restored[k]||[]).length);
    if(mismatches.length)throw new Error("Post-restore verification mismatch: "+mismatches.join(", "));
-   localStorage.setItem(DBKEY,JSON.stringify(restored));
+   localStorage.setItem(window.MPFAppBridge.getDBKEY(),JSON.stringify(restored));
    localStorage.setItem("mpf_idb_migration_v1","done");
-   data=restored;
+   window.MPFAppBridge.setData(restored);
    window.MPF_PENDING_RESTORE=null;
    alert("Restore completed and verified. All "+pending.summary.total_records+" records were checked. The pre-restore safety snapshot was retained.");
-   current="Settings";render();
+   window.MPFAppBridge.showSettings();
   }catch(e){
    alert("Restore was not confirmed: "+e.message+". Do not clear browser data. Your downloaded JSON file remains unchanged.");
   }finally{

@@ -1,5 +1,15 @@
-MY PERSONAL FINANCE V2.0.5 — JSON RESTORE PREVIEW FIX
+MY PERSONAL FINANCE — FINAL CANDIDATE (Preview + Restore integration fix)
 
-Fixes the non-working Verified Backup Preview: the Settings screen now has a JSON file picker, parses the user's selected backup, validates all expected tables, and displays file name, export date, version, per-table counts and financial summary without changing records. Apply is enabled only after a valid preview; before applying, it creates a separate IndexedDB safety snapshot and verifies table counts after restore. Footer/app version labels updated.
+Files: index.html, manifest.json, sw.js, icon-192.png, icon-512.png, README.txt
 
-Upload all six files to the existing My-Personal-Finance-Test repository root and commit. Do not replace the live My-Personal-Finance V1.9 repository until all tests pass. Keep the downloaded JSON backup safe. Test restore only on the test website.
+This candidate fixes the JSON backup preview scope issue and connects the restore
+handler to the app's data/state functions. It also allows Settings handlers to be
+re-attached when the Settings view is opened again.
+
+IMPORTANT:
+- Deploy only to the separate My-Personal-Finance-Test repository first.
+- Do not replace the original V1.9 live repository until the test-site restore,
+  record counts, refresh persistence, and PWA checks have passed.
+- Preview is read-only. Apply Restore replaces records in the TEST site's own
+  browser-origin database after creating a safety snapshot.
+- Browser notification delivery in the background is not guaranteed.
