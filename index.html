@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MY PERSONAL FINANCE V2.0.4</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MY PERSONAL FINANCE V2.0.5</title>
 <style>
 :root{--bg:#050b16;--p:#0c1728;--line:#1a4051;--g:#a6ff4d;--c:#25e6df;--t:#eaf3ff;--m:#91a6bd}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10213a,#050b16 65%);color:var(--t);font:15px 'Inter','Segoe UI',Roboto,Arial,sans-serif}.shell{max-width:1600px;margin:auto;padding:16px;display:grid;grid-template-columns:210px minmax(0,1fr) 260px;gap:13px}.panel{background:linear-gradient(145deg,#0e1b2e,#07101d);border:1px solid var(--line);border-radius:14px;box-shadow:0 0 18px #25e6df12;padding:14px}.sidebar{min-height:95vh;position:sticky;top:16px;align-self:start}.brand{padding:8px 6px 18px;border-bottom:1px solid var(--line);margin-bottom:16px}.brand b{display:block;color:var(--g);font-size:21px;font-weight:850;letter-spacing:.2px;line-height:1.2}.brand small,.eyebrow,.navlabel{color:var(--c);font-size:10px;letter-spacing:1.5px}.nav{display:grid;gap:6px;margin-top:10px}.nav a{color:#bfd0e2;text-decoration:none;padding:10px;border-radius:8px}.nav a:first-child,.nav a:hover{color:var(--g);background:#102338;border:1px solid #23505a}.sidefoot{margin-top:24px;color:var(--m);font-size:11px;border:1px solid var(--line);padding:10px;border-radius:8px}main{min-width:0}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:10px}h1{font-size:30px;font-weight:800;letter-spacing:-.7px;margin:7px 0;line-height:1.15}.sub{font-size:11px;color:var(--m)}.status,.count{font-size:10px;color:var(--g);border:1px solid #315c49;border-radius:20px;padding:7px 9px}.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.metric{padding:12px}.metric span{color:var(--m);font-size:11px}.metric strong{display:block;color:var(--g);font-size:21px;margin:7px 0}
 .calc-positive{color:#8cff68!important;background-color:#103324!important;border-color:#26784c!important}
@@ -21,7 +21,7 @@
 .mpf-setting-card #mpf-pin-change-panel button{min-height:42px}
 </style><link rel="manifest" href="./manifest.json"><meta name="theme-color" content="#050b16"></head><body><div class="shell">
 <aside class="sidebar panel"><div class="brand"><b>MY PERSONAL FINANCE</b><small>CONTROL · TRACK · GROW</small></div><div class="navlabel">MASTER NAVIGATION</div><div class="nav"><a href="#dashboard" data-goto="Dashboard">⌂ Dashboard</a><a href="#workspace" data-goto="Income">＋ Income</a><a href="#workspace" data-goto="Expenses">− Expenses</a><a href="#workspace" data-goto="Budgets">▤ Budget</a><a href="#workspace" data-goto="Savings">◈ Savings</a><a href="#workspace" data-goto="Financial Goals">◎ Goals</a><a href="#workspace" data-goto="Accounts">▣ Accounts</a><a href="#workspace" data-goto="Transfers">↔ Transfers</a><a href="#workspace" data-goto="EMI & Bills">◷ EMI & Bills</a><a href="#workspace" data-goto="Portfolio">▥ Portfolio</a><a href="#workspace" data-goto="Audit Log">▤ Reports / Audit</a><a href="#workspace" data-goto="Audit Log">⇧ Import / Backup</a><a href="#workspace" data-goto="Settings">⚙ Settings</a></div><div class="sidefoot">LOCAL DATA MODE<br><b style="color:var(--g)">No bank / UPI / broker connection</b><br>Manual entry + CSV / Excel import</div></aside>
-<main id="dashboard"><div class="top"><div><div class="eyebrow">PERSONAL FINANCE COMMAND CENTER</div><h1>Master Dashboard</h1><div class="sub">MY PERSONAL FINANCE V2.0.4 · SECURITY & SETTINGS UPDATE</div></div><div><div class="status" id="app-status">● LOCAL APP READY</div><div class="sub" id="db-status" style="margin-top:6px">Opening secure local database…</div></div></div>
+<main id="dashboard"><div class="top"><div><div class="eyebrow">PERSONAL FINANCE COMMAND CENTER</div><h1>Master Dashboard</h1><div class="sub">MY PERSONAL FINANCE V2.0.5 · SECURITY & SETTINGS UPDATE</div></div><div><div class="status" id="app-status">● LOCAL APP READY</div><div class="sub" id="db-status" style="margin-top:6px">Opening secure local database…</div></div></div>
 <div class="metrics"><div class="metric panel"><span>Main Balance</span><strong>₹ —</strong><span>Combined account balance</span></div><div class="metric panel"><span>Monthly Income</span><strong>₹ —</strong><span>Actual credits only</span></div><div class="metric panel"><span>Monthly Expenses</span><strong>₹ —</strong><span>Actual debit expenses</span></div><div class="metric panel"><span>Total Savings</span><strong>₹ —</strong><span>Recorded savings entries</span></div><div class="metric panel"><span>Goal Progress</span><strong>— %</strong><span>Saved amount vs goal targets</span></div><div class="metric panel"><span>Portfolio Invested Amount</span><strong>₹ —</strong><span>Net capital deployed from Buy/Sell records</span></div><div class="metric panel"><span>Current Portfolio Value</span><strong>₹ —</strong><span>Based on last entered market price</span></div><div class="metric panel"><span>Portfolio Profit / Loss</span><strong>₹ —</strong><span>Current value minus net capital deployed</span></div><div class="metric panel"><span>Realized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss from completed sells</span></div><div class="metric panel"><span>Unrealized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss on remaining quantity</span></div></div>
 <!-- 12 Core Modules removed: Master Navigation is the single module entry point. -->
 <section class="panel" id="workspace" style="margin-top:14px">
@@ -56,7 +56,7 @@
 <button class="act info-toggle" type="button" data-info="roadmap">＋ Development Roadmap · App ka Agla Plan</button>
 <div class="info panel info-body" id="info-roadmap" hidden><div class="road"><div class="phase"><i class="dot"></i><div><b>Phase 1 · Master Interface</b><span>Approved layout aur navigation</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 2 · Accounting & Data Safety</b><span>Record validation, edit/delete, audit aur backup checks</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 3 · Core Modules</b><span>Accounts, Income, Expenses, Transfers, Budget aur Savings</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 4 · Advanced Modules</b><span>Goals, EMI, Bills aur Portfolio</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 5 · Full Testing</b><span>Balance, reports, restore aur mobile testing</span></div></div></div></div>
 </div>
-<div class="foot">MY PERSONAL FINANCE V1.1 · UPDATED MASTER INTERFACE · LOCAL DATA MODE</div></main>
+<div class="foot">MY PERSONAL FINANCE V2.0.5 · SECURITY & BACKUP UPDATE · LOCAL DATA MODE</div></main>
 <aside class="right">
 <section class="panel"><h3>BUILD STATUS</h3>
 <div class="rule"><b>Interface structure</b><span style="color:var(--g)">Updated interface prepared</span></div>
@@ -267,7 +267,7 @@ function tabs(){ $("view-tabs").innerHTML=views.map(v=>`<button class="act ${v==
 function field(label,name,type="text",required=false,opts=null){let input=opts?`<select name="${name}" ${required?"required":""}>${opts.map(x=>{const parts=String(x).split("|");const value=parts.length>1?parts[0]:x;const labelText=parts.length>1?parts.slice(1).join("|"):x;return `<option value="${esc(value)}">${esc(labelText)}</option>`}).join("")}</select>`:`<input name="${name}" type="${type}" ${required?"required":""} ${type==="number"?'min="0" step="0.01"':""}>`;return `<div class="field"><label>${label}</label>${input}</div>`}
 function accountOptions(){return data.accounts.filter(a=>a.status!=="Closed").map(a=>a.account_id+"|"+a.account_name)}
 function formFor(view){
- if(view==="Settings")return `<div class="fieldgrid"><div class="field"><label>Storage Status</label><div class="muted">${esc(window.MPFStorageMode||"Checking…")}</div></div><div class="field"><label>App Version</label><div class="muted">V2.0.4 · Final Settings Consolidation</div></div></div><p class="muted" style="margin-top:12px">Keep your downloaded JSON backup safe. Do not clear browser data. This screen provides a read-only preview before recovery.</p><div class="toolbar"><button class="act" type="button" id="settings-export">Export a safety backup now</button><button class="act" type="button" id="compare-storage">Compare LocalStorage vs IndexedDB</button></div><div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Preview only. No records will be changed.</p><button class="act" type="button" id="preview-recovery">Preview verified JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">Not previewed yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
+ if(view==="Settings")return `<div class="fieldgrid"><div class="field"><label>Storage Status</label><div class="muted">${esc(window.MPFStorageMode||"Checking…")}</div></div><div class="field"><label>App Version</label><div class="muted">V2.0.5 · JSON Restore Preview Fix</div></div></div><p class="muted" style="margin-top:12px">Keep your downloaded JSON backup safe. Do not clear browser data. This screen provides a read-only preview before recovery.</p><div class="toolbar"><button class="act" type="button" id="settings-export">Export a safety backup now</button><button class="act" type="button" id="compare-storage">Compare LocalStorage vs IndexedDB</button></div><div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Preview only. No records will be changed.</p><button class="act" type="button" id="preview-recovery">Preview verified JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">Not previewed yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
 
  const accounts=accountOptions();
  if(view==="Accounts")return `<form id="entry-form"><div class="fieldgrid">${field("Account Name","account_name","text",true)}${field("Account Type","account_type","text",true,["Bank Account","Savings Account","Cash","UPI","Digital Wallet","Fixed Deposit","Trading Account","Investment Account","Other Account"])}${field("Opening Balance (₹)","opening_balance","number",true)}${field("Opening Date","opening_date","date",true)}${field("Institution / Provider","institution")}</div><div class="toolbar"><button class="act primary">+ Add Account</button></div></form>`;
@@ -391,7 +391,7 @@ function render(){updateMetrics();tabs();$("view-title").textContent=current;$("
    out.textContent=lines.join("\\n");
   }catch(e){out.textContent="Comparison failed: "+e.message;}
  };
- document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>{const a=data.accounts.find(x=>x.account_id===b.dataset.close);if(a&&confirm("Close this account? Its history will be preserved.")){a.status="Closed";audit("CLOSE","Accounts",a.account_id,"Account deactivated; history preserved.");save()}});document.querySelectorAll("[data-edit-txn]").forEach(b=>b.onclick=()=>editTransaction(b.dataset.editTxn));document.querySelectorAll("[data-delete-txn]").forEach(b=>b.onclick=()=>deleteTransaction(b.dataset.deleteTxn));bindV18Settings();bindV19Recovery()}
+ document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>{const a=data.accounts.find(x=>x.account_id===b.dataset.close);if(a&&confirm("Close this account? Its history will be preserved.")){a.status="Closed";audit("CLOSE","Accounts",a.account_id,"Account deactivated; history preserved.");save()}});document.querySelectorAll("[data-edit-txn]").forEach(b=>b.onclick=()=>editTransaction(b.dataset.editTxn));document.querySelectorAll("[data-delete-txn]").forEach(b=>b.onclick=()=>deleteTransaction(b.dataset.deleteTxn));bindV18Settings()}
 function editTransaction(txnId){const t=data.transactions.find(x=>x.transaction_id===txnId&&!x.deleted);if(!t)return;const date=prompt("Date (YYYY-MM-DD)",t.date);if(date===null)return;const amountText=prompt("Amount (₹)",String(t.amount));if(amountText===null)return;const amount=Number(amountText);if(!date||!Number.isFinite(amount)||amount<=0){alert("Valid date aur positive amount enter karein.");return}const old={date:t.date,amount:t.amount,category:t.category,need_want:t.need_want,description:t.description};t.date=date;t.amount=amount;audit("EDIT","Transactions",t.transaction_id,"Old: "+JSON.stringify(old)+" | New: "+JSON.stringify({date:t.date,amount:t.amount,category:t.category,need_want:t.need_want,description:t.description}));save();alert("Transaction updated. Account balance aur dashboard recalculate ho gaye.")}
 function deleteTransaction(txnId){const t=data.transactions.find(x=>x.transaction_id===txnId&&!x.deleted);if(!t)return;if(!confirm("Is transaction ko delete karna hai? Audit history preserve rahegi."))return;t.deleted=true;t.deleted_at=new Date().toISOString();audit("DELETE","Transactions",t.transaction_id,"Transaction soft-deleted; excluded from balance and reports.");save();alert("Transaction deleted. Audit history preserved.")}
 function submitForm(e){e.preventDefault();const fd=new FormData(e.target),v=Object.fromEntries(fd.entries());const n=Number(v.amount||0);if(["Income","Expenses","Transfers","Savings","Budgets","EMI & Bills","Portfolio"].includes(current)&&n<0){alert("Amount negative nahi ho sakta.");return}
@@ -704,7 +704,7 @@ function makeSettingsMarkup(){
  const last=localStorage.getItem("mpf_v20_last_backup");
  const n=(()=>{try{return JSON.parse(localStorage.getItem(BACKUP_KEY)||"[]").length}catch(_){return 0}})();
  const hasPin=!!localStorage.getItem(PIN_KEY);
- return `<div class="fieldgrid"><div class="field"><label>Storage Status</label><div class="muted">${(window.MPFStorageMode||"Checking…").replace(/</g,"&lt;")}</div></div><div class="field"><label>App Version</label><div class="muted">V2.0.4 · Final Settings Consolidation</div></div></div>
+ return `<div class="fieldgrid"><div class="field"><label>Storage Status</label><div class="muted">${(window.MPFStorageMode||"Checking…").replace(/</g,"&lt;")}</div></div><div class="field"><label>App Version</label><div class="muted">V2.0.5 · JSON Restore Preview Fix</div></div></div>
  <p class="muted" style="margin-top:12px">Existing V1.9 accounts and records are retained. This update adds security, backup monitoring and helpful checks.</p>
  <div class="mpf-settings-grid">
   <section class="mpf-setting-card"><h3>🔐 App Lock · 6-digit PIN</h3><p>${hasPin?"PIN is configured on this device.":"No PIN is configured yet."}</p><span class="mpf-setting-ok"><b>${hasPin?"PIN configured":"PIN will be created on first launch"}</b></span><div style="margin-top:10px"><button class="act" id="mpf-open-pin-change" type="button">Change PIN</button></div><div id="mpf-pin-change-panel" style="display:none;margin-top:10px"><label>Current PIN</label><input id="mpf-current-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="current-password" placeholder="6-digit current PIN"><label>New PIN</label><input id="mpf-new-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="6-digit new PIN"><label>Confirm New PIN</label><input id="mpf-confirm-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="Re-enter new PIN"><div style="margin-top:8px"><button class="act primary" id="mpf-save-pin-change" type="button">Save New PIN</button><button class="act" id="mpf-cancel-pin-change" type="button">Cancel</button></div><p id="mpf-pin-change-status" class="muted" role="status"></p></div><p class="mpf-setting-note">PIN hash is stored locally, not the plain PIN. This is a convenience lock, not database encryption.</p></section>
@@ -716,11 +716,11 @@ function makeSettingsMarkup(){
   <section class="mpf-setting-card"><h3>🗂 Storage Monitor</h3><p>Database mode: <b>${(window.MPFStorageMode||"Checking…").replace(/</g,"&lt;")}</b><br>Automatic snapshots: <b>${n}/7</b></p><button class="act" id="mpf-storage-check" type="button">Check storage status</button><div id="mpf-storage-result" class="muted"></div></section>
   <section class="mpf-setting-card"><h3>🛡 Restore Protection</h3><p>Before restoring any backup, download a fresh backup of the current records. Verify the backup date and totals before applying it.</p><p class="mpf-setting-note">Never clear browser data until you have confirmed a downloadable backup.</p></section>
   <section class="mpf-setting-card"><h3>🆘 PIN Recovery Guidance</h3><p>If you forget your PIN, do not clear site data: that can permanently remove local finance records. First export a backup while still unlocked, or use a separately verified backup on a safe recovery copy. This version does not provide a PIN bypass.</p></section>
-  <section class="mpf-setting-card"><h3>ℹ App Information</h3><p>MY PERSONAL FINANCE V2.0.4<br>Manual entry + CSV / Excel import<br>No bank / UPI / broker connection.</p></section>
+  <section class="mpf-setting-card"><h3>ℹ App Information</h3><p>MY PERSONAL FINANCE V2.0.5<br>Manual entry + CSV / Excel import<br>No bank / UPI / broker connection.</p></section>
  </div>
  <div id="mpf-alert-panel" class="mpf-setting-card"><h3>📌 In-app reminders</h3><div id="mpf-alert-content" class="muted">Checking reminders…</div></div>
  <div class="toolbar" style="margin-top:12px"><button class="act" type="button" id="settings-export">Export a safety backup now</button><button class="act" type="button" id="compare-storage">Compare LocalStorage vs IndexedDB</button></div>
- <div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Preview only. No records will be changed.</p><button class="act" type="button" id="preview-recovery">Preview verified JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">Not previewed yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
+ <div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Select the JSON backup file you downloaded. Preview is read-only; no records will be changed.</p><input type="file" id="mpf-backup-file" accept=".json,application/json" style="display:block;width:100%;margin:10px 0;padding:10px"><button class="act" type="button" id="preview-recovery">Preview selected JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">No file selected yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
 }
 function recordCount(obj){
  return Object.values(obj||{}).reduce((sum,value)=>sum+(Array.isArray(value)?value.length:0),0);
@@ -733,7 +733,7 @@ async function getBestBackupData(){
  return recordCount(local)>recordCount(indexed)?local:indexed;
 }
 async function exportData(d,filename){
- const payload={app:"MY PERSONAL FINANCE",version:"2.0.4",exported_at:new Date().toISOString(),record_count:recordCount(d),data:d};
+ const payload={app:"MY PERSONAL FINANCE",version:"2.0.5",exported_at:new Date().toISOString(),record_count:recordCount(d),data:d};
  const json=JSON.stringify(payload,null,2);
  const blob=new Blob([json],{type:"application/json"});
  let file=null;
@@ -814,6 +814,72 @@ async function attachSettings(){
    if(message)alert(message+"\nRecords included: "+recordCount(d));
   }catch(e){alert("Export failed: "+e.message)}
   finally{btn.disabled=false;btn.textContent=original}
+ });
+ click("preview-recovery",async()=>{
+  const picker=$("mpf-backup-file"),out=$("recovery-preview"),apply=$("apply-recovery");
+  if(apply)apply.disabled=true;
+  window.MPF_PENDING_RESTORE=null;
+  if(!picker||!picker.files||!picker.files[0]){
+   if(out)out.textContent="Please choose the downloaded my_personal_finance_v2_backup.json file first.";
+   return;
+  }
+  try{
+   const file=picker.files[0];
+   if(file.size>15*1024*1024)throw new Error("Backup file is larger than 15 MB. Please check that you selected the correct JSON file.");
+   const parsed=JSON.parse(await file.text());
+   const payload=parsed&&parsed.data&&typeof parsed.data==="object"?parsed.data:parsed;
+   const required=Object.keys(blank());
+   const missing=required.filter(k=>!Array.isArray(payload[k]));
+   if(missing.length)throw new Error("This JSON is not a complete MY PERSONAL FINANCE backup. Missing table(s): "+missing.join(", "));
+   const counts={};
+   let total=0;
+   required.forEach(k=>{counts[k]=payload[k].length;total+=payload[k].length});
+   const summary={
+    file:file.name,
+    exported_at:parsed.exported_at||"Not provided",
+    version:parsed.version||"Unknown",
+    total_records:total,
+    tables:counts,
+    accounts:payload.accounts.filter(x=>!x.deleted&&x.status!=="Deleted").length,
+    active_transactions:payload.transactions.filter(x=>!x.deleted&&x.status!=="Deleted").length,
+    income:payload.transactions.filter(x=>!x.deleted&&x.status!=="Deleted"&&x.type==="Credit").reduce((s,x)=>s+Number(x.amount||0),0),
+    expenses:payload.transactions.filter(x=>!x.deleted&&x.status!=="Deleted"&&x.type==="Debit").reduce((s,x)=>s+Number(x.amount||0),0),
+    holdings:payload.holdings.filter(x=>!x.deleted&&x.status!=="Deleted").length,
+    audit_records:payload.audit.length
+   };
+   window.MPF_PENDING_RESTORE={payload,summary,file_name:file.name};
+   if(out)out.textContent="BACKUP PREVIEW · READ ONLY\n"+JSON.stringify(summary,null,2)+"\n\nNo records have been changed. Check the file name, date and totals before applying.";
+   if(apply)apply.disabled=false;
+  }catch(e){
+   if(out)out.textContent="Backup preview failed: "+e.message+"\nNo records were changed.";
+  }
+ });
+ click("apply-recovery",async()=>{
+  const pending=window.MPF_PENDING_RESTORE;
+  if(!pending){alert("Preview a valid JSON backup first.");return}
+  const yes=confirm("Restore "+pending.file_name+" ("+pending.summary.total_records+" records) into this test app? Current test-site records will be replaced. A safety snapshot will be created first.");
+  if(!yes)return;
+  const btn=$("apply-recovery");if(btn){btn.disabled=true;btn.textContent="Restoring…"}
+  try{
+   const current=await window.MPFDatabase.readAll();
+   await storeSnapshot(current);
+   const restored={...blank(),...pending.payload};
+   Object.keys(blank()).forEach(k=>{if(!Array.isArray(restored[k]))throw new Error("Invalid backup table: "+k)});
+   await window.MPFDatabase.save(restored);
+   const check=await window.MPFDatabase.readAll();
+   const mismatches=Object.keys(blank()).filter(k=>(check[k]||[]).length!==(restored[k]||[]).length);
+   if(mismatches.length)throw new Error("Post-restore verification mismatch: "+mismatches.join(", "));
+   localStorage.setItem(DBKEY,JSON.stringify(restored));
+   localStorage.setItem("mpf_idb_migration_v1","done");
+   data=restored;
+   window.MPF_PENDING_RESTORE=null;
+   alert("Restore completed and verified. All "+pending.summary.total_records+" records were checked. The pre-restore safety snapshot was retained.");
+   current="Settings";render();
+  }catch(e){
+   alert("Restore was not confirmed: "+e.message+". Do not clear browser data. Your downloaded JSON file remains unchanged.");
+  }finally{
+   if(btn){btn.disabled=false;btn.textContent="Apply verified backup"}
+  }
  });
  click("mpf-enable-notifications",async()=>{
   const out=$("mpf-notification-status");

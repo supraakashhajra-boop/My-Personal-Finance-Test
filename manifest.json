@@ -6,7 +6,7 @@
   "display": "standalone",
   "background_color": "#050b16",
   "theme_color": "#050b16",
-  "description": "Personal finance tracker with local data, backups and portfolio tracking.",
+  "description": "Personal finance tracker with local data, backup and portfolio tracking.",
   "icons": [
     {
       "src": "icon-192.png",

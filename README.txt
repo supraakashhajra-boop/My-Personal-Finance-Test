@@ -1,5 +1,5 @@
-MY PERSONAL FINANCE V2.0.4 — FINAL SETTINGS CONSOLIDATION
+MY PERSONAL FINANCE V2.0.5 — JSON RESTORE PREVIEW FIX
 
-Includes: separate IndexedDB database for up to 7 durable backup snapshots (does not change the existing MyPersonalFinance database version/schema), snapshot list loaded from that store, automatic snapshot after successful IndexedDB saves, manual snapshot to durable store, share-first JSON export with visible fallback save link for local file previews, improved storage diagnostics, Change PIN, reminders, share app and data checks.
+Fixes the non-working Verified Backup Preview: the Settings screen now has a JSON file picker, parses the user's selected backup, validates all expected tables, and displays file name, export date, version, per-table counts and financial summary without changing records. Apply is enabled only after a valid preview; before applying, it creates a separate IndexedDB safety snapshot and verifies table counts after restore. Footer/app version labels updated.
 
-IMPORTANT: keep V1.9 and its external JSON backup. Test this package on an HTTPS staging site before replacing the live app. The content:// local file preview is not a reliable final environment for Chrome downloads or web notifications. The original finance database schema/version is not upgraded by this package.
+Upload all six files to the existing My-Personal-Finance-Test repository root and commit. Do not replace the live My-Personal-Finance V1.9 repository until all tests pass. Keep the downloaded JSON backup safe. Test restore only on the test website.
