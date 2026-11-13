@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MY PERSONAL FINANCE V2.0.5</title>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SUPRAAKASH FINANCE MANAGEMENT</title>
 <style>
 :root{--bg:#050b16;--p:#0c1728;--line:#1a4051;--g:#a6ff4d;--c:#25e6df;--t:#eaf3ff;--m:#91a6bd}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#10213a,#050b16 65%);color:var(--t);font:15px 'Inter','Segoe UI',Roboto,Arial,sans-serif}.shell{max-width:1600px;margin:auto;padding:16px;display:grid;grid-template-columns:210px minmax(0,1fr) 260px;gap:13px}.panel{background:linear-gradient(145deg,#0e1b2e,#07101d);border:1px solid var(--line);border-radius:14px;box-shadow:0 0 18px #25e6df12;padding:14px}.sidebar{min-height:95vh;position:sticky;top:16px;align-self:start}.brand{padding:8px 6px 18px;border-bottom:1px solid var(--line);margin-bottom:16px}.brand b{display:block;color:var(--g);font-size:21px;font-weight:850;letter-spacing:.2px;line-height:1.2}.brand small,.eyebrow,.navlabel{color:var(--c);font-size:10px;letter-spacing:1.5px}.nav{display:grid;gap:6px;margin-top:10px}.nav a{color:#bfd0e2;text-decoration:none;padding:10px;border-radius:8px}.nav a:first-child,.nav a:hover{color:var(--g);background:#102338;border:1px solid #23505a}.sidefoot{margin-top:24px;color:var(--m);font-size:11px;border:1px solid var(--line);padding:10px;border-radius:8px}main{min-width:0}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;gap:10px}h1{font-size:30px;font-weight:800;letter-spacing:-.7px;margin:7px 0;line-height:1.15}.sub{font-size:11px;color:var(--m)}.status,.count{font-size:10px;color:var(--g);border:1px solid #315c49;border-radius:20px;padding:7px 9px}.metrics{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}.metric{padding:12px}.metric span{color:var(--m);font-size:11px}.metric strong{display:block;color:var(--g);font-size:21px;margin:7px 0}
 .calc-positive{color:#8cff68!important;background-color:#103324!important;border-color:#26784c!important}
@@ -19,12 +19,29 @@
 .mpf-setting-card #mpf-pin-change-panel label{display:block!important;margin:10px 0 5px!important;font-size:13px!important;color:#c8d7e8!important}
 .mpf-setting-card #mpf-pin-change-panel input{display:block!important;width:100%!important;max-width:100%!important;min-height:44px!important;margin:0!important;letter-spacing:3px!important}
 .mpf-setting-card #mpf-pin-change-panel button{min-height:42px}
-</style><link rel="manifest" href="./manifest.json"><meta name="theme-color" content="#050b16"></head><body><div class="shell">
-<aside class="sidebar panel"><div class="brand"><b>MY PERSONAL FINANCE</b><small>CONTROL · TRACK · GROW</small></div><div class="navlabel">MASTER NAVIGATION</div><div class="nav"><a href="#dashboard" data-goto="Dashboard">⌂ Dashboard</a><a href="#workspace" data-goto="Income">＋ Income</a><a href="#workspace" data-goto="Expenses">− Expenses</a><a href="#workspace" data-goto="Budgets">▤ Budget</a><a href="#workspace" data-goto="Savings">◈ Savings</a><a href="#workspace" data-goto="Financial Goals">◎ Goals</a><a href="#workspace" data-goto="Accounts">▣ Accounts</a><a href="#workspace" data-goto="Transfers">↔ Transfers</a><a href="#workspace" data-goto="EMI & Bills">◷ EMI & Bills</a><a href="#workspace" data-goto="Portfolio">▥ Portfolio</a><a href="#workspace" data-goto="Audit Log">▤ Reports / Audit</a><a href="#workspace" data-goto="Audit Log">⇧ Import / Backup</a><a href="#workspace" data-goto="Settings">⚙ Settings</a></div><div class="sidefoot">LOCAL DATA MODE<br><b style="color:var(--g)">No bank / UPI / broker connection</b><br>Manual entry + CSV / Excel import</div></aside>
-<main id="dashboard"><div class="top"><div><div class="eyebrow">PERSONAL FINANCE COMMAND CENTER</div><h1>Master Dashboard</h1><div class="sub">MY PERSONAL FINANCE V2.0.5 · SECURITY & SETTINGS UPDATE</div></div><div><div class="status" id="app-status">● LOCAL APP READY</div><div class="sub" id="db-status" style="margin-top:6px">Opening secure local database…</div></div></div>
-<div class="metrics"><div class="metric panel"><span>Main Balance</span><strong>₹ —</strong><span>Combined account balance</span></div><div class="metric panel"><span>Monthly Income</span><strong>₹ —</strong><span>Actual credits only</span></div><div class="metric panel"><span>Monthly Expenses</span><strong>₹ —</strong><span>Actual debit expenses</span></div><div class="metric panel"><span>Total Savings</span><strong>₹ —</strong><span>Recorded savings entries</span></div><div class="metric panel"><span>Goal Progress</span><strong>— %</strong><span>Saved amount vs goal targets</span></div><div class="metric panel"><span>Portfolio Invested Amount</span><strong>₹ —</strong><span>Net capital deployed from Buy/Sell records</span></div><div class="metric panel"><span>Current Portfolio Value</span><strong>₹ —</strong><span>Based on last entered market price</span></div><div class="metric panel"><span>Portfolio Profit / Loss</span><strong>₹ —</strong><span>Current value minus net capital deployed</span></div><div class="metric panel"><span>Realized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss from completed sells</span></div><div class="metric panel"><span>Unrealized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss on remaining quantity</span></div></div>
+</style><link rel="manifest" href="./manifest.json"><meta name="theme-color" content="#09271f"><style id="v14-info-visibility-fix">
+body.v14-ready main#dashboard>.info-toggle,
+body.v14-ready main#dashboard>.info-body,
+body.v14-ready main#dashboard>.foot{display:none!important}
+#v14-settings-info{display:none;margin-top:12px;position:relative;z-index:1;pointer-events:auto}
+#v14-settings-info .info-toggle{display:block!important}
+#v14-settings-info .info-body{display:block!important}\n#v14-settings-info .info-body[hidden]{display:none!important}\n#v14-settings-info .info-toggle{pointer-events:auto!important;position:relative;z-index:2}
+#v14-settings-info .foot{display:block!important}
+</style>
+
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#075238">
+<meta name="application-name" content="SUPRAAKASH FINANCE MANAGEMENT">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Supraakash Finance">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+\n</head><body><div class="shell">
+<aside class="sidebar panel"><div class="brand"><div class="brand-lockup"><b>SUPRAAKASH</b><small class="brand-sub">FINANCE MANAGEMENT</small></div><span class="brand-motto">CONTROL · TRACK · GROW</span></div><div class="navlabel">MASTER NAVIGATION</div><div class="nav"><a href="#dashboard" data-goto="Dashboard">⌂ Dashboard</a><a href="#workspace" data-goto="Accounts">▣ Accounts</a><a href="#workspace" data-goto="Income">＋ Income</a><a href="#workspace" data-goto="Expenses">− Expenses</a><a href="#workspace" data-goto="Budgets">▤ Budget</a><a href="#workspace" data-goto="Savings">◈ Savings</a><a href="#workspace" data-goto="Financial Goals">◎ Goals</a><a href="#workspace" data-goto="Transfers">↔ Transfers</a><a href="#workspace" data-goto="EMI & Bills">◷ EMI & Bills</a><a href="#workspace" data-goto="Portfolio">▥ Portfolio</a><a href="#workspace" data-goto="Audit Log">▤ Reports / Audit</a><a href="#workspace" data-goto="Settings" data-nav-label="Import / Backup">⇧ Import / Backup</a><a href="#workspace" data-goto="Settings">⚙ Settings</a></div><div class="sidefoot">LOCAL DATA MODE<br><b style="color:var(--g)">No bank / UPI / broker connection</b><br>Manual entry + CSV / Excel import</div></aside>
+<main id="dashboard"><div id="swipe-page-hint" aria-hidden="true"><span class="swipe-arrow">‹</span><strong>Swipe horizontally</strong><span>to change module</span><span class="swipe-arrow">›</span></div><button id="nav-menu-toggle" class="nav-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">☰ Menu</button><div id="dashboard-home"><div class="top"><div><div class="eyebrow">PERSONAL FINANCE COMMAND CENTER</div><h1>Master Dashboard</h1><div class="sub">SUPRAAKASH FINANCE MANAGEMENT · SECURITY & SETTINGS UPDATE</div></div><div><div class="status" id="app-status">● LOCAL APP READY</div><div class="sub" id="db-status" style="margin-top:6px">Opening secure local database…</div></div></div>
+<div class="metrics"><div class="metric panel"><span>Main Balance</span><strong>₹ —</strong><span>Combined account balance</span></div><div class="metric panel"><span>Monthly Income</span><strong>₹ —</strong><span>Actual credits only</span></div><div class="metric panel"><span>Monthly Expenses</span><strong>₹ —</strong><span>Actual debit expenses</span></div><div class="metric panel"><span>Total Savings</span><strong>₹ —</strong><span>Recorded savings entries</span></div><div class="metric panel"><span>Goal Progress</span><strong>— %</strong><span>Saved amount vs goal targets</span></div><div class="metric panel"><span>Portfolio Invested Amount</span><strong>₹ —</strong><span>Net capital deployed from Buy/Sell records</span></div><div class="metric panel"><span>Current Portfolio Value</span><strong>₹ —</strong><span>Based on last entered market price</span></div><div class="metric panel"><span>Portfolio Profit / Loss</span><strong>₹ —</strong><span>Current value minus net capital deployed</span></div><div class="metric panel"><span>Realized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss from completed sells</span></div><div class="metric panel"><span>Unrealized Portfolio P/L</span><strong>₹ —</strong><span>Profit / loss on remaining quantity</span></div></div></div>
 <!-- 12 Core Modules removed: Master Navigation is the single module entry point. -->
-<section class="panel" id="workspace" style="margin-top:14px">
+<section class="panel" id="workspace" hidden style="margin-top:14px">
  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
   <div><div class="eyebrow">WORKING AREA</div><h2 id="view-title" style="font-size:20px;margin:5px 0">Accounts Management</h2><div class="sub" id="view-subtitle">Create accounts and track their balances on this device.</div></div>
   <div style="display:flex;gap:7px;flex-wrap:wrap"><button class="act" id="export-btn">Export Backup</button><label class="act" for="restore-file" style="cursor:pointer">Restore Backup</label><a class="act danger" href="/__logout" style="text-decoration:none;display:inline-block">Logout</a><input id="restore-file" type="file" accept="application/json" hidden></div>
@@ -56,7 +73,7 @@
 <button class="act info-toggle" type="button" data-info="roadmap">＋ Development Roadmap · App ka Agla Plan</button>
 <div class="info panel info-body" id="info-roadmap" hidden><div class="road"><div class="phase"><i class="dot"></i><div><b>Phase 1 · Master Interface</b><span>Approved layout aur navigation</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 2 · Accounting & Data Safety</b><span>Record validation, edit/delete, audit aur backup checks</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 3 · Core Modules</b><span>Accounts, Income, Expenses, Transfers, Budget aur Savings</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 4 · Advanced Modules</b><span>Goals, EMI, Bills aur Portfolio</span></div></div><div class="phase"><i class="dot"></i><div><b>Phase 5 · Full Testing</b><span>Balance, reports, restore aur mobile testing</span></div></div></div></div>
 </div>
-<div class="foot">MY PERSONAL FINANCE V2.0.5 · SECURITY & BACKUP UPDATE · LOCAL DATA MODE</div></main>
+<div class="foot">SUPRAAKASH FINANCE MANAGEMENT · SECURITY & BACKUP UPDATE · LOCAL DATA MODE</div></main>
 <aside class="right">
 <section class="panel"><h3>BUILD STATUS</h3>
 <div class="rule"><b>Interface structure</b><span style="color:var(--g)">Updated interface prepared</span></div>
@@ -261,12 +278,13 @@ function updateMetrics(){
   values.forEach((v,i)=>setResultColor(cards[i].closest(".metric"),[0,1,5,7,8,9].includes(i)?v:0));
  }
 }
-const views=["Accounts","Income","Expenses","Transfers","Budgets","Savings","Financial Goals","EMI & Bills","Portfolio","Audit Log","Settings"];
+const views=["Accounts","Income","Expenses","Transfers","Budgets","Savings","Financial Goals","EMI & Bills","Portfolio","Audit Log","Settings","Import / Backup"];
 let current="Accounts";
 function tabs(){ $("view-tabs").innerHTML=views.map(v=>`<button class="act ${v===current?"primary":""}" data-view="${v}">${v}</button>`).join("");$("view-tabs").querySelectorAll("button").forEach(b=>b.onclick=()=>{current=b.dataset.view;render()})}
 function field(label,name,type="text",required=false,opts=null){let input=opts?`<select name="${name}" ${required?"required":""}>${opts.map(x=>{const parts=String(x).split("|");const value=parts.length>1?parts[0]:x;const labelText=parts.length>1?parts.slice(1).join("|"):x;return `<option value="${esc(value)}">${esc(labelText)}</option>`}).join("")}</select>`:`<input name="${name}" type="${type}" ${required?"required":""} ${type==="number"?'min="0" step="0.01"':""}>`;return `<div class="field"><label>${label}</label>${input}</div>`}
 function accountOptions(){return data.accounts.filter(a=>a.status!=="Closed").map(a=>a.account_id+"|"+a.account_name)}
 function formFor(view){
+ if(view==="Import / Backup")return `<div class="v14-card"><h3>Import / Backup</h3><p class="v14-muted">Export a complete JSON backup or restore a previously exported backup. Restore replaces the current local records, so export a safety backup first.</p><div class="toolbar"><button class="act primary" type="button" id="v14-export-backup">Export Backup</button><button class="act" type="button" id="v14-restore-backup">Import / Restore Backup</button></div><div class="v14-muted" id="v14-backup-status">Your data stays in this browser unless you export a backup.</div></div>`;
  if(view==="Settings")return `<div class="fieldgrid"><div class="field"><label>Storage Status</label><div class="muted">${esc(window.MPFStorageMode||"Checking…")}</div></div><div class="field"><label>App Version</label><div class="muted">V2.0.5 · JSON Restore Preview Fix</div></div></div><p class="muted" style="margin-top:12px">Keep your downloaded JSON backup safe. Do not clear browser data. This screen provides a read-only preview before recovery.</p><div class="toolbar"><button class="act" type="button" id="settings-export">Export a safety backup now</button><button class="act" type="button" id="compare-storage">Compare LocalStorage vs IndexedDB</button></div><div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Preview only. No records will be changed.</p><button class="act" type="button" id="preview-recovery">Preview verified JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">Not previewed yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
 
  const accounts=accountOptions();
@@ -361,6 +379,9 @@ function bindV19Recovery(){
 window.MPFAppBridge={blank, getData:()=>data, setData:(next)=>{data=next}, getDBKEY:()=>DBKEY, showSettings:()=>{current="Settings";render()}, refresh:()=>{updateMetrics();render()}};
 function render(){updateMetrics();tabs();$("view-title").textContent=current;$("view-subtitle").textContent="Local device data · Records are saved in this browser."; $("view-form").innerHTML=formFor(current);$("view-list").innerHTML=rowsFor(current);const form=$("entry-form");if(form)form.onsubmit=submitForm;
  const sx=$("settings-export");if(sx)sx.onclick=()=>$("export-btn").click();
+ const v14ex=$("v14-export-backup");if(v14ex)v14ex.onclick=()=>{const b=$("export-btn");if(b)b.click();};
+ const v14im=$("v14-restore-backup");if(v14im)v14im.onclick=()=>{const f=$("restore-file");if(f)f.click();};
+
  const cmp=$("compare-storage");if(cmp)cmp.onclick=async()=>{
   const out=$("storage-compare-result");out.textContent="Comparing…";
   try{
@@ -418,11 +439,32 @@ function submitForm(e){e.preventDefault();const fd=new FormData(e.target),v=Obje
  save();e.target.reset();alert("Record saved on this device.")}
 
 // UPDATED V1.1: navigation, accordion information and record management.
-document.querySelectorAll("[data-goto]").forEach(a=>a.addEventListener("click",()=>{
-  const target=a.dataset.goto;
-  if(target==="Dashboard"){ $("dashboard").scrollIntoView({behavior:"smooth"}); return; }
-  current=target; render(); $("workspace").scrollIntoView({behavior:"smooth"});
+function setAppPage(target){
+  const isDashboard=target==="Dashboard";
+  document.body.classList.toggle("module-active",!isDashboard);
+  document.body.classList.toggle("dashboard-active",isDashboard);
+  if(isDashboard){
+    $("workspace").hidden=true;
+    $("dashboard-home")?.removeAttribute("hidden");
+  }else{
+    $("workspace").hidden=false;
+    $("dashboard-home")?.setAttribute("hidden","");
+    current=target;
+    render();
+  }
+  document.querySelectorAll("[data-goto]").forEach(a=>{
+    a.classList.toggle("active",a.dataset.goto===target);
+    a.setAttribute("aria-current",a.dataset.goto===target?"page":"false");
+  });
+  document.body.classList.remove("drawer-open");
+  const toggle=$("nav-menu-toggle");if(toggle)toggle.setAttribute("aria-expanded","false");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-goto]").forEach(a=>a.addEventListener("click",ev=>{
+  ev.preventDefault();setAppPage(a.dataset.goto);
 }));
+window.MPFNavigate=setAppPage;
+window.MPFOpenModule=function(target){current=target;document.body.classList.add("module-active");document.body.classList.remove("dashboard-active","drawer-open");render();};
 document.querySelectorAll("[data-info]").forEach(btn=>btn.addEventListener("click",()=>{
   const panel=$("info-"+btn.dataset.info); const opening=panel.hidden;
   panel.hidden=!opening; btn.textContent=(opening?"− ":"＋ ")+btn.textContent.replace(/^[＋−] /,"");
@@ -570,6 +612,15 @@ $("export-btn").onclick=()=>{const blob=new Blob([JSON.stringify({app:"MY PERSON
 $("restore-file").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const obj=JSON.parse(await f.text());const incoming=obj.data||obj;if(!incoming.accounts||!incoming.transactions)throw Error("Backup format invalid");if(!confirm("Restore backup? Current local data will be replaced."))return;data={...blank(),...incoming};save();alert("Backup restored.")}catch(err){alert("Restore failed: "+err.message)}e.target.value=""};
 
 $("app-status").textContent="● LOCAL DATABASE ACTIVE";
+window.MPFAppBridge={
+ getData:()=>data,
+ getCurrent:()=>current,
+ openModule:(name)=>{current=name;render();return true;},
+ render:()=>render(),
+ save:()=>save(),
+ exportBackup:()=>$("export-btn").click(),
+ openRestore:()=>$("restore-file").click()
+};
 render();updateMetrics();
 })();
 })();
@@ -592,7 +643,7 @@ render();updateMetrics();
 </style>
 <div id="mpf-lock-screen" style="display:none" role="dialog" aria-modal="true" aria-label="App lock">
   <div id="mpf-lock-card">
-    <div style="font-size:30px">🔐</div><h2>MY PERSONAL FINANCE</h2>
+    <div style="font-size:30px">🔐</div><h2>SUPRAAKASH</h2><div class="lock-brand-sub">FINANCE MANAGEMENT</div>
     <p id="mpf-lock-message">Secure your finance data with a 6-digit PIN.</p>
     <input id="mpf-pin-input" type="password" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="••••••" aria-label="6 digit PIN">
     <div style="margin-top:12px"><button class="act primary" id="mpf-pin-submit" type="button">Continue</button></div>
@@ -709,7 +760,7 @@ function makeSettingsMarkup(){
  <p class="muted" style="margin-top:12px">Existing V1.9 accounts and records are retained. This update adds security, backup monitoring and helpful checks.</p>
  <div class="mpf-settings-grid">
   <section class="mpf-setting-card"><h3>🔐 App Lock · 6-digit PIN</h3><p>${hasPin?"PIN is configured on this device.":"No PIN is configured yet."}</p><span class="mpf-setting-ok"><b>${hasPin?"PIN configured":"PIN will be created on first launch"}</b></span><div style="margin-top:10px"><button class="act" id="mpf-open-pin-change" type="button">Change PIN</button></div><div id="mpf-pin-change-panel" style="display:none;margin-top:10px"><label>Current PIN</label><input id="mpf-current-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="current-password" placeholder="6-digit current PIN"><label>New PIN</label><input id="mpf-new-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="6-digit new PIN"><label>Confirm New PIN</label><input id="mpf-confirm-pin" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="Re-enter new PIN"><div style="margin-top:8px"><button class="act primary" id="mpf-save-pin-change" type="button">Save New PIN</button><button class="act" id="mpf-cancel-pin-change" type="button">Cancel</button></div><p id="mpf-pin-change-status" class="muted" role="status"></p></div><p class="mpf-setting-note">PIN hash is stored locally, not the plain PIN. This is a convenience lock, not database encryption.</p></section>
-  <section class="mpf-setting-card"><h3>🔔 Alerts & Notifications</h3><p>In-app data checks are available. Mobile notifications need your permission and browser support.</p><button class="act" id="mpf-enable-notifications" type="button">Enable mobile notifications</button><p id="mpf-notification-status" class="muted">${("Notification" in window)?("Permission: "+Notification.permission):"Notifications are not supported in this browser."}</p></section>
+  <section class="mpf-setting-card"><h3>🎨 Appearance · Theme</h3><p>Choose a comfortable display for daytime or low-light use.</p><div class="mpf-theme-switch" role="group" aria-label="Choose app theme"><button class="act" type="button" id="mpf-theme-light" aria-pressed="${(prefs().theme||"dark")==="light"}">☀ Light theme</button><button class="act" type="button" id="mpf-theme-dark" aria-pressed="${(prefs().theme||"dark")==="dark"}">☾ Dark theme</button></div><p id="mpf-theme-status" class="muted" role="status">Current theme: ${(prefs().theme||"dark")==="light"?"Light":"Dark"}</p></section>\n  <section class="mpf-setting-card"><h3>🔔 Alerts & Notifications</h3><p>In-app data checks are available. Mobile notifications need your permission and browser support.</p><button class="act" id="mpf-enable-notifications" type="button">Enable mobile notifications</button><p id="mpf-notification-status" class="muted">${("Notification" in window)?("Permission: "+Notification.permission):"Notifications are not supported in this browser."}</p></section>
   <section class="mpf-setting-card"><h3>💾 Automatic Local Backup</h3><p>Automatic snapshots are kept after successful database saves (up to 7 snapshots).</p><p>Saved snapshots: <b>${n}</b><br>Last backup: ${last?fmtDate(last):"Not yet created"}</p><button class="act" id="mpf-backup-now" type="button">Create backup snapshot now</button><button class="act" id="mpf-backup-export" type="button">Download JSON backup</button></section>
   <section class="mpf-setting-card"><h3>📅 Daily Backup Reminder</h3><p>Daily reminder appears inside the app when a backup is due. Browser background scheduling is not guaranteed.</p><label><input type="checkbox" id="mpf-daily-reminder" ${prefs().dailyReminder===false?"":"checked"}> Enable daily reminder</label><p id="mpf-reminder-status" class="muted"></p></section>
   <section class="mpf-setting-card"><h3>📤 Share App</h3><p>Share the official app link with another person.</p><button class="act" id="mpf-share-app" type="button">Share app</button></section>
@@ -717,11 +768,11 @@ function makeSettingsMarkup(){
   <section class="mpf-setting-card"><h3>🗂 Storage Monitor</h3><p>Database mode: <b>${(window.MPFStorageMode||"Checking…").replace(/</g,"&lt;")}</b><br>Automatic snapshots: <b>${n}/7</b></p><button class="act" id="mpf-storage-check" type="button">Check storage status</button><div id="mpf-storage-result" class="muted"></div></section>
   <section class="mpf-setting-card"><h3>🛡 Restore Protection</h3><p>Before restoring any backup, download a fresh backup of the current records. Verify the backup date and totals before applying it.</p><p class="mpf-setting-note">Never clear browser data until you have confirmed a downloadable backup.</p></section>
   <section class="mpf-setting-card"><h3>🆘 PIN Recovery Guidance</h3><p>If you forget your PIN, do not clear site data: that can permanently remove local finance records. First export a backup while still unlocked, or use a separately verified backup on a safe recovery copy. This version does not provide a PIN bypass.</p></section>
-  <section class="mpf-setting-card"><h3>ℹ App Information</h3><p>MY PERSONAL FINANCE V2.0.5<br>Manual entry + CSV / Excel import<br>No bank / UPI / broker connection.</p></section>
+  <section class="mpf-setting-card"><h3>ℹ App Information</h3><p>SUPRAAKASH FINANCE MANAGEMENT · V2.0.5<br>Manual entry + CSV / Excel import<br>No bank / UPI / broker connection.</p></section>
  </div>
  <div id="mpf-alert-panel" class="mpf-setting-card"><h3>📌 In-app reminders</h3><div id="mpf-alert-content" class="muted">Checking reminders…</div></div>
  <div class="toolbar" style="margin-top:12px"><button class="act" type="button" id="settings-export">Export a safety backup now</button><button class="act" type="button" id="compare-storage">Compare LocalStorage vs IndexedDB</button></div>
- <div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Select the JSON backup file you downloaded. Preview is read-only; no records will be changed.</p><input type="file" id="mpf-backup-file" accept=".json,application/json" style="display:block;width:100%;margin:10px 0;padding:10px"><button class="act" type="button" id="preview-recovery">Preview selected JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">No file selected yet.</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
+ <div class="panel" style="margin-top:12px"><strong>Verified Backup Preview</strong><p class="muted">Select the JSON backup file you downloaded. Preview is read-only; no records will be changed.</p><input type="file" id="mpf-backup-file" accept=".json,application/json" style="display:block;width:100%;margin:10px 0;padding:10px"><button class="act" type="button" id="preview-recovery">Preview selected JSON backup</button><button class="act danger" type="button" id="apply-recovery" disabled>Apply verified backup</button><div id="recovery-preview" class="muted" style="margin-top:10px;white-space:pre-wrap">${(()=>{try{return localStorage.getItem("mpf_last_restore_status")||"No file selected yet."}catch(_){return "No file selected yet."}})()}</div></div><div id="storage-compare-result" class="muted" style="margin-top:12px;white-space:pre-wrap">Storage comparison has not been run.</div>`;
 }
 function recordCount(obj){
  return Object.values(obj||{}).reduce((sum,value)=>sum+(Array.isArray(value)?value.length:0),0);
@@ -875,9 +926,18 @@ async function attachSettings(){
    localStorage.setItem("mpf_idb_migration_v1","done");
    window.MPFAppBridge.setData(restored);
    window.MPF_PENDING_RESTORE=null;
-   alert("Restore completed and verified. All "+pending.summary.total_records+" records were checked. The pre-restore safety snapshot was retained.");
+   const successMessage="RESTORE COMPLETED AND VERIFIED\nAll "+pending.summary.total_records+" records were checked across "+Object.keys(blank()).length+" tables. The pre-restore safety snapshot was retained.";
+   localStorage.setItem("mpf_last_restore_status",successMessage);
    window.MPFAppBridge.showSettings();
+   // Keep a visible, persistent result in the newly rendered Settings screen; do not rely only on alert().
+   const statusNode=$("recovery-preview");
+   if(statusNode)statusNode.textContent=successMessage;
+   alert("Restore completed and verified. All "+pending.summary.total_records+" records were checked. The pre-restore safety snapshot was retained.");
   }catch(e){
+   const failureMessage="RESTORE NOT CONFIRMED\n"+e.message+"\nYour downloaded JSON backup remains unchanged. Do not clear browser data.";
+   try{localStorage.setItem("mpf_last_restore_status",failureMessage)}catch(_){}
+   const statusNode=$("recovery-preview");
+   if(statusNode)statusNode.textContent=failureMessage;
    alert("Restore was not confirmed: "+e.message+". Do not clear browser data. Your downloaded JSON file remains unchanged.");
   }finally{
    if(btn){btn.disabled=false;btn.textContent="Apply verified backup"}
@@ -959,4 +1019,849 @@ document.addEventListener("DOMContentLoaded",()=>{initLock();observeSettings();}
 })();
 </script>
 
-<script>if("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script></body></html>
+<script>if("serviceWorker" in navigator && (location.protocol==="https:"||location.hostname==="localhost")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
+<style id="supraakash-premium-branding">
+:root{--bg:#071b16;--p:#0d2b22;--line:#315b43;--g:#d9b65d;--c:#b8a36a;--t:#f4f0df;--m:#b4c2b4}
+body{background:radial-gradient(ellipse at 12% 0%,#234936 0%,#0b241c 42%,#06140f 100%);color:var(--t)}
+.panel{background:linear-gradient(145deg,rgba(20,55,41,.97),rgba(8,29,22,.98));border-color:#42674c;box-shadow:0 12px 34px #0005, inset 0 1px 0 #d9b65d12}
+.brand{position:relative;padding:12px 6px 17px;overflow:hidden;border-bottom-color:#8b7440}
+.brand b{font-family:Georgia,'Times New Roman',serif;font-size:clamp(34px,4.2vw,48px);font-weight:900;letter-spacing:1.2px;line-height:.78;color:#e6c66e;text-shadow:0 2px 0 #765b24,0 0 22px #d9b65d40;white-space:nowrap;animation:logoReveal .9s cubic-bezier(.2,.8,.2,1) both}
+.brand .brand-sub{display:block;position:relative;z-index:0;margin-top:-2px;padding-left:2px;color:#f1dfaa;font-size:10px;font-weight:800;letter-spacing:2.15px;line-height:1.1}
+.brand .brand-motto{display:block;margin-top:9px;color:#b9c7b4;font-size:8px;letter-spacing:1.6px}
+.eyebrow,.navlabel,.brand small,.info h3,.right h3,.db h3{color:#d8bd75}
+.nav a{color:#d8dfd1}.nav a:first-child,.nav a:hover{color:#f0d47e;background:#1b3d2d;border-color:#947b43}
+.nav a,.act,.module,.metric,.right .panel,.lower .panel{transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease,background-color .24s ease}
+.nav a:hover,.act:hover{transform:translateY(-1px);box-shadow:0 5px 16px #0003}
+.act{background:#173b2b;color:#f0d47e;border-color:#8c7544}
+.act.primary{background:#315b38;border-color:#c3a65b;color:#fff0bd}
+.act.danger{color:#ffaaa0;border-color:#8e514b}
+.status,.count{color:#e8cb79;border-color:#8b7440}
+.metric strong,.ico,.open,.tag b,.dot{color:#e2c36d}.dot{background:#d9b65d;box-shadow:0 0 8px #d9b65d}
+.metric{border-color:#3d6349}.metric:hover,.module:hover{transform:translateY(-2px);box-shadow:0 10px 22px #0004;border-color:#b89a52}
+.tag{background:#102c21;border-color:#3d6044;color:#e0e5d5}
+.rule{border-bottom-color:#31533c}
+#mpf-lock-screen{background:radial-gradient(ellipse at top,#234936,#071b16 72%)}
+#mpf-lock-card,.mpf-setting-card{background:linear-gradient(145deg,#153b2b,#0a2119);border-color:#8c7544;box-shadow:0 16px 50px #0007}
+#mpf-lock-card h2{font-family:Georgia,'Times New Roman',serif;font-size:clamp(38px,8vw,54px);line-height:.78;letter-spacing:1.4px;color:#e6c66e;text-shadow:0 2px 0 #765b24}
+.lock-brand-sub{position:relative;margin-top:-2px;color:#f1dfaa;font-size:10px;font-weight:800;letter-spacing:2.3px}
+#mpf-lock-card p,.mpf-setting-card p,.mpf-setting-card small{color:#c0cdbd}
+#mpf-pin-input{border-color:#b99b55;background:#09251b;color:#f5efdc}
+.mpf-setting-card h3{color:#e2c36d}
+.foot{color:#b4ad91}
+#workspace,#dashboard .metric,#dashboard .right .panel{animation:panelRise .55s ease both}
+#dashboard .metric:nth-child(2){animation-delay:.04s}#dashboard .metric:nth-child(3){animation-delay:.08s}#dashboard .metric:nth-child(4){animation-delay:.12s}#dashboard .metric:nth-child(5){animation-delay:.16s}
+@keyframes logoReveal{from{opacity:0;transform:translateY(9px);letter-spacing:5px}to{opacity:1;transform:translateY(0);letter-spacing:1.2px}}
+@keyframes panelRise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.brand b{font-size:clamp(34px,10vw,46px)}.brand{padding-bottom:13px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+
+
+
+
+
+
+
+
+
+
+<style id="supraakash-v6-appearance">
+/* Brand: larger paired title/subtitle, continuous wording and no artificial word gaps. */
+.brand .brand-lockup{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ width:100%!important;max-width:100%!important;gap:1px!important;
+}
+.brand .brand-lockup>b{
+ display:block!important;width:100%!important;
+ font-size:clamp(48px,9.5vw,64px)!important;font-weight:900!important;
+ letter-spacing:.15px!important;line-height:1!important;white-space:nowrap!important;
+ text-align:left!important;text-align-last:left!important;
+}
+.brand .brand-lockup>.brand-sub{
+ display:block!important;width:100%!important;
+ font-size:clamp(19px,3.8vw,25px)!important;font-weight:800!important;
+ letter-spacing:.45px!important;line-height:1.12!important;
+ white-space:nowrap!important;text-align:left!important;text-align-last:left!important;
+}
+.brand .brand-motto{margin-top:9px!important}
+/* Keep the original V5 light palette character; increase saturation/depth about 15%. */
+body[data-theme="light"]{
+ color-scheme:light;
+ background:linear-gradient(145deg,#f2e8d1 0%,#d9e9dc 52%,#e8efdc 100%)!important;
+ color:#203b2d!important;
+}
+body[data-theme="light"] .panel,
+body[data-theme="light"] .module,
+body[data-theme="light"] .info,
+body[data-theme="light"] .db,
+body[data-theme="light"] .right .panel,
+body[data-theme="light"] .lower .panel,
+body[data-theme="light"] .mpf-setting-card{
+ background:linear-gradient(145deg,#fffaf0 0%,#e2eee2 100%)!important;
+ border-color:#a4c0a9!important;color:#203b2d!important;
+ box-shadow:0 7px 20px rgba(35,65,45,.12)!important;
+}
+body[data-theme="light"] .metric{
+ background:linear-gradient(145deg,#dcebe2 0%,#d2e4da 100%)!important;
+ border-color:#9ebcaf!important;color:#203b2d!important;
+ box-shadow:0 7px 20px rgba(35,65,45,.12)!important;
+}
+body[data-theme="light"] .brand b{color:#815b17!important;text-shadow:none!important}
+body[data-theme="light"] .brand .brand-sub,
+body[data-theme="light"] .brand-motto{color:#28533b!important}
+body[data-theme="light"] .eyebrow,
+body[data-theme="light"] .navlabel,
+body[data-theme="light"] h1,
+body[data-theme="light"] h2,
+body[data-theme="light"] h3,
+body[data-theme="light"] .mpf-setting-card h3{color:#704d13!important}
+body[data-theme="light"] p,
+body[data-theme="light"] label,
+body[data-theme="light"] small,
+body[data-theme="light"] .sub,
+body[data-theme="light"] .muted,
+body[data-theme="light"] .metric span,
+body[data-theme="light"] .module p,
+body[data-theme="light"] .foot,
+body[data-theme="light"] .sidefoot{color:#345640!important}
+body[data-theme="light"] strong,
+body[data-theme="light"] .metric strong,
+body[data-theme="light"] .module strong,
+body[data-theme="light"] td{color:#203b2d!important}
+/* Buttons should use the same warm gold/green palette, including Change PIN. */
+body[data-theme="light"] .act,
+body[data-theme="light"] button.act,
+body[data-theme="light"] #mpf-pin-change-panel button{
+ background:linear-gradient(145deg,#f3e7c8,#e9ddb9)!important;
+ color:#584216!important;border:1px solid #b2944d!important;
+ text-shadow:none!important;opacity:1!important;
+}
+body[data-theme="light"] .act.primary{
+ background:linear-gradient(145deg,#d4e9d6,#c4dfca)!important;
+ color:#19452d!important;border-color:#82a98b!important;
+}
+body[data-theme="light"] .act.danger{
+ background:#f6dfdc!important;color:#872d2c!important;border-color:#c78a82!important;
+}
+body[data-theme="light"] .nav a{color:#244b35!important}
+body[data-theme="light"] .nav a:first-child,
+body[data-theme="light"] .nav a:hover{background:#efdfb8!important;color:#5d4310!important;border-color:#b2944d!important}
+body[data-theme="light"] input,
+body[data-theme="light"] select,
+body[data-theme="light"] textarea{background:#fffaf0!important;color:#203b2d!important;border-color:#a4c0a9!important}
+body[data-theme="light"] input::placeholder,
+body[data-theme="light"] textarea::placeholder{color:#536e5b!important;opacity:1}
+body[data-theme="light"] th{background:#ebdfbd!important;color:#5d4310!important}
+body[data-theme="light"] td{border-color:#c2d4c4!important}
+body[data-theme="light"] .tag{background:#e0ecdf!important;color:#244b35!important;border-color:#a9c4ad!important}
+body[data-theme="light"] #mpf-lock-screen{background:linear-gradient(145deg,#f2e8d1,#d9e9dc)!important}
+body[data-theme="light"] #mpf-lock-card{background:#fffaf0!important;color:#203b2d!important;border-color:#b2944d!important}
+body[data-theme="light"] #mpf-lock-card h2{color:#815b17!important}
+body[data-theme="light"] #mpf-pin-input{background:#fffaf0!important;color:#203b2d!important}
+body[data-theme="light"] .calc-positive{background:#d3ead8!important;color:#12552f!important}
+body[data-theme="light"] .calc-negative{background:#f4d9d6!important;color:#86272d!important}
+body[data-theme="light"] .calc-neutral{background:#dce7eb!important;color:#304a57!important}
+body[data-theme="light"] #mpf-theme-status{color:#244b35!important}
+#mpf-theme-light[aria-pressed="true"],#mpf-theme-dark[aria-pressed="true"]{
+ outline:2px solid #a98535!important;box-shadow:0 0 0 3px #a9853528!important
+}
+@media(prefers-reduced-motion:reduce){body *{transition:none!important;animation:none!important}}
+</style>
+<script id="supraakash-v6-theme-controller">
+(function(){
+ const KEY="mpf_v20_preferences";
+ function prefs(){try{return JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){return {}}}
+ function apply(theme,persist){
+  const t=theme==="light"?"light":"dark";
+  document.body.setAttribute("data-theme",t);
+  document.documentElement.setAttribute("data-theme",t);
+  if(persist){const p=prefs();p.theme=t;localStorage.setItem(KEY,JSON.stringify(p))}
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta)meta.setAttribute("content",t==="light"?"#f2e8d1":"#09271f");
+  const status=document.getElementById("mpf-theme-status");
+  if(status)status.textContent="Current theme: "+(t==="light"?"Light":"Dark");
+  document.querySelectorAll("#mpf-theme-light,#mpf-theme-dark").forEach(b=>b.setAttribute("aria-pressed",String(b.id==="mpf-theme-"+t)));
+ }
+ apply(prefs().theme||"dark",false);
+ document.addEventListener("click",function(ev){
+  const b=ev.target.closest("#mpf-theme-light,#mpf-theme-dark");
+  if(!b)return;
+  ev.preventDefault();ev.stopImmediatePropagation();
+  apply(b.id==="mpf-theme-light"?"light":"dark",true);
+ },true);
+ const observer=new MutationObserver(()=>{
+  const t=prefs().theme==="light"?"light":"dark";
+  document.querySelectorAll("#mpf-theme-light,#mpf-theme-dark").forEach(b=>b.setAttribute("aria-pressed",String(b.id==="mpf-theme-"+t)));
+ });
+ observer.observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
+<style id="supraakash-spa-navigation">
+body{overflow-x:hidden}
+.shell{display:block!important;max-width:1200px!important;padding:12px!important}
+.sidebar{
+ position:fixed!important;z-index:10020!important;left:12px!important;top:12px!important;
+ bottom:12px!important;width:min(300px,86vw)!important;min-height:0!important;
+ overflow-y:auto!important;transform:translateX(calc(-100% - 24px));
+ transition:transform .24s ease!important;margin:0!important;
+ box-shadow:0 18px 55px rgba(0,0,0,.32)!important;
+}
+body.drawer-open .sidebar{transform:translateX(0)!important}
+.nav{grid-template-columns:1fr!important;gap:5px!important}
+.nav a{display:block!important;padding:12px 14px!important;font-size:14px!important;text-align:left!important}
+.nav a.active{background:#173e34!important;border:1px solid #c4a65d!important;color:#f0d88d!important}
+.nav-menu-toggle{
+ display:inline-flex;align-items:center;gap:8px;min-height:42px;
+ border:1px solid #b99a52;border-radius:11px;padding:9px 14px;
+ background:linear-gradient(145deg,#173e34,#0b251d);color:#f0d88d;
+ font-weight:750;font-size:14px;margin:2px 0 14px;cursor:pointer;
+}
+body[data-theme="light"] .nav-menu-toggle{
+ background:linear-gradient(145deg,#f2e7c8,#e5d6aa)!important;
+ color:#594419!important;border-color:#a98b43!important;
+}
+body.module-active #dashboard-home{display:none!important}
+body.module-active #workspace{display:block!important;margin-top:0!important;min-height:70vh}
+body.module-active #dashboard{width:100%!important;max-width:none!important}
+body.module-active .right{display:none!important}
+body.module-active .nav-menu-toggle{margin-bottom:12px}
+#workspace[hidden],#dashboard-home[hidden]{display:none!important}
+body.drawer-open:after{
+ content:"";position:fixed;inset:0;background:rgba(0,0,0,.48);
+ z-index:10010;backdrop-filter:blur(2px);
+}
+body.drawer-open{overflow:hidden}
+@media(min-width:701px){
+ .shell{padding:18px!important}
+ .sidebar{left:18px!important;top:18px!important;bottom:18px!important}
+}
+@media(prefers-reduced-motion:reduce){.sidebar{transition:none!important}}
+</style>
+<script id="supraakash-spa-navigation-controller">
+(function(){
+ const toggle=document.getElementById("nav-menu-toggle");
+ if(toggle)toggle.addEventListener("click",function(){
+  const open=!document.body.classList.contains("drawer-open");
+  document.body.classList.toggle("drawer-open",open);
+  toggle.setAttribute("aria-expanded",String(open));
+ });
+ document.addEventListener("click",function(e){
+  if(!document.body.classList.contains("drawer-open"))return;
+  if(e.target.closest(".sidebar")||e.target.closest("#nav-menu-toggle"))return;
+  document.body.classList.remove("drawer-open");
+  if(toggle)toggle.setAttribute("aria-expanded","false");
+ });
+ document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"){document.body.classList.remove("drawer-open");if(toggle)toggle.setAttribute("aria-expanded","false")}
+ });
+ // Open the dashboard as the clean starting screen; modules are entered from the drawer.
+ const workspace=document.getElementById("workspace");
+ if(workspace)workspace.hidden=true;
+ document.body.classList.add("dashboard-active");
+ document.querySelectorAll('[data-goto="Dashboard"]').forEach(a=>{a.classList.add("active");a.setAttribute("aria-current","page")});
+})();
+</script>
+
+<style id="supraakash-v8-navigation-fixes">
+/* Selected navigation item must remain readable, including Android's sticky :hover state. */
+.sidebar .nav a.active,
+.sidebar .nav a.active:hover,
+.sidebar .nav a.active:focus,
+body[data-theme="light"] .sidebar .nav a.active,
+body[data-theme="light"] .sidebar .nav a.active:hover,
+body[data-theme="light"] .sidebar .nav a.active:focus{
+ background:linear-gradient(135deg,#164638,#0e3329)!important;
+ color:#fff3c7!important;
+ border:1px solid #c5a75d!important;
+ box-shadow:inset 4px 0 0 #e2c46f,0 4px 14px rgba(0,0,0,.12)!important;
+ text-shadow:0 1px 2px rgba(0,0,0,.25)!important;
+}
+body[data-theme="dark"] .sidebar .nav a.active,
+body[data-theme="dark"] .sidebar .nav a.active:hover{
+ color:#fff3c7!important;
+}
+body[data-theme="light"] .sidebar .nav a:not(.active):hover{
+ background:#eee2c1!important;color:#4c3a12!important;
+}
+#swipe-page-hint{
+ display:flex;align-items:center;justify-content:center;gap:12px;
+ color:var(--app-muted,#526a5b);font-size:12px;padding:9px 8px;
+ border:1px solid var(--app-line,#b8cbbd);border-radius:999px;
+ margin:0 0 12px;user-select:none;
+}
+#swipe-page-hint strong{color:var(--app-accent,#89631d)}
+body[data-theme="light"] #swipe-page-hint{background:#e2ecdf;color:#345640;border-color:#abc4ad}
+body[data-theme="dark"] #swipe-page-hint{background:#0d211b;color:#b8c9be;border-color:#315a49}
+#swipe-page-hint .swipe-arrow{font-size:18px;font-weight:800}
+</style>
+
+
+<style id="supraakash-v10-sidebar-fit">
+/* Fit the complete brand inside the mobile drawer without clipping. */
+.sidebar .brand{width:100%!important;min-width:0!important;overflow:visible!important;padding-left:4px!important;padding-right:4px!important}
+.sidebar .brand .brand-lockup{
+ display:flex!important;flex-direction:column!important;align-items:flex-start!important;
+ width:100%!important;max-width:100%!important;min-width:0!important;gap:2px!important;
+}
+.sidebar .brand .brand-lockup>b{
+ display:block!important;width:100%!important;max-width:100%!important;
+ font-size:clamp(29px,8.1vw,39px)!important;
+ letter-spacing:0!important;line-height:1.04!important;
+ white-space:nowrap!important;overflow:visible!important;
+ text-align:left!important;text-align-last:left!important;
+ transform:none!important;
+}
+.sidebar .brand .brand-lockup>.brand-sub{
+ display:block!important;width:100%!important;max-width:100%!important;
+ font-size:clamp(13px,3.7vw,17px)!important;
+ letter-spacing:.15px!important;line-height:1.18!important;
+ white-space:nowrap!important;overflow:visible!important;
+ text-align:left!important;text-align-last:left!important;
+}
+.sidebar .brand .brand-motto{font-size:9px!important;letter-spacing:1.3px!important;margin-top:7px!important}
+.sidebar{overflow-x:hidden!important;overscroll-behavior-x:contain!important}
+.sidebar .nav{width:100%!important;min-width:0!important}
+.sidebar .nav a{white-space:normal!important;overflow-wrap:anywhere!important}
+html,body{max-width:100%!important;overflow-x:clip!important;overscroll-behavior-x:none!important}
+#dashboard{min-width:0!important;max-width:100%!important;touch-action:pan-y pinch-zoom}
+#dashboard-home,#workspace{min-width:0!important;max-width:100%!important;overflow-x:clip!important;touch-action:pan-y pinch-zoom}
+#swipe-page-hint{touch-action:pan-y pinch-zoom}
+@media(max-width:360px){
+ .sidebar .brand .brand-lockup>b{font-size:clamp(27px,7.5vw,32px)!important}
+ .sidebar .brand .brand-lockup>.brand-sub{font-size:12px!important;letter-spacing:0!important}
+}
+</style>
+
+<style id="supraakash-v11-final-navigation">
+/* Single navigation system: use the side drawer, never duplicate module buttons inside pages. */
+#view-tabs{display:none!important}
+#workspace{width:100%!important;max-width:100%!important}
+#workspace>[style*="display:flex"]{max-width:100%!important}
+#view-form,#view-list{width:100%!important;max-width:100%!important;min-width:0!important}
+#workspace .fieldgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:520px){#workspace .fieldgrid{grid-template-columns:1fr}}
+/* Keep full brand wording visible inside the drawer at all phone widths. */
+.sidebar .brand .brand-lockup>b{
+ font-size:clamp(24px,6.8vw,32px)!important;
+ letter-spacing:0!important;white-space:nowrap!important;
+}
+.sidebar .brand .brand-lockup>.brand-sub{
+ font-size:clamp(11px,3.15vw,14px)!important;
+ letter-spacing:0!important;white-space:nowrap!important;
+}
+/* Only the selected module is highlighted; its label remains high contrast. */
+.sidebar .nav a.active,.sidebar .nav a.active:hover{
+ background:linear-gradient(135deg,#164638,#0e3329)!important;
+ color:#fff3c7!important;border:1px solid #c5a75d!important;
+ text-shadow:0 1px 2px rgba(0,0,0,.2)!important;
+}
+body[data-theme="light"] .sidebar .nav a.active,
+body[data-theme="light"] .sidebar .nav a.active:hover{color:#fff3c7!important}
+html,body{overflow-x:hidden!important;overscroll-behavior-x:none!important}
+#dashboard,#dashboard-home,#workspace{touch-action:pan-y pinch-zoom}
+#swipe-page-hint{font-size:11px}
+</style>
+
+
+<style id="supraakash-v14-master-layout">
+:root{--v14-green:#063d2d;--v14-green2:#0c5a3c;--v14-gold:#d7b65b;--v14-cream:#f7f0df}
+html,body{max-width:100%;overflow-x:hidden!important}
+body{background:linear-gradient(145deg,#f3ecd9 0%,#dce9dc 48%,#f7f0df 100%)!important;color:#183b2c!important;padding-bottom:92px!important}
+body[data-theme="dark"]{background:linear-gradient(145deg,#071e18,#0b3427 55%,#071b16)!important;color:#f7f1df!important}
+.shell{display:block!important;max-width:760px!important;padding:10px 12px 22px!important;margin:0 auto!important}
+.sidebar,.right,#nav-menu-toggle,#swipe-page-hint{display:none!important}
+main#dashboard{width:100%!important;min-width:0!important;max-width:100%!important}
+#v14-brand-header{display:flex;align-items:center;gap:12px;padding:12px 14px;margin:0 0 12px;border-radius:18px;background:linear-gradient(115deg,#063b2c,#0b5a3d);border:1px solid #d8b85e;box-shadow:0 8px 22px #092b1d35;color:#fff4cc}
+#v14-brand-logo{width:46px;height:46px;flex:none;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,#f5dc83,#b68a2e);color:#075035;font-size:27px;font-weight:900}
+#v14-brand-title{font-family:Georgia,serif;font-size:clamp(17px,5vw,24px);font-weight:900;letter-spacing:.3px;line-height:1.05}
+#v14-brand-sub{font-family:Georgia,serif;font-size:11px;letter-spacing:1.1px;margin-top:4px;color:#f2df9b}
+#v14-section-title{font-size:23px;font-weight:850;margin:12px 4px 12px;color:#164832}
+body[data-theme="dark"] #v14-section-title{color:#f6e9bd}
+#dashboard-home .top{display:none!important}
+#dashboard-home .metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+#dashboard-home .metric{background:#e0ebed!important;border:1px solid #a9c2bd!important;border-radius:17px!important;color:#1b3e30!important;box-shadow:0 4px 12px #163b2510!important;padding:14px!important;min-width:0}
+#dashboard-home .metric span{color:#476957!important;font-size:12px!important}
+#dashboard-home .metric strong{color:#163f2d!important;font-size:23px!important}
+#dashboard-home .metric.calc-positive{background:#d9ebd9!important}
+#dashboard-home .metric.calc-negative{background:#f5dfda!important}
+#v14-analytics{margin-top:13px;display:grid;gap:12px}
+.v14-card{background:#fffaf0;border:1px solid #c5b477;border-radius:17px;padding:13px;color:#1d3e2e;box-shadow:0 5px 15px #173c2710;min-width:0}
+.v14-card h3{margin:0 0 10px;font-size:16px;color:#145137}
+.v14-muted{font-size:11px;color:#627769}
+.v14-chart{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;align-items:end;height:180px;padding:12px 2px 0;border-bottom:1px solid #c7d4c5}
+.v14-bar-group{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:4px;min-width:0}
+.v14-bars{height:132px;width:100%;display:flex;align-items:flex-end;justify-content:center;gap:3px}
+.v14-bar{width:38%;min-height:2px;border-radius:5px 5px 0 0;position:relative}
+.v14-bar.income{background:linear-gradient(#39b86d,#08783e)}
+.v14-bar.expense{background:linear-gradient(#ff8275,#d83e38)}
+.v14-bar.savings{background:linear-gradient(#5ab8ed,#2479b8)}
+.v14-month{font-size:10px;color:#536b5b}
+.v14-legend{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:#506b58;margin-top:8px}
+.v14-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px}
+.v14-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.v14-highlight{background:#f2f5e9;border:1px solid #d4dfc9;border-radius:12px;padding:10px}
+.v14-highlight b{display:block;color:#174b33;font-size:12px;margin-bottom:5px}
+.v14-highlight strong{font-size:16px;color:#173e2d}
+.v14-table-wrap{overflow-x:auto}
+.v14-table{border-collapse:collapse;width:100%;font-size:11px;min-width:430px}
+.v14-table th,.v14-table td{padding:8px 6px;border-bottom:1px solid #d8e0d4;text-align:right;white-space:nowrap}
+.v14-table th:first-child,.v14-table td:first-child{text-align:left}
+.v14-table th{color:#145137;background:#edf3e7}
+#v14-accounting-list{display:grid;gap:9px}
+.v14-option{pointer-events:auto!important;position:relative;z-index:1;touch-action:manipulation;width:100%;display:flex;align-items:center;gap:12px;text-align:left;padding:13px;border-radius:15px;border:1px solid #c9d7c4;background:#fffaf0;color:#1b3e2d;box-shadow:0 3px 10px #193d2510;cursor:pointer;min-height:58px}
+.v14-option:active{transform:scale(.985)}
+.v14-option .v14-icon{width:38px;height:38px;border-radius:12px;background:#e3efdf;color:#0c5b38;display:grid;place-items:center;font-size:20px;flex:none}
+.v14-option b{display:block;font-size:14px}
+.v14-option small{display:block;color:#637968;font-size:10px;margin-top:3px}
+.v14-chevron{margin-left:auto;font-size:22px;color:#886a23}
+.v14-goal{background:#fffaf0;border:1px solid #c9b777;border-radius:16px;padding:13px;margin-bottom:9px;color:#1c402e}
+.v14-goal-top{display:flex;align-items:center;gap:11px}
+.v14-goal-icon{font-size:26px;width:42px;text-align:center}
+.v14-goal-name{font-weight:800;font-size:14px}
+.v14-goal-meta{font-size:11px;color:#5b705e;margin-top:4px;line-height:1.5}
+.v14-progress{height:11px;border-radius:99px;background:#dce8d9;overflow:hidden;margin-top:9px}
+.v14-progress span{display:block;height:100%;background:linear-gradient(90deg,#08733d,#49b96a);border-radius:99px}
+.v14-goal-foot{display:flex;justify-content:space-between;font-size:11px;color:#17623b;margin-top:5px;font-weight:800}
+#v14-bottom-nav{position:fixed;z-index:9999;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:8px max(8px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));background:linear-gradient(110deg,#052f24,#0b4b35,#052c22);border-top:1px solid #d8b85e;box-shadow:0 -7px 24px #062d2040}
+.v14-nav-btn{border:1px solid transparent;background:transparent;color:#f5edcf;border-radius:13px;min-height:61px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:11px;font-family:Georgia,serif;cursor:pointer}
+.v14-nav-btn .v14-nav-icon{font-family:Arial,sans-serif;font-size:22px;line-height:1.1}
+.v14-nav-btn.active{background:linear-gradient(145deg,#f1d889,#c29b3e);color:#164832;border-color:#fff0b2;box-shadow:0 0 16px #f2d47b66}
+#workspace{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;margin-top:0!important}
+#workspace>div:first-child{display:none!important}
+#view-tabs{display:none!important}
+#view-form,#view-list{background:#fffaf0;border:1px solid #c9d7c4;border-radius:16px;padding:13px;color:#1d3e2e;margin-top:10px}
+#view-list{overflow-x:auto}
+#view-form .field label{color:#315d43!important}
+#view-form input,#view-form select,#view-form textarea{background:#fff!important;color:#183c2b!important;border:1px solid #b8ccb7!important;border-radius:9px!important;min-height:42px}
+#view-form .act,#workspace .act{background:#0b5a3b;color:#fff4d0;border:1px solid #c9ad59;border-radius:9px;padding:10px 13px}
+#view-title{color:#164832!important}
+#view-subtitle{color:#607766!important}
+#v14-page-content{animation:v14Slide .28s ease both}
+@keyframes v14Slide{from{opacity:.35;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
+.v14-option,.v14-goal,.v14-card{animation:v14Fade .35s ease both}
+@keyframes v14Fade{from{opacity:.5;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:430px){
+ .shell{padding:8px 10px 18px!important}
+ #dashboard-home .metric{padding:11px!important}
+ #dashboard-home .metric strong{font-size:20px!important}
+ .v14-chart{grid-template-columns:repeat(12,minmax(0,1fr));gap:2px}
+ .v14-bars{gap:2px}
+ .v14-month{font-size:8px}
+ .v14-highlights{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){#v14-page-content,.v14-option,.v14-goal,.v14-card{animation:none!important;transition:none!important}}
+
+#v14-settings-info{display:none;margin-top:12px;position:relative;z-index:1;pointer-events:auto}
+#v14-settings-info .info-toggle{background:#efe3bf!important;color:#4a3b1d!important;border:1px solid #bda45d!important;border-radius:12px!important;margin-top:8px}
+#v14-settings-info .info-body{background:#fffaf0!important;color:#234431!important;border:1px solid #d4c58f!important;border-radius:12px!important;padding:12px}
+#v14-settings-info .info-body ul{color:#42634d!important}
+#v14-page-content.v14-settings-page+#workspace{margin-top:0}
+
+</style>
+<script id="supraakash-v14-app-controller">
+(function(){
+ "use strict";
+ const $=id=>document.getElementById(id);
+ const fmt=n=>"₹"+Number(n||0).toLocaleString("en-IN",{maximumFractionDigits:0});
+ const escV=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+ const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+ let active="Home",current="Accounts",accountingReturn="Accounting",parentSection="Accounting",analyticsYear=new Date().getFullYear();
+ const legacyNavigate=window.MPFNavigate;
+ const order=["Home","Accounting","Goals","Settings"];
+ const icons={Home:"⌂",Accounting:"▥",Goals:"◎",Settings:"⚙"};
+ const labelMap={"Accounts":"Accounts","Income":"Income","Expenses":"Expenses","Budgets":"Budget","Savings":"Savings","Transfers":"Transfers","EMI & Bills":"EMI & Bills","Portfolio":"Portfolio","Audit Log":"Log","Settings":"Settings","Import / Backup":"Import / Backup"};
+ function dataNow(){try{return window.MPFAppBridge?.getData?.()||{transactions:[],savings:[],goals:[],accounts:[],budgets:[]}}catch(e){console.error("V14 data bridge:",e);return {transactions:[],savings:[],goals:[],accounts:[],budgets:[]}}}
+ function header(title){
+  let h=$("v14-section-title");if(h)h.textContent=title;
+ }
+ function ensureShell(){
+  const main=$("dashboard");
+  if(!$("v14-brand-header")){
+   const brand=document.createElement("div");brand.id="v14-brand-header";
+   brand.innerHTML=`<div id="v16-brand-mark" aria-label="Finance growth logo">
+    <svg viewBox="0 0 150 132" role="img" aria-label="Rising finance chart with gold coins">
+      <defs>
+        <linearGradient id="v16-logo-green" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#075238"/><stop offset="1" stop-color="#15945a"/></linearGradient>
+        <linearGradient id="v16-logo-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe68b"/><stop offset="1" stop-color="#b98218"/></linearGradient>
+      </defs>
+      <path d="M19 91 A55 55 0 1 1 112 35" fill="none" stroke="#0b6543" stroke-width="7" stroke-linecap="round"/>
+      <path d="M27 83 A47 47 0 0 1 100 28" fill="none" stroke="url(#v16-logo-gold)" stroke-width="4" stroke-linecap="round"/>
+      <rect x="40" y="72" width="16" height="32" rx="2" fill="url(#v16-logo-green)"/>
+      <rect x="64" y="55" width="17" height="49" rx="2" fill="url(#v16-logo-green)"/>
+      <rect x="89" y="37" width="17" height="67" rx="2" fill="url(#v16-logo-green)"/>
+      <path d="M34 76 L63 57 L81 62 L119 20" fill="none" stroke="url(#v16-logo-gold)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M105 22 L123 15 L119 35" fill="none" stroke="#0b6543" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <g fill="url(#v16-logo-gold)" stroke="#b88724" stroke-width="1.2">
+        <ellipse cx="119" cy="101" rx="15" ry="6"/><rect x="104" y="91" width="30" height="10"/><ellipse cx="119" cy="91" rx="15" ry="6"/>
+        <ellipse cx="119" cy="88" rx="15" ry="6"/><rect x="104" y="78" width="30" height="10"/><ellipse cx="119" cy="78" rx="15" ry="6"/>
+        <ellipse cx="119" cy="75" rx="15" ry="6"/><rect x="104" y="65" width="30" height="10"/><ellipse cx="119" cy="65" rx="15" ry="6"/>
+      </g>
+    </svg>
+  </div><div id="v16-brand-divider"></div><div id="v16-brand-copy"><div id="v14-brand-title">SUPRAAKASH</div><div id="v14-brand-sub">FINANCE MANAGEMENT</div></div>`;
+   main.insertBefore(brand,main.firstChild);
+  }
+  if(!$("v14-section-title")){
+   const t=document.createElement("h1");t.id="v14-section-title";main.insertBefore(t,$("dashboard-home"));
+  }
+  if(!$("v14-bottom-nav")){
+   const nav=document.createElement("nav");nav.id="v14-bottom-nav";nav.setAttribute("aria-label","Main navigation");
+   nav.innerHTML=order.map(x=>`<button class="v14-nav-btn" type="button" data-v14-nav="${x}"><span class="v14-nav-icon">${icons[x]}</span><span>${x}</span></button>`).join("");
+   document.body.appendChild(nav);
+   nav.querySelectorAll("[data-v14-nav]").forEach(b=>b.addEventListener("click",()=>show(b.dataset.v14Nav,1)));
+  }
+ }
+ function setNav(){
+  const selected=active==="Submodule"?(["Settings","Audit Log","Import / Backup"].includes(current)?"Settings":current==="Financial Goals"?"Goals":"Accounting"):active;
+  document.querySelectorAll("[data-v14-nav]").forEach(b=>b.classList.toggle("active",b.dataset.v14Nav===selected));
+ }
+ function monthlyData(year){
+  const d=dataNow(),income=Array(12).fill(0),expense=Array(12).fill(0),savings=Array(12).fill(0),goalAlloc=Array(12).fill(0);
+  (d.transactions||[]).filter(t=>!t.deleted&&String(t.date||"").slice(0,4)===String(year)).forEach(t=>{
+   const m=Number(String(t.date).slice(5,7))-1;if(m<0||m>11)return;
+   if(t.type==="Credit")income[m]+=Number(t.amount||0);
+   if(t.type==="Debit")expense[m]+=Number(t.amount||0);
+  });
+  (d.savings||[]).filter(s=>!s.deleted&&String(s.date||"").slice(0,4)===String(year)).forEach(s=>{
+   const m=Number(String(s.date).slice(5,7))-1;if(m<0||m>11)return;
+   savings[m]+=Number(s.amount||0);
+   if(String(s.savings_type||"").toLowerCase().includes("goal"))goalAlloc[m]+=Number(s.amount||0);
+  });
+  return {income,expense,savings,goalAlloc};
+ }
+ function maxMonth(arr){const max=Math.max(0,...arr);return max?months[arr.indexOf(max)]+" · "+fmt(max):"No records"}
+ function availableAnalyticsYears(){
+  const d=dataNow(),currentYear=new Date().getFullYear(),years=[];
+  const datedRecords=[...(d.transactions||[]),...(d.savings||[]),...(d.transfers||[])];
+  const validYears=datedRecords
+   .filter(r=>r&&!r.deleted&&/^\d{4}-\d{2}-\d{2}/.test(String(r.date||"")))
+   .map(r=>Number(String(r.date).slice(0,4)))
+   .filter(y=>Number.isInteger(y)&&y>=1900&&y<=currentYear);
+  const firstYear=validYears.length?Math.min(...validYears):currentYear-5;
+  for(let y=currentYear;y>=firstYear;y--)years.push(y);
+  return years;
+ }
+ function chart(title,arr1,arr2,lab1,lab2,cls1,cls2){
+  const max=Math.max(1,...arr1,...arr2);
+  return `<section class="v14-card"><h3>${title}</h3><div class="v14-chart">${months.map((m,i)=>`<div class="v14-bar-group"><div class="v14-bars"><div class="v14-bar ${cls1}" style="height:${Math.max(arr1[i]?2:0,arr1[i]/max*100)}%" title="${lab1}: ${fmt(arr1[i])}"></div><div class="v14-bar ${cls2}" style="height:${Math.max(arr2[i]?2:0,arr2[i]/max*100)}%" title="${lab2}: ${fmt(arr2[i])}"></div></div><div class="v14-month">${m}</div></div>`).join("")}</div><div class="v14-legend"><span><i class="v14-dot" style="background:${cls1==="income"?"#169653":cls1==="savings"?"#318ac4":"#df4b43"}"></i>${lab1}</span><span><i class="v14-dot" style="background:${cls2==="income"?"#169653":cls2==="savings"?"#318ac4":"#df4b43"}"></i>${lab2}</span></div></section>`;
+ }
+ function homeAnalytics(){
+  const d=dataNow(),year=analyticsYear,m=monthlyData(year),income=m.income.reduce((a,b)=>a+b,0),expense=m.expense.reduce((a,b)=>a+b,0),savings=m.savings.reduce((a,b)=>a+b,0),goal=m.goalAlloc.reduce((a,b)=>a+b,0);
+  const currentMonth=new Date().getMonth(),surplus=m.income[currentMonth]-m.expense[currentMonth];
+  const rows=months.map((mo,i)=>`<tr><td>${mo}</td><td>${fmt(m.income[i])}</td><td>${fmt(m.expense[i])}</td><td>${fmt(m.savings[i])}</td><td>${fmt(m.goalAlloc[i])}</td><td>${fmt(m.income[i]-m.expense[i])}</td></tr>`).join("");
+  return `<div id="v14-analytics">
+   <section class="v14-card"><h3>Annual Financial Performance</h3><div style="display:flex;align-items:center;justify-content:space-between;gap:8px"><span class="v14-muted">12-month report · Actual saved records</span><select id="v14-year" aria-label="Select year" style="padding:8px;border-radius:9px;border:1px solid #b9c9b4;background:#fff">${availableAnalyticsYears().map(y=>`<option value="${y}" ${y===year?"selected":""}>${y}</option>`).join("")}</select></div><div class="v14-highlights" style="margin-top:10px"><div class="v14-highlight"><b>Annual Income</b><strong>${fmt(income)}</strong></div><div class="v14-highlight"><b>Annual Expenses</b><strong>${fmt(expense)}</strong></div><div class="v14-highlight"><b>Recorded Savings</b><strong>${fmt(savings)}</strong></div><div class="v14-highlight"><b>Goal-based Savings Entries</b><strong>${fmt(goal)}</strong></div></div><div class="v14-muted" style="margin-top:8px">Annual cash-flow surplus: <b>${fmt(income-expense)}</b> · Transfers are excluded from income and expenses.</div></section>
+   ${chart("Monthly Income vs Expenses",m.income,m.expense,"Income","Expenses","income","expense")}
+   ${chart("Monthly Savings vs Goal-based Savings",m.savings,m.goalAlloc,"Savings","Goal-based entries","savings","expense")}
+   <section class="v14-card"><h3>Highest Performance Months · ${year}</h3><div class="v14-highlights"><div class="v14-highlight"><b>Highest Income Month</b><strong>${maxMonth(m.income)}</strong></div><div class="v14-highlight"><b>Highest Expense Month</b><strong>${maxMonth(m.expense)}</strong></div><div class="v14-highlight"><b>Highest Savings Month</b><strong>${maxMonth(m.savings)}</strong></div><div class="v14-highlight"><b>Highest Goal Allocation Month</b><strong>${maxMonth(m.goalAlloc)}</strong></div></div><p class="v14-muted" style="margin:9px 0 0">Goal allocation is derived only from dated Savings records whose type contains “Goal”. Existing goals' saved_amount has no dated history, so it is not used to fabricate monthly allocations.</p></section>
+   <section class="v14-card"><h3>12-Month Comparison · ${year}</h3><div class="v14-table-wrap"><table class="v14-table"><thead><tr><th>Month</th><th>Income</th><th>Expense</th><th>Savings</th><th>Goal Allocation</th><th>Surplus</th></tr></thead><tbody>${rows}</tbody></table></div></section>
+  </div>`;
+ }
+ const sections=[
+  ["Accounts","▤","Bank, Cash, Demat, etc."],["Income","↗","Salary, Business, Other"],["Expenses","🛒","Daily, Monthly, Category"],["Budgets","▦","Plan vs Actual"],["Savings","🐷","Emergency, Short Term"],["Transfers","⇄","Account to Account"],["EMI & Bills","▧","Loan, EMI, Utilities"],["Portfolio","▥","Stocks, Mutual Funds, etc."]
+ ];
+ function bindModuleCards(root){
+  root.querySelectorAll("[data-open-module]").forEach(btn=>{
+   btn.removeAttribute("onclick");
+   btn.setAttribute("aria-haspopup","true");
+   btn.style.cursor="pointer";
+  });
+ }
+ function accountingLanding(){
+  return `<div id="v14-accounting-list">${sections.map(([name,ico,desc])=>`<button class="v14-option" type="button" data-open-module="${name}"><span class="v14-icon">${ico}</span><span><b>${name==="Budgets"?"Budget":name}</b><small>${desc}</small></span><span class="v14-chevron">›</span></button>`).join("")}</div>`;
+ }
+ function goalsLanding(){
+  const goals=(dataNow().goals||[]).filter(g=>!g.deleted);
+  if(!goals.length)return `<div class="v14-card"><h3>My Goals</h3><p class="v14-muted">Abhi koi financial goal saved nahi hai. Naya goal add karne ke liye Accounting → Financial Goals kholen.</p><button class="act" type="button" data-open-module="Financial Goals">+ Add / Manage Goals</button></div>`;
+  return `<div>${goals.map((g,i)=>{const target=Number(g.target_amount||0),saved=Number(g.saved_amount||0),pct=target>0?Math.min(100,Math.round(saved/target*100)):0;const emo=["🛏️","🚪","🪟","🤝","📱"][i%5];return `<article class="v14-goal"><div class="v14-goal-top"><div class="v14-goal-icon">${emo}</div><div><div class="v14-goal-name">${escV(g.name)}</div><div class="v14-goal-meta">Target: ${fmt(target)}<br>Allocated / Saved: ${fmt(saved)}${g.deadline?"<br>Deadline: "+escV(g.deadline):""}</div></div></div><div class="v14-progress"><span style="width:${pct}%"></span></div><div class="v14-goal-foot"><span>${pct}% Complete</span><span>${fmt(Math.max(0,target-saved))} Remaining</span></div></article>`}).join("")}<button class="act" type="button" data-open-module="Financial Goals">+ Manage Goals</button></div>`;
+ }
+ function settingsLanding(){
+  return `<div id="v14-accounting-list"><button class="v14-option" type="button" data-open-module="Settings"><span class="v14-icon">⚙</span><span><b>Settings</b><small>App Preferences, Theme, PIN, Backup</small></span><span class="v14-chevron">›</span></button><button class="v14-option" type="button" data-open-module="Audit Log"><span class="v14-icon">▤</span><span><b>Log</b><small>Activity Log, Changes, History</small></span><span class="v14-chevron">›</span></button><button class="v14-option" type="button" data-open-module="Import / Backup"><span class="v14-icon">⇧</span><span><b>Import / Backup</b><small>Export and restore your records</small></span><span class="v14-chevron">›</span></button></div>`;
+ }
+ function openModule(name){
+  const info=$("v14-settings-info");
+  if(info){info.style.display="none";document.body.classList.remove("v14-settings-main");}
+  const landing=$("v14-page-content");
+  if(landing){landing.hidden=true;landing.style.setProperty("display","none","important");}
+  parentSection=(["Settings","Audit Log","Import / Backup"].includes(name)?"Settings":"Accounting");
+  active="Submodule";setNav();
+  document.body.classList.add("module-active");
+  document.body.classList.remove("dashboard-active","v14-settings-main");
+  $("dashboard-home").hidden=true;
+  $("workspace").hidden=false;
+  $("v14-section-title").textContent=labelMap[name]||name;
+  $("view-title").textContent=labelMap[name]||name;
+  $("view-subtitle").textContent="SUPRAAKASH FINANCE MANAGEMENT · "+(labelMap[name]||name);
+  current=name;
+  if(!window.MPFAppBridge?.openModule){
+   console.error("Core app module bridge is unavailable");
+   alert("Module form engine is unavailable. Please reopen the app file.");
+   return;
+  }
+  // Render the selected module using the original app's private current/render scope.
+  window.MPFAppBridge.openModule(name);
+  // Force a single, deterministic screen state after the core renderer runs.
+  const page=$("v14-page-content"),home=$("dashboard-home"),workspace=$("workspace");
+  if(page){page.hidden=true;page.style.setProperty("display","none","important");}
+  if(home){home.hidden=true;home.style.setProperty("display","none","important");}
+  if(workspace){
+   workspace.hidden=false;
+   workspace.style.setProperty("display","block","important");
+   workspace.style.setProperty("visibility","visible","important");
+   workspace.style.setProperty("position","relative","important");
+   workspace.style.setProperty("z-index","2","important");
+  }
+  document.body.classList.remove("dashboard-active");
+  document.body.classList.add("module-active");
+  $("view-title").textContent=labelMap[name]||name;
+  $("v14-section-title").textContent=labelMap[name]||name;
+  setNav();
+  window.scrollTo({top:0,behavior:"smooth"});
+ }
+ function show(which,delta){
+  const info=$("v14-settings-info");
+  let landing=$("v14-page-content");
+  active=which;setNav();
+  document.body.classList.remove("module-active","v14-settings-main");
+  document.body.classList.add("dashboard-active");
+  $("workspace").hidden=true;
+  $("workspace").style.setProperty("display","none","important");
+  $("workspace").style.removeProperty("position");
+  $("workspace").style.removeProperty("z-index");
+  $("dashboard-home").hidden=which!=="Home";
+  $("dashboard-home").style.removeProperty("display");
+  if(info){info.style.display="none";if(info.parentElement!==document.body)document.body.appendChild(info);}
+  if(!landing){
+   landing=document.createElement("div");
+   landing.id="v14-page-content";
+   $("workspace").parentNode.insertBefore(landing,$("workspace"));
+  }
+  landing.hidden=(which==="Home");
+  if(which==="Home"){
+   header("Dashboard");
+   let a=$("v14-analytics");
+   if(!a){a=document.createElement("div");a.id="v14-analytics";$("dashboard-home").appendChild(a);}
+   a.outerHTML=homeAnalytics();
+   const year=$("v14-year");
+   if(year)year.addEventListener("change",()=>{analyticsYear=Number(year.value);show("Home",0);});
+  }else{
+   $("dashboard-home").hidden=true;
+   if(which==="Accounting"){
+    parentSection="Accounting";header("Accounting");
+    landing.classList.remove("v14-settings-page");
+    landing.innerHTML=accountingLanding();
+   }else if(which==="Goals"){
+    parentSection="Goals";header("My Goals");
+    landing.classList.remove("v14-settings-page");
+    landing.innerHTML=goalsLanding();
+   }else if(which==="Settings"){
+    parentSection="Settings";header("Settings");
+    landing.classList.add("v14-settings-page");
+    landing.innerHTML=settingsLanding();
+    if(info){landing.appendChild(info);info.style.display="block";document.body.classList.add("v14-settings-main");}
+   }
+   bindModuleCards(landing);
+  }
+  setNav();
+  window.scrollTo({top:0,behavior:"smooth"});
+ }
+ document.addEventListener("click",e=>{
+  const m=e.target.closest("[data-open-module]");
+  if(!m)return;
+  e.preventDefault();
+  e.stopPropagation();
+  e.stopImmediatePropagation();
+  const name=m.getAttribute("data-open-module");
+  try{openModule(name);}
+  catch(err){console.error("Module open failed:",name,err);alert("Module open nahi hua: "+name+" · "+err.message);}
+ },true);
+ function moveSwipe(dx){
+  if(active==="Submodule" && parentSection==="Accounting"){
+   const list=sections.map(x=>x[0]);
+   const idx=list.indexOf(current);
+   if(idx<0)return;
+   const next=Math.max(0,Math.min(list.length-1,idx+(dx<0?1:-1)));
+   if(next!==idx)openModule(list[next]);
+   return;
+  }
+  if(active==="Submodule")return;
+  const i=order.indexOf(active),n=Math.max(0,Math.min(order.length-1,i+(dx<0?1:-1)));
+  if(n!==i)show(order[n],dx<0?1:-1);
+ }
+ let touch=null;
+ document.addEventListener("touchstart",e=>{
+  if(e.touches.length!==1)return;
+  const target=e.target;
+  if(target.closest('button,a,input,textarea,select,form,label,[contenteditable="true"],.v14-table-wrap'))return;
+  const t=e.touches[0];touch={x:t.clientX,y:t.clientY,time:Date.now()};
+ },{passive:true});
+ document.addEventListener("touchend",e=>{
+  if(!touch)return;const t=e.changedTouches[0],dx=t.clientX-touch.x,dy=t.clientY-touch.y,dt=Date.now()-touch.time;touch=null;
+  if(Math.abs(dx)>95&&Math.abs(dx)>Math.abs(dy)*1.7&&dt<750)moveSwipe(dx);
+ },{passive:true});
+ window.addEventListener("mpf-v14-data-ready",()=>{if(active==="Home"||active==="Goals")show(active,0);});
+ ensureShell();
+ // Keep the existing architecture/rules/roadmap accordions only inside Settings.
+ (function moveInfoIntoSettings(){
+  if($("v14-settings-info"))return;
+  const main=$("dashboard");if(!main)return;
+  const wrap=document.createElement("div");wrap.id="v14-settings-info";
+  const dbButton=main.querySelector('[data-info="database"]');
+  const accGroup=main.querySelector(".info-accordions");
+  const foot=main.querySelector(".foot");
+  if(dbButton)wrap.appendChild(dbButton);
+  const dbPanel=$("info-database");if(dbPanel)wrap.appendChild(dbPanel);
+  if(accGroup)wrap.appendChild(accGroup);
+  if(foot)wrap.appendChild(foot);
+  main.appendChild(wrap);
+})(); // Move all architecture/rules/roadmap material into the Settings-only area.
+
+ $("dashboard-home").hidden=false;
+ document.body.classList.add("v14-ready");
+ show("Home",0);
+ window.__V14ShowTab=(tab)=>show(tab,0);
+ window.__V14OpenModule=(name)=>openModule(name);
+ window.MPFNavigate=target=>{
+  if(target==="Dashboard")show("Home",0);
+  else if(target==="Financial Goals")show("Goals",0);
+  else if(target==="Accounts"||sections.some(s=>s[0]===target))openModule(target);
+  else if(target==="Audit Log"||target==="Settings")openModule(target);
+  else show("Accounting",0);
+ };
+})();
+</script>
+
+
+<style id="v14-navigation-visibility-fix">
+#workspace[hidden],#dashboard-home[hidden],#v14-page-content[hidden]{display:none!important}
+#v14-settings-info{display:none}
+body.v14-settings-main #v14-settings-info{display:block!important}
+#v14-page-content{display:block}
+body.module-active #dashboard-home{display:none!important}
+body.module-active #workspace{display:block!important}
+</style>
+
+
+
+<script id="v14-final-navigation-guard">
+(function(){
+  const byId=id=>document.getElementById(id);
+  document.addEventListener("click",function(ev){
+    const btn=ev.target.closest("[data-v14-nav]");
+    if(!btn)return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    ev.stopImmediatePropagation();
+    const tab=btn.getAttribute("data-v14-nav");
+    try{
+      if(typeof window.__V14ShowTab==="function")window.__V14ShowTab(tab);
+      const home=byId("dashboard-home"),work=byId("workspace");
+      let page=byId("v14-page-content");
+      const main=byId("dashboard");
+      if(!page&&main){
+        page=document.createElement("div");page.id="v14-page-content";
+        main.insertBefore(page,work||null);
+      }
+      if(tab==="Home"){
+        if(home){home.hidden=false;home.style.setProperty("display","block","important");}
+        if(work){work.hidden=true;work.style.setProperty("display","none","important");}
+        if(page){page.hidden=true;page.style.setProperty("display","none","important");}
+      }else{
+        if(home){home.hidden=true;home.style.setProperty("display","none","important");}
+        if(work){work.hidden=true;work.style.setProperty("display","none","important");}
+        if(page){page.hidden=false;page.style.setProperty("display","block","important");page.style.setProperty("visibility","visible","important");}
+        if(tab==="Settings"){
+          const info=byId("v14-settings-info");
+          if(info){info.style.setProperty("display","block","important");}
+        }else{
+          const info=byId("v14-settings-info");
+          if(info){info.style.setProperty("display","none","important");}
+        }
+      }
+      document.querySelectorAll("[data-v14-nav]").forEach(x=>x.classList.toggle("active",x===btn));
+      window.scrollTo({top:0,behavior:"smooth"});
+    }catch(err){
+      console.error("V14 navigation render failed",err);
+      alert("Section could not be displayed. Please send this error screenshot: "+err.message);
+    }
+  },true);
+})();
+</script>
+<style id="v14-final-visibility-guard">
+body.v14-ready #dashboard-home:not([hidden]){display:block!important;visibility:visible!important}
+body.v14-ready #v14-page-content:not([hidden]){display:block!important;visibility:visible!important;min-height:120px}
+body.v14-ready #workspace:not([hidden]){display:block!important;visibility:visible!important}
+body.v14-ready #v14-settings-info{display:none}
+body.v14-ready.v14-settings-main #v14-settings-info{display:block!important}
+</style>
+
+
+<style id="v14-visibility-final-override">
+/* Respect the controller's page state: landing pages and module workspace must never overlap. */
+#v14-page-content[hidden],
+#workspace[hidden],
+#dashboard-home[hidden],
+#v14-settings-info[hidden] { display:none !important; }
+
+body.module-active #v14-page-content { display:none !important; }
+body.module-active #dashboard-home { display:none !important; }
+body.module-active #workspace:not([hidden]) {
+  display:block !important;
+  visibility:visible !important;
+}
+
+body.dashboard-active #workspace { display:none !important; }
+body.dashboard-active #dashboard-home:not([hidden]) {
+  display:block !important;
+  visibility:visible !important;
+}
+body.dashboard-active #v14-page-content:not([hidden]) {
+  display:block !important;
+  visibility:visible !important;
+}
+</style>
+
+
+<style id="v16-open-brand-header">
+/* V16: header/logo presentation only. All app modules and business logic remain inherited from approved V15. */
+#v14-brand-header{
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  gap:14px!important;width:calc(100% + 24px)!important;max-width:none!important;
+  min-height:144px!important;box-sizing:border-box!important;
+  margin:0 -12px 8px!important;padding:14px 18px 24px!important;
+  position:relative!important;overflow:hidden!important;border:0!important;border-radius:0!important;
+  color:#073e2c!important;background:linear-gradient(180deg,#fff8e8 0%,#f7f0df 76%,#e7eddb 100%)!important;
+  box-shadow:none!important;
+}
+#v14-brand-header:before{
+  content:"";position:absolute;left:-5%;right:-5%;bottom:-20px;height:56px;z-index:0;
+  background:linear-gradient(174deg,transparent 0 31%,#d8b34d 32% 36%,#0c6845 37% 46%,#d7b65b 47% 51%,#dce9dc 52% 100%);
+  clip-path:polygon(0 5%,18% 46%,39% 58%,62% 57%,81% 40%,100% 0,100% 100%,0 100%);
+}
+#v16-brand-mark{width:112px;height:112px;flex:0 0 112px;display:grid;place-items:center;position:relative;z-index:1}
+#v16-brand-mark svg{display:block;width:100%;height:100%;overflow:visible}
+#v16-brand-divider{width:2px;height:92px;flex:0 0 2px;background:linear-gradient(#d7b65b,#a67c22);position:relative;z-index:1}
+#v16-brand-copy{min-width:0;position:relative;z-index:1}
+#v14-brand-title{
+  font-family:Georgia,'Times New Roman',serif!important;
+  font-size:clamp(25px,7.2vw,39px)!important;line-height:1.02!important;
+  font-weight:900!important;letter-spacing:.3px!important;color:#06442f!important;
+  white-space:nowrap!important;text-shadow:none!important
+}
+#v14-brand-sub{
+  margin-top:8px!important;font-family:Georgia,'Times New Roman',serif!important;
+  font-size:clamp(12px,3.8vw,17px)!important;line-height:1.2!important;
+  font-weight:700!important;letter-spacing:2px!important;color:#0b563b!important;
+  white-space:normal!important
+}
+@media(max-width:370px){
+ #v14-brand-header{gap:9px!important;padding-left:12px!important;padding-right:10px!important;min-height:130px!important}
+ #v16-brand-mark{width:92px;height:92px;flex-basis:92px}
+ #v16-brand-divider{height:78px}
+ #v14-brand-title{font-size:clamp(22px,6.6vw,27px)!important}
+ #v14-brand-sub{font-size:11px!important;letter-spacing:1.3px!important}
+}
+body[data-theme="dark"] #v14-brand-header{background:linear-gradient(180deg,#f4ecd9 0%,#eee5cf 76%,#dbe5d7 100%)!important}
+</style>
+
+</body></html>
